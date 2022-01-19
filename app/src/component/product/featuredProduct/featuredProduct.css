@@ -1,0 +1,86 @@
+.featuredProductDiv{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.featuredProducth2{
+    text-align: center;
+    letter-spacing: 2px;
+}
+.featuredProductDiv2{
+    margin: 0 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.featuredProductCard{
+    margin-bottom: 20px;
+}
+.productImageMain{
+    width: 100%;
+    height: 100%;
+    max-width: 345px;
+    max-height: 460px;
+}
+.productImageMainDiv{
+    margin: 0 10px;
+}
+.productNameMain {
+    text-align: center;
+    margin: 0;
+}
+.productBrandMain{
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 14px;
+    color: grey;
+
+}
+.productPriceMain {
+    text-align: center;
+    margin: 0;
+}
+/* 
+.productButtonMain {
+    position: relative;
+    padding: 5px 15px;
+    left: 50%;
+    margin-top: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transform: translate(-50%);
+    background-color: indianred;
+    color: whitesmoke;
+    outline: none;
+} */
+
+.featuredProductButton{
+    position: relative;
+    padding: 5px 25px;
+    left: 50%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-size: 16px;
+    border-radius: 5px;
+    transform: translate(-50%);
+    background-color: indianred;
+    color: whitesmoke;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.featuredProductButton:hover{
+    background-color: black;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .featuredProductDiv2{
+flex-direction: column;
+align-items: center;
+    }
+.featuredProductDiv2 > div{
+    flex: 50%;
+}
+}

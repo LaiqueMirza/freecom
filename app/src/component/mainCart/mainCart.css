@@ -1,0 +1,34 @@
+.mainCartDiv{
+    display: flex;
+    justify-content: space-around;
+}
+.price-summary{
+    margin-top: 20px;
+}
+
+.mainCart-table{
+    text-align: left;
+    min-width: 300px;
+}
+
+.checkoutButton-mainCart{
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 22px;
+    color: indianred;
+    background-color: white;
+    border: 1px solid indianred;
+}
+
+@media only screen and (max-width: 900px) {
+    .mainCartDiv{
+        flex-direction: column;
+        align-items: center;
+    font-size: 12px;
+
+    }
+.checkoutButton-mainCart{
+    font-size: 15px;
+
+}
+}

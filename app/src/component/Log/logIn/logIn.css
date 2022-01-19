@@ -1,0 +1,141 @@
+.loginFormDiv{
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	align-items: center;
+	width: 500px;
+flex-direction: column;
+	background: hsla(64, 41%, 92%, 1);
+
+background: linear-gradient(90deg, hsla(64, 41%, 92%, 1) 0%, hsla(196, 83%, 84%, 1) 50%, hsla(305, 75%, 83%, 1) 100%);
+
+background: -moz-linear-gradient(90deg,hsla(196, 83%, 84%, 1) 0%, hsla(64, 41%, 92%, 1) 50%, hsla(305, 75%, 83%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(196, 83%, 84%, 1) 0%, hsla(64, 41%, 92%, 1) 50%, hsla(305, 75%, 83%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#B2E5F8", endColorstr="#B2E5F8", GradientType=1 );
+	margin: 50px auto;	
+}
+
+.loginFormInnerDiv{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: left;
+	width: 440px;
+}
+.loginFormInnerDiv label{
+	text-align: left;
+	font-size: 18px;
+}
+.loginFormInnerDiv b{
+	color: indianred;
+}
+.userIcon-LoginForm{
+	font-size: 50px;
+	margin: 0 auto;
+}
+
+.inputLogInForm{
+	padding: 10px;
+	width: 95%;
+	font-size: 18px;
+	border-radius: 5px;
+
+}
+
+.buttonLoginForm{
+	padding:10px;
+	border-radius: 2px;
+	margin-bottom: 20px;
+	width: 100%;
+	font-size: 18px;
+	font-weight: 700;
+	outline: none;
+	letter-spacing: 1.5px;
+}
+
+.eyeIconLogIn{
+	position: relative;
+	top: -33px;
+	left: 410px;
+	cursor: pointer;
+}
+.createAccountbuttonLoginForm{
+	border: none;
+	background: none;
+	font-size: 18px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	cursor: pointer;
+}
+.createAccountbuttonLoginForm:hover{
+	color: blue;
+	letter-spacing: 1px;
+}
+.createAccountbuttonLoginForm{
+	transition: letter-spacing 1s, height 4s;
+  }
+
+.eyeIconLogIn:hover{
+	color: indianred;
+}
+.genderInputSignUp input{
+	cursor: pointer;
+	margin-right: 10px;
+margin-left: 0;
+}
+.genderInputSignUp label{
+margin-right: 60px;
+
+}
+
+
+@media only screen and (max-width: 500px) {
+	.loginFormDiv{
+		width: 300px;
+	margin: 20px auto;	
+
+	}
+.loginFormInnerDiv{
+	width: 280px;
+}
+.loginFormInnerDiv label{
+	font-size: 12px;
+}
+
+.userIcon-LoginForm{
+	font-size: 30px;
+}
+.inputLogInForm{
+	padding: 7px;
+	width: 95%;
+	font-size: 12px;
+	border-radius: 2.5px;
+}
+
+.buttonLoginForm{
+	padding:7px;
+	border-radius: 2px;
+	margin-bottom: 10px;
+	width: 100%;
+	font-size: 12px;
+	font-weight: 700;
+	outline: none;
+	letter-spacing: 1px;
+}
+.eyeIconLogIn{
+	top: -28px;
+	left: 250px;
+}
+.createAccountbuttonLoginForm{
+	font-size: 12px;
+	margin-bottom: 20px;
+}
+.genderInputSignUp input{
+	margin-right: 5px;
+}
+.genderInputSignUp label{
+	margin-right: 35px;
+	}
+}

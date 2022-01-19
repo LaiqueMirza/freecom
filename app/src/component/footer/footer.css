@@ -1,0 +1,14 @@
+.footer-main-div{
+    text-align: center;
+    background-color: black;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border: 1px solid black;
+}
+
+.footer-h4{
+    color: white;
+    letter-spacing: 1px;
+  font-weight: 300;
+
+}

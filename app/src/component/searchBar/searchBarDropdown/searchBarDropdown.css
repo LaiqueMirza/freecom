@@ -1,0 +1,69 @@
+/* .search-bar-dropdown {
+    width: 350px;
+  }
+  
+  
+  
+  .result-of-searchBarDropdown > button {
+    background-color: #fafafa;
+  }
+   */
+  .searchBarInput{
+    padding: 7px;
+    width: 350px;
+    margin-left:15px;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+  }
+
+  .searchIcon-searchBar{
+    margin-left: -20px;
+    cursor: pointer;
+  }
+
+  .result-of-searchBarDropdown {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -10px;
+    left: -25px;
+    opacity: 1;
+    width: 350px;
+    overflow:hidden;
+    height: 238px;
+  }
+  .button-searchBarDropdown{
+    padding: 7px;
+    font-size: 14px;
+    text-align: left;
+  }
+
+@media only screen and (max-width:1200px){
+  .searchBarInput{
+    width: 200px;
+
+  }
+  .result-of-searchBarDropdown {
+    width: 200px;
+  }
+}
+@media only screen and (max-width:900px){
+  .searchBarInput{
+    width: 250px;
+
+  }
+  .result-of-searchBarDropdown {
+    width: 250px;
+  }
+}
+@media only screen and (max-width:440px){
+  .searchBarInput{
+    max-width: 200px;
+
+  }
+  .result-of-searchBarDropdown {
+    max-width: 200px;
+  }
+}

@@ -1,0 +1,40 @@
+.HomeFirstBodySection{
+    margin: 0;
+    padding-top: 65px;
+    padding-bottom: 25px;
+}
+.HomeFirstBodyDiv{
+    max-width: 1200px;
+    margin: 0px auto;
+}
+.HomeFirstBodyP{
+    width: 40%;
+}
+.HomeFirstBodyTopDiv{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.HomeFirstBodyTopH4{
+    font-weight: normal;
+    margin: 0;
+}
+    .HomeFirstBodyTopH2{
+    font-size: 40px;
+    margin: 0;
+}
+
+.HomeFirstBodyP{
+margin: 0;
+margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 900px) {
+    .HomeFirstBodyTopDiv{
+        flex-direction: column;
+    }
+.HomeFirstBodyP{
+    width: 80%;
+}
+}

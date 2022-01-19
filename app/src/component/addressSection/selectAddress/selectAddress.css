@@ -1,0 +1,38 @@
+.addressDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.address-form{
+    background-color: #FCCFE9;
+    color: #C20A75;
+    padding: 20px;
+}
+.address-label{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    font-size: 16px;
+}
+.addressAddressLine1{
+    width: 300px;
+    padding: 5px;
+}
+.address-submitButton{
+    padding: 7px 20px;
+    color: #C20A75;
+    border-radius: 20px;
+    width: 120px;
+
+}
+
+.address-getLocation{
+    position: relative;
+    bottom: 52px;
+    left: 90px;
+    padding: 7px 20px;
+    color: #C20A75;
+    border-radius: 20px;
+    width: 120px;
+}

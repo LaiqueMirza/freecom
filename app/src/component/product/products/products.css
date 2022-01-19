@@ -1,0 +1,47 @@
+
+
+
+  .card-clothing {
+      cursor: pointer;
+      margin: 1px 1px;
+      /* border: 1px solid grey; */
+      height: 100%;
+      min-width: 300px;
+      max-width: 300px;
+    }
+
+  .img-clothing{
+
+    width: 100%;
+  }
+
+  .h4-clothing{
+      margin-top: 5px;
+      margin-left: 5px;
+  }
+  
+  .brand-clothing{
+      margin-left: 5px;
+      margin-top: -20px;
+    color: grey;letter-spacing: 1.5px;
+    font-style: bold;
+    }
+
+    .price-clothing {
+      margin-left: 5px;
+      color: #1d3557;
+        margin-top: -20px;
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+@media only screen and (max-width: 900px) {
+
+  .card-clothing {
+    min-width: 0px;
+    max-width: 400px;
+    }
+}
+
+
+

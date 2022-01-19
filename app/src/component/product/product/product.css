@@ -1,0 +1,163 @@
+
+.main-sectionProduct{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 50px;
+}
+.img-divProduct{
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.img-mainProduct{
+    width: 100%;
+    max-width: 400px;
+}   
+.body-partProduct{
+    width: 70%;
+}  
+.brandProduct{
+    color: grey;
+    letter-spacing: 1.5px;
+    font-style: bold;
+    margin-bottom: -10px;
+}
+
+.descriptionProduct{
+    margin-top: -15px;
+    margin-bottom: 20px;
+    width: 70%;
+}
+.img-previewsProduct{
+    display: flex;
+}
+.img-preProduct{
+    width: 75px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.product-price-button-div{
+    display: flex;
+    align-items: flex-start;
+}
+.product-quantity{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 20px;
+    }
+    .product-quantity-number{
+        border-top: 1px solid indianred;
+        border-bottom: 1px solid indianred;
+        padding: 0 20px;
+        font-size: 14px;
+        margin: 0;
+    }
+    .product-operatingQuantity{
+        font-size: 18px;
+        padding: 0 7px;
+        font-weight: 700;
+        border:  1px solid indianred;
+        color: indianred;
+        cursor: pointer;
+        outline: none;
+        
+    }
+.add-buttonProduct{
+    margin-top: 20px;
+    padding:10px 15px;
+    background-color: indianred;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    margin-right: 10px;
+}
+.add-buttonDisabledProduct{
+    opacity: 0.5;
+ margin-top: 20px;
+padding:10px 15px;
+background-color: indianred;
+color: white;
+border-radius: 5px;
+cursor: pointer;
+outline: none;
+margin-right: 10px;
+}
+.sizeProduct{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.spanSizeProduct{
+    width: 40px;
+    border: 1px solid indianred;
+    line-height: 40px;
+     border-radius: 50px; 
+        text-align: center;
+        cursor: pointer;
+        margin: 5px;
+  }
+  .selectedSizeDisplayed{
+    margin-left: 20px;
+    font-size: 22px;
+    color: indianred;
+    font-weight: 700;
+  }
+.spanSizeProduct:hover{
+    background-color: indianred;
+    color: white;
+}
+.headSizeProduct{
+    margin-right: 20px;
+}
+
+@media only screen and (max-width:1200px){
+.descriptionProduct{
+    width: 100%;
+}
+}
+@media only screen and (max-width: 900px) {
+    .main-sectionProduct{
+
+        flex-direction: column;
+            align-items: center;
+        font-size: 12px;
+        margin-top: 20px;
+    
+        }
+        .brandProduct{
+            color: grey;
+            letter-spacing: 1px;
+        }
+        .img-mainProduct{
+            max-width: 200px;
+
+        } 
+        .img-previewsProduct{
+            flex-wrap: wrap;
+        }  
+    .img-preProduct{
+        width: 50px;
+            margin-top: 10px;
+
+        }
+        .selectedSizeDisplayed{
+            margin-left: 10px;
+            font-size: 15px;
+            color: indianred;
+            font-weight: 500;
+        }
+        .add-buttonProduct{
+            padding:5px 7px;
+            border-radius: 2.5px;
+            margin-right: 10px;
+            font-size: 12px;
+        }
+        .add-buttonDisabledProduct{
+            padding:5px 7px;
+            border-radius: 2.5px;
+            margin-right: 10px;
+            font-size: 12px;
+        }
+    }
