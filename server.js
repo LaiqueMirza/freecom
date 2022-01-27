@@ -24,9 +24,8 @@ const razorpay = new Razorpay({
 });
 
 
-// const url = "mongodb://localhost:27017/jeanEcom";
 const PORT = process.env.PORT || 5000;
-const CONNECTION_URL ='mongodb://mirzalaique:laique1562000@cluster0-shard-00-00.lr8jw.mongodb.net:27017,cluster0-shard-00-01.lr8jw.mongodb.net:27017,cluster0-shard-00-02.lr8jw.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-s3gu4a-shard-0&authSource=admin&retryWrites=true&w=majority'
+const CONNECTION_URL ='mongodb+srv://amruttam:ShantanuAmruttam@cluster0.cv2yl.mongodb.net/amruttam?retryWrites=true&w=majority'
 mongoose.connect(CONNECTION_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -37,72 +36,15 @@ mongoose.connect(CONNECTION_URL, {
 .then(() => app.listen(PORT, () => {
   console.log(`server listening at http://localhost:${PORT}`);
 }))
-.catch(err => {});
+.catch(err => {
+  console.log(err,"errrr");
+});
 
 // heroku hosting step
+// if(process.env.NODE_ENV === "production"){
+//   app.use(express.static("app/build"));
 
-if(process.env.NODE_ENV === "production"){
-  app.use(express.static("app/build"));
-
-}
-
-
-
-const creatingOneProduct = async () => {
-  try {
-    const newProduct = new Product({
-      name: "checking",
-      preview: "checking",
-      photos: ["checking", "checking"],
-      description: "checking",
-      size: [90, 80],
-      isAccessory: true,
-      brand: "checking",
-      price: 999,
-    });
-
-    const result = await newProduct.save();
-    // for inserting multiple product or document at once
-    // const result = await Product.insertMany([ all the new products]);
-    
-  } catch (err) {
-    res.status(500).send(err);
-  }
-};
-// creatingOneProduct()
-
-const getProduct = async () => {
-  const result = await Product.find({ name: "Men" });
-};
-
-// getProduct()
-
-// app.post("/verifyPayment", (req, res) => {
-//   // do a validation
-//   const secret = "12345678";
-
-//   console.log(req.body, ">>>>>>>>");
-
-//   const crypto = require("crypto");
-
-//   const shasum = crypto.createHmac("sha256", secret);
-//   shasum.update(JSON.stringify(req.body));
-//   const digest = shasum.digest("hex");
-
-//   console.log(digest, req.headers["x-razorpay-signature"]);
-
-//   if (digest === req.headers["x-razorpay-signature"]) {
-//     console.log("request is legit");
-//     // process it
-//     require("fs").writeFileSync(
-//       "payment1.json",
-//       JSON.stringify(req.body, null, 4)
-//     );
-//   } else {
-//     // pass it
-//   }
-//   res.json({ status: "ok" });
-// });
+// }
 
 app.post("/verifyPayment", (req, res) => {
   const order = req.body;
@@ -175,65 +117,13 @@ const totalAmount = req.totalAmount
   }
 });
 
-// app.get('/api/products',(req,res) => {
-//     res.send(data.products)
-// })
-
 //pagination of backend so we get only 50 data at a time
 //model is the model of mongo db database here it is product
 
-function paginatedResults(model) {
-  return async (req, res, next) => {
-    const page = parseInt(req.query.page);
-    let limit = 50;
-    let lastData;
-    const startIndex = (page - 1) * limit;
-    const endIndex = page * limit;
-    const inMongo = await model.countDocuments().exec();
-    const result = {};
-
-    if (endIndex + 50 < inMongo) {
-      result.next = {
-        page: page + 1,
-        limit: limit,
-      };
-    } else if (endIndex < inMongo) {
-      result.next = {
-        page: page + 1,
-        limit: limit,
-      };
-      lastData = inMongo - endIndex;
-    } else if (endIndex >= inMongo) {
-      res.status(500).json({ message: "Yay You Have Seen it All" });
-      return;
-    }
-
-    try {
-      if (lastData) {
-        result.result = await model
-          .find()
-          .limit(lastData)
-          .skip(startIndex)
-          .exec();
-        res.paginatedResults = result;
-        next();
-      } else {
-        result.result = await model.find().limit(limit).skip(startIndex).exec();
-        res.paginatedResults = result;
-        next();
-      }
-    } catch (e) {
-      res.status(500).json({ message: e.message });
-    }
-  };
-}
-
-app.get("/api/products", paginatedResults(Product), async (req, res) => {
+app.get("/api/products", async (req, res) => {
   try {
     const result = await Product.find();
-
-    res.json(res.paginatedResults);
-    // res.json({status: 200, result})
+    res.json({status: 200, result})
 
   } catch (err) {
     res.json({ status: 500, err });

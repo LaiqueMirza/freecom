@@ -16,7 +16,6 @@ const Cart = (props) => {
  
 //     const removeItem=()=> {
 // let userData = JSON.parse(sessionStorage.getItem("userInfo"));
-
 //     }
     let shortBrand;
 if(targetProduct.brand.length > 9){

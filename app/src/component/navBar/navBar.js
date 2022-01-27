@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./navBar.css";
-import logoNav from "../../img/logoNav.svg";
+import logoNav from "../../img/CompanyLogo.jpeg";
 import cartLogo from "../../img/cartLogo.svg";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";

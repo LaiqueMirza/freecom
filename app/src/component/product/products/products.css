@@ -14,25 +14,16 @@
 
     width: 100%;
   }
-
-  .h4-clothing{
-      margin-top: 5px;
-      margin-left: 5px;
-  }
-  
-  .brand-clothing{
-      margin-left: 5px;
-      margin-top: -20px;
-    color: grey;letter-spacing: 1.5px;
-    font-style: bold;
-    }
-
+.productRow{
+  border-top: 1px solid black;
+  padding-top: 7px;
+  margin-top: 7px;
+}
     .price-clothing {
-      margin-left: 5px;
-      color: #1d3557;
-        margin-top: -20px;
-        font-size: 18px;
-        margin-bottom: 15px;
+      color:#10BA23 ;
+        font-size: 14px;
+
+        
     }
 
 @media only screen and (max-width: 900px) {

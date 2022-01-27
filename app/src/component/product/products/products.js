@@ -1,49 +1,64 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './products.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./products.css";
+import { Card, Row, Col } from "antd";
+// {
+//   productName:"ACIGONE CAPSULE",
+//   productImage:
+// "https://i.postimg.cc/W40sdf9J/ACIGONE-CAP.png",
+//   photos: [
+// "https://i.postimg.cc/W40sdf9J/ACIGONE-CAP.png",
+//     "https://i.postimg.cc/QVLvpjYg/Guduchi-Satva.jpg",
+//     "https://i.postimg.cc/PfmGjwC2/Abhrak-Bhasma-removebg-preview.png"
+//   ],
 
-// brand: "Puma"
-// description: "Black solid sporty jacket, has a mock collar, 3 pockets, zip closure, long sleeves, straight hem, unlined lining"
-// id: "2"
-// isAccessory: false
-// name: "Men Black MAMGP T7 Sweat Sporty Jacket"
-// photos: Array(3)
-// 0: "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/2060340/2017/9/14/11505387708574-Puma-Men-Black-Solid-Sporty-Jacket-371505387708496-1.jpg"
-// 1: "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/2060340/2017/9/14/11505387708559-Puma-Men-Black-Solid-Sporty-Jacket-371505387708496-2.jpg"
-// 2: "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/2060340/2017/9/14/11505387708542-Puma-Men-Black-Solid-Sporty-Jacket-371505387708496-3.jpg"
-// length: 3
-// __proto__: Array(0)
-// preview: "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/2060340/2017/9/14/11505387708574-Puma-Men-Black-Solid-Sporty-Jacket-371505387708496-1.jpg"
-// price: 7999
-// size: Array(5)
-// 0: 0
-// 1: 0
-// 2: 0
-// 3: 1
-// 4: 0
-// length: 5
+//   description: "Hyperacidity, Dyspepsia, Flatulence,Heartburn,Improves appetite. Offers relief from hyperacidity. Relieves from gaseous distension. Relieves the symptoms of indigestion and improves appetite. Free from dryness of mouth by lowering acidity.",
+//   size: ["30 Cap"],
+//   types: "Capsules",
+//   selectedSize:String,
+//   price: 180,
+//   productIngredients:["GUDUCHI SATVA :- It rectify in constipation and indigestion",
+//   "ABHRAK BHASMA :- Improves digestion due to its Deepan (appetizer) and Pachan (digestive)"],
+//   directionForUse:"Please consult your physician to prescribe the dosage that best suits the condition.",
+//   additionalInfo:"Indications :- 1) Hyperacidity 2) Dyspepsia 3) Flatulence 4) Heartburn",
+//   // manufacturedBy:String,
 
-const Products = ({data}) => {
-    return (     
-    <div key={data._id}>
+//   date: {
+//     type: Date,
+//     default: Date.now
+//   }
+// }
 
-        <Link
-            to="/product"
-            style={{ textDecoration: "none", color: "inherit" }}
-            onClick={() => {
-                sessionStorage.setItem("product", JSON.stringify(data))
-            }}
-          >
-        <div className="card-clothing" >
-        <img className="img-clothing" src={data.photos[0]} alt="" width="150px" />
-        
-        <h4 className="h4-clothing">{data.productName}</h4>
-        <h5 className="brand-clothing">{data.brand}</h5>
-        <h5 className="price-clothing">Rs {data.price}</h5>
-        
+const Products = ({ data }) => {
+  return (
+    <Card bordered key={data._id}>
+      <Link
+        to="/product"
+        style={{ textDecoration: "none", color: "inherit" }}
+        onClick={() => {
+          sessionStorage.setItem("product", JSON.stringify(data));
+        }}
+      >
+        <div className="card-clothing">
+          <img
+            className="img-clothing"
+            src={data.photos[0]}
+            alt=""
+            width="150px"
+            height="350px"
+          />
+          <Row className="productRow" justify="space-between">
+            <Col>
+              <h4 className="h4-clothing">{data.productName}</h4>
+            </Col>
+            <Col>
+              <h5 className="price-clothing">{data.price} ₹</h5>
+            </Col>
+          </Row>
         </div>
       </Link>
-    </div> );
-}
- 
+    </Card>
+  );
+};
+
 export default Products;
