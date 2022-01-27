@@ -11,8 +11,10 @@
     margin-top: 20px;
 }
 .img-mainProduct{
-    width: 100%;
-    max-width: 400px;
+    min-width:200px;
+    min-height:300px;
+    max-height:450px;
+    max-width:300px;
 }   
 .body-partProduct{
     width: 70%;
@@ -40,6 +42,12 @@
 .product-price-button-div{
     display: flex;
     align-items: flex-start;
+    
+}
+.theDivWithButtonAndQuantity{
+    border: 1px solid indianred;
+    display: flex;
+    align-items: flex-start;
 }
 .product-quantity{
     margin-top: 0;
@@ -47,17 +55,16 @@
     margin-right: 20px;
     }
     .product-quantity-number{
-        border-top: 1px solid indianred;
-        border-bottom: 1px solid indianred;
         padding: 0 20px;
         font-size: 14px;
-        margin: 0;
+    margin-top: 5px;
+    margin-bottom: 0;
     }
     .product-operatingQuantity{
         font-size: 18px;
         padding: 0 7px;
         font-weight: 700;
-        border:  1px solid indianred;
+        border:  none;
         color: indianred;
         cursor: pointer;
         outline: none;
@@ -68,21 +75,9 @@
     padding:10px 15px;
     background-color: indianred;
     color: white;
-    border-radius: 5px;
     cursor: pointer;
     outline: none;
     margin-right: 10px;
-}
-.add-buttonDisabledProduct{
-    opacity: 0.5;
- margin-top: 20px;
-padding:10px 15px;
-background-color: indianred;
-color: white;
-border-radius: 5px;
-cursor: pointer;
-outline: none;
-margin-right: 10px;
 }
 .sizeProduct{
     display: flex;
@@ -90,17 +85,17 @@ margin-right: 10px;
     align-items: center;
 }
 .spanSizeProduct{
-    width: 40px;
+    width: max-content;
+    padding: 3px 10px;
     border: 1px solid indianred;
-    line-height: 40px;
-     border-radius: 50px; 
         text-align: center;
         cursor: pointer;
         margin: 5px;
   }
   .selectedSizeDisplayed{
     margin-left: 20px;
-    font-size: 22px;
+    font-size: 18px;
+    width: 100%;
     color: indianred;
     font-weight: 700;
   }
@@ -111,7 +106,12 @@ margin-right: 10px;
 .headSizeProduct{
     margin-right: 20px;
 }
-
+.h3ProductInfo{
+    margin-top: 15px;
+}
+.descriptionProduct{
+    margin-top: 7px
+}
 @media only screen and (max-width:1200px){
 .descriptionProduct{
     width: 100%;

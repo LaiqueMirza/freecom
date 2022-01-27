@@ -1,6 +1,23 @@
 html{
     overflow-x: hidden;
     }
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
 .monkeyLoader{
     max-height: 70vh ;
 }
+
+/* .footerDiv{
+    border-top: 1px solid black;
+max-width: 1200px;
+
+margin-left: 50%;
+transform: translate(-50%, 0);
+} */

@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
         type: String,
         required: true
     },
-    preview: {
+    productImage: {
         type: String,
         default: null
     },
@@ -15,10 +15,13 @@ import mongoose from 'mongoose';
         default: null
     },
     size: [{ type: String }],
+    types: { type: String },
     selectedSize:String,
-    quantity:Number,
-    brand: String,
     price: Number,
+    quantity: Number,
+    productIngredients:String,
+    directionForUse:String,
+    additionalInfo:String,
     date: {
         type: Date,
         default: Date.now

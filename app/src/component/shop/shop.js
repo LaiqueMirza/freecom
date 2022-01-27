@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./shop.css";
 import Products from "../product/products/products";
 import InfiniteScroll from 'react-infinite-scroll-component';
-
+import { Space } from 'antd'
 
 //te problem is we are still gettting data after a;ll render 
 //has more should not be true
@@ -26,7 +26,7 @@ const Shop = ({
   //     .catch((err) => console.log(err));
   //       setLoading(false);
        
-  // }, []);
+// }, []);
 //  const fetchProducts = () => {
 //     axios
 //     .get(`/api/products?page=${page}`)
@@ -50,11 +50,11 @@ const Shop = ({
       )} */}
 <section className="clothing-section">
 
-<h3 className="header-clothing">Clothing for Men and Women</h3>
+<h3 className="header-clothing" style={{textAlign: 'center'}}>MEDICINES</h3>
 
 {/* <div className="clothing" id="clothing"> */}
 
-       <InfiniteScroll
+       {/* <InfiniteScroll
        className="clothing"
        id="clothing"
        style={{ overflow:"hidden" }}
@@ -64,17 +64,20 @@ const Shop = ({
           loader={<><div className="lds-facebook"><div></div><div></div><div></div></div></>}
           endMessage={
             <h3 style={{ textAlign: 'center', marginLeft:"50px" }}>
+              <br/>
               Yay! You have seen it all
             </h3>
           }
         >
+      </InfiniteScroll> */}
+      <Space direction="horizontal" wrap align="center">
+        
           {products?.map((product) => (
-        <Products
-         data={product} 
-        key={product?._id}
-        />
-      ))}
-        </InfiniteScroll>
+            <Products
+            data={product} 
+            />
+            ))}
+            </Space>
 {/* </div> */}
     
 

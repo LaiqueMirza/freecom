@@ -7,7 +7,7 @@ import { loginUser, incrementCart } from "../../redux/action/index";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import "./logIn.css";
-
+import { Card } from 'antd';
 const LogIn = () => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -53,8 +53,9 @@ const LogIn = () => {
     }
   }
   return (
-    <div className="loginFormDiv">
-      <h2>LOGIN FORM</h2>
+    <div className="outsideDiv">
+    <Card hoverable className="loginFormDiv">
+      <h2 className="headlineLoginForm">LOGIN FORM</h2>
       <div className="loginFormInnerDiv">
         <i className="fa fa-user userIcon-LoginForm"></i>
         <label htmlFor="email">Email</label>
@@ -67,7 +68,7 @@ const LogIn = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="inputLogInForm"
-        />
+          />
         <hr />
         <label htmlFor="password">Password</label>
         <input
@@ -79,11 +80,11 @@ const LogIn = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="inputLogInForm"
-        />
+          />
         <i
           className="eyeIconLogIn"
           onClick={() => setPasswordShown(!passwordShown)}
-        >
+          >
           {eye}
         </i>
         <hr />
@@ -96,19 +97,20 @@ const LogIn = () => {
           </button>
         </Link>
       </div>
-    </div>
+    </Card>
+</div> 
   );
 };
 
 // function Form ({ option }) {
-//     return (
-//         <form className='account-form' onSubmit={(evt) => evt.preventDefault()}>
-//             <div className={'account-form-fields ' + (option === 1 ? 'sign-in' : (option === 2 ? 'sign-up' : 'forgot')) }>
-//                 <input id='email' name='email' type='email' placeholder='E-mail' required />
-//                 <input id='password' name='password' type='password' placeholder='Password' required={option === 1 || option === 2 ? true : false} disabled={option === 3 ? true : false} />
-//                 <input id='repeat-password' name='repeat-password' type='password' placeholder='Repeat password' required={option === 2 ? true : false} disabled={option === 1 || option === 3 ? true : false} />
-//             </div>
-//             <button className='btn-submit-form' type='submit'>
+  //     return (
+    //         <form className='account-form' onSubmit={(evt) => evt.preventDefault()}>
+    //             <div className={'account-form-fields ' + (option === 1 ? 'sign-in' : (option === 2 ? 'sign-up' : 'forgot')) }>
+    //                 <input id='email' name='email' type='email' placeholder='E-mail' required />
+    //                 <input id='password' name='password' type='password' placeholder='Password' required={option === 1 || option === 2 ? true : false} disabled={option === 3 ? true : false} />
+    //                 <input id='repeat-password' name='repeat-password' type='password' placeholder='Repeat password' required={option === 2 ? true : false} disabled={option === 1 || option === 3 ? true : false} />
+    //             </div>
+    //             <button className='btn-submit-form' type='submit'>
 //                 { option === 1 ? 'Sign in' : (option === 2 ? 'Sign up' : 'Reset password') }
 //             </button>
 //         </form>

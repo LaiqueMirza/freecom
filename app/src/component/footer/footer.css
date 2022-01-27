@@ -1,9 +1,13 @@
 .footer-main-div{
-    text-align: center;
-    background-color: black;
+    /* background-color: white; */
+    margin-top: auto;
     margin-bottom: 0px;
     padding-bottom: 0px;
-    border: 1px solid black;
+    display: flex;
+    margin: 0 auto;
+    /* margin-left: 50%;
+	transform: translate(-50%, 0); */
+
 }
 
 .footer-h4{
@@ -11,4 +15,26 @@
     letter-spacing: 1px;
   font-weight: 300;
 
+}
+
+.orange{
+  color: #EA7414;
+}
+.green {
+  color:#10BA23;
+}
+.text-right {
+  text-align: right;
+}
+.text-left{
+  text-align: left;
+}
+
+/* 992 */
+
+@media only screen and (max-width: 992px) {
+.responsive-margin{
+  margin-top: 15px;
+  margin-left: 10%;
+}
 }

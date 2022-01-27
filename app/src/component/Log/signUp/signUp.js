@@ -7,6 +7,7 @@ import { loginUser, incrementCart } from "../../redux/action/index";
 import { Link } from "react-router-dom";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import "../logIn/logIn.css";
+import { Card } from 'antd';
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -76,9 +77,9 @@ const SignUp = () => {
       }
   }
   return (
-    <div>
-      <div className="loginFormDiv">
-        <h2>SIGN UP FORM</h2>
+    <div className="outsideDiv">
+    <Card hoverable className="loginFormDiv">
+        <h2 className="headlineLoginForm">SIGN UP FORM</h2>
         <p>Sign up to get access to exciting offers and promotions</p>
 
         <div className="loginFormInnerDiv">
@@ -145,21 +146,21 @@ const SignUp = () => {
             value="male"
             onClick={() => setGender("Male")}
           />
-          <label htmlFor="male">Male </label>
+          <label id="genderLabel" htmlFor="male">Male </label>
           <input
             type="radio"
             name="gender"
             value="female"
             onClick={() => setGender("Female")}
           />
-          <label htmlFor="female">Female</label>
+          <label id="genderLabel" htmlFor="female">Female</label>
           <input
             type="radio"
             name="gender"
             value="other"
             onClick={() => setGender("Others")}
           />
-          <label htmlFor="other">Other</label>
+          <label id="genderLabel" htmlFor="other">Other</label>
           </div>
           <br />
           <button
@@ -225,7 +226,7 @@ const SignUp = () => {
       </div>
  
      */}
-      </div>
+</Card>
     </div>
   );
 };

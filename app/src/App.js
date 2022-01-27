@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import "antd/dist/antd.css";
 import NavBar from "./component/navBar/navBar";
 import Home from "./component/home/home";
 import blog from "./component/blog/blog";
@@ -11,42 +11,34 @@ import Checkout from "./component/checkout/checkout";
 import Product from "./component/product/product/product";
 import AddressSection1 from "./component/addressSection/addressSection1/addressSection1";
 import SelectAddress from "./component/addressSection/selectAddress/selectAddress";
+import Footer from "./component/footer/footer";
 import RenderSearchResult from "./component/renderSearchResult/renderSearchResult";
 import axios from "axios";
 import "./App.css";
 
-import {
-  HashRouter,
-  Switch,
-  Route,
-  // Link,
-  // userParam,
-} from "react-router-dom";
+import { HashRouter, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [defaultOptions, setDefaultOptions] = useState([]);
-  const [page, setPage] = useState();
   const [loading, setLoading] = useState(true);
-  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     axios
-      .get("/api/products?page=1")
+      .get("/api/products")
       .then((res) => {
         setProducts(res.data.result);
-        setPage(res.data.next.page);
       })
       .catch((err) => {
-      alert("Something went wrong")
-      setHasMore(false)
+        console.log(err,"Something went wrong")
+        // alert("Something went wrong")
       });
     setLoading(false);
   }, []);
- 
-// app package.json should have for local run 
+console.log(products,"frontend products");
+  // app package.json should have for local run
   // "proxy": "http://127.0.0.1:5000",
-// server package.json should have for local run 
+  // server package.json should have for local run
   // "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
 
   useEffect(() => {
@@ -59,17 +51,17 @@ function App() {
     }
   }, [products]);
 
-  const fetchProducts = () => {
-    axios
-      .get(`/api/products?page=${page}`)
-      .then((res) => {
-        setProducts(products?.concat(res.data.result));
-        setPage(res.data.next.page);
-      })
-      .catch((err) => {
-        setHasMore(false);
-      });
-  };
+  // const fetchProducts = () => {
+  //   axios
+  //     .get(`/api/products?page=${page}`)
+  //     .then((res) => {
+  //       setProducts(products?.concat(res.data.result));
+  //       setPage(res.data.next.page);
+  //     })
+  //     .catch((err) => {
+  //       setHasMore(false);
+  //     });
+  // };
   return (
     <HashRouter>
       <div className="App">
@@ -82,14 +74,10 @@ function App() {
             component={() => (
               <Shop
                 products={products}
-                page={page}
                 loading={loading}
-                fetchProducts={fetchProducts}
-                hasMore={hasMore}
               />
             )}
           />
-          {/* <Route path="/contact" component={Contact} /> */}
           <Route path="/logIn" component={LogIn} />
           <Route path="/signUp" component={SignUp} />
           <Route path="/cart" component={MainCart} />
@@ -101,8 +89,17 @@ function App() {
             path="/searchResult"
             component={() => <RenderSearchResult products={products} />}
           />
-          <Route component={() => <h1>You are lost baby girl</h1>} />
+          <Route
+            component={() => (
+              <h2 style={{ textAlign: "center" }}>
+                Page 404, You are lost go to {<Link to="/shop">SHOP</Link>}{" "}
+              </h2>
+            )}
+          />
         </Switch>
+        <div className="footerDiv">
+          <Footer />
+        </div>
       </div>
     </HashRouter>
   );

@@ -1,7 +1,7 @@
 .homeImageTopFirstDiv{
     background-image: url("../../../img/aboutFirst.jpg"); 
     min-height: 650px;
-    width:70%;
+    max-width:1200px;
     margin: 0 auto;
     background-position: center;
     background-repeat: no-repeat;

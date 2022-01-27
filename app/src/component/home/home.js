@@ -3,17 +3,17 @@ import HomeImageTop from './homeImageTop/homeImageTop'
 import HomeFirstBody from './homeFirstBody/homeFirstBody'
 import './home.css'
 import HomeCard from './homeCard/homeCard';
+import CarouselImages from './carouselImages/CarouselImages';
 import FeaturedProduct from '../product/featuredProduct/featuredProduct';
-import Footer from '../footer/footer'
 
 const Home = () => {
     return ( 
         <div className="homeDiv">
             <HomeImageTop />
-            <HomeFirstBody />
-            <HomeCard />
             <FeaturedProduct />
-            <Footer />
+            <CarouselImages />
+            {/* <HomeFirstBody />
+            <HomeCard /> */}
         </div>
      );
 }
