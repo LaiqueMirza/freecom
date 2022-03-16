@@ -1,0 +1,32 @@
+.orderIdAdminPage:hover{
+cursor:pointer
+}
+.adminStatusPending{
+    border:1px solid indianred ;
+    background-color: rgb(247, 240, 240);
+    color: indianred;
+    text-align: center;
+}
+.adminStatusShipped{
+    border:1px solid #1D39C4 ;
+    background-color: #f1f2f7;
+    color: #1D39C4;
+    text-align: center;
+}
+.adminStatusDelivered{
+    border:1px solid #389E0D;
+    background-color: #eff5ed;
+    color: #389E0D;
+    text-align: center;
+}
+.adminPageh2Header{
+text-align: center;
+margin: 20px;
+}
+.adminPageMainRow{
+width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:20px;
+}

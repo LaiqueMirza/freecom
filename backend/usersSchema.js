@@ -34,7 +34,6 @@ const usersSchema = new mongoose.Schema({
   tokens:[{
     token:{
       type:String,
-      required:true
     }
   }],
   userAddress: {
@@ -59,19 +58,67 @@ const usersSchema = new mongoose.Schema({
     countOfCart: Number,
     itemsInCart: [
       {
-        preview: String,
+        productName: String,
+        productImage: String,
         photos: [{ type: String }],
         description: String,
-        size: [{ type: String }],
-        productName: String,
+        size:  [{ type: String }],
+        types:String,
         selectedSize: String,
         quantity: Number,
-        brand: String,
         price: Number,
-        date: Date,
+        productIngredients: [{ type: String }],
+        directionForUse: String,
+        additionalInfo: String,
+        date: Date
+      
       },
     ],
   },
+  userOrders: {
+    noOfOrderedItems:Number,
+    orderedItems:
+    [{
+      productId: [{
+        type: String,
+        required: true
+    }],
+    productName: [{
+        type: String,
+        required: true
+    }],
+    orderStatus: {
+        type: String,
+        default: "PENDING"
+    },
+    selectedSize:[{
+        type: String,
+        required: true
+    }],
+    price: [{
+        type: Number,
+        required: true
+    }],
+    quantity:  [{
+        type: Number,
+        required: true
+    }],
+    onlinePayment:Boolean,
+    paymentStatus:String,
+    totalAmount:Number,
+    userPhoneNumber: Number,
+    userName:String,
+    userId: String,
+    deliveryAddress: {
+        type: Map,
+        of: String
+      },
+    orderDate: {
+        type: Date,
+        default: Date.now
+    }
+  }]
+}
 });
 
 //generating access toke so that anyone can't make the request

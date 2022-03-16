@@ -3,6 +3,9 @@ import "./checkout.css";
 import axios from "axios";
 import CheckoutCart from "./checkoutCart/checkoutCart";
 import Cookies from "js-cookie";
+import {useHistory} from "react-router-dom";
+import logoImage from '../../img/CompanyLogo.jpeg';
+import { message } from "antd";
 
 //i all take the product from his account in the main cart
 
@@ -27,16 +30,28 @@ const Checkout = () => {
   // const cartProducts = JSON.parse(localStorage.getItem("theAddedItems"));
   // const [data, setData] = useState()
   const getCookie = Cookies.get();
+const history = useHistory();
+
   let userData = JSON.parse(sessionStorage.getItem("userInfo"));
 const cartProducts = userData.userCart.itemsInCart;
   let bagTotal = 0;
   let totalAmount = 0;
-  {
-    cartProducts?.map((product) => (bagTotal = bagTotal + product.price*product.quantity));
-  }
+  let productIds=[];
+  let productNames=[];
+  let selectedSizes=[];
+  let quantities=[];
+  let prices=[];
+    cartProducts?.map((product) => {
+      (bagTotal = bagTotal + product.price*product.quantity);
+    productIds.push(product?._id);
+    productNames.push(product?.productName);
+    selectedSizes.push(product?.selectedSize);
+    quantities.push(product?.quantity);
+    prices.push(product?.price);
+    });
   totalAmount += bagTotal;
   let shippingCharge = 0;
-  shippingCharge = bagTotal > 20000 ? "FREE" : 50;
+  shippingCharge = bagTotal > 499 ? "FREE" : 30;
   if (typeof shippingCharge === "number") {
     totalAmount += shippingCharge;
   }
@@ -44,35 +59,41 @@ const cartProducts = userData.userCart.itemsInCart;
   // RAZORPAY PAYMENT -----------------------------------------------
  
   async function displayRazorpay() {
-    alert("The online payment is integrated with razorpay. It is in test mode, so it won't charge you for real")
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
 
     if (!res) {
-      alert("Payment Failed");
+      message.info("Payment Failed");
       return;
     }
 
-    const data = await fetch("/razorpay", {
-      method: "POST",
-    }).then((t) => t.json()).catch(err=> console.log(err));
+    let data;
+     await axios.post("/razorpay", {
+      totalAmount: totalAmount,
+    })
+    .then((val) => data=val?.data)
+    .catch(err=> console.log(err));
 // const datas = axios.post("/razorpay")
 // .then(res => console.log(res))
 // .catch(err=> console.log(err))
+
+
+console.log(data,"fataaaaaaa");
     if(!data || !data.amount){
       if(data.message){
-       alert("Payment failed, User not Valid, Login Again.");
+       message.info("Payment failed, User not Valid, Login Again.");
       }else if (data.error){
-      alert(data.error.error.description);
+      message.info(data.error.error.description);
       }else{
-        alert("Payment Failed");
+        message.info("Payment Failed");
       }
       return;
-    } else if(data.amount != totalAmount*100){
-      alert("Payment Failed, Amount error");
-      return;
-    }
+    } 
+    // else if(data.amount != totalAmount*100){
+    //   message.info("Payment Failed, Amount error");
+    //   return;
+    // }
     
     //the above else if may be not a good practice
     const verifySignature = (response) => {
@@ -82,7 +103,7 @@ const cartProducts = userData.userCart.itemsInCart;
           response
         )
         .then(response => {
-          alert("payment received");
+          message.info("payment received");
         })
         .catch(err => {
         });
@@ -90,17 +111,17 @@ const cartProducts = userData.userCart.itemsInCart;
   
     const options = {
       key: data.key,
-      currency: data.currency,
-      amount: data.amount.toString(),
+      currency: "INR",
+      amount: totalAmount.toString(),
       order_id: data.id,
-      name: "Mirza",
+      name: "AMRUTTAM TATTVA",
       description: "Thank you for shopping from us",
-      // image: 'http://localhost:1337/logo.svg',
+       image: logoImage,
       handler: response => {
         verifySignature(response);
       },
       theme: {
-        color: "indianred" // Set your website theme color
+        color: "#61CA59" // Set your website theme color
       },
       prefill: {
         name: userData.userInfo.userName,
@@ -111,9 +132,66 @@ const cartProducts = userData.userCart.itemsInCart;
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   }
+const clearingCart =()=>{
+userData.userCart.itemsInCart = [];
+userData.userCart.countOfCart = 0;
+console.log(userData, "clearing cart userData");
+sessionStorage.setItem("userInfo", JSON.stringify(userData));
 
+axios.post("/users",{
+  userData, addUserOrder:true
+}).then(res =>{
+}).catch(err => console.log(err,"error in calling users"));
 
-  return (
+}
+  const createNewOrder =()=>{
+    let payload ={
+      userPhoneNumber: userData?.userInfo?.phoneNumberMain,
+      userName: userData?.userInfo?.userName,
+      userId: userData?._id,
+      productId: productIds,
+      productName: productNames,
+      selectedSize: selectedSizes,
+      quantity:quantities,
+      price: prices,
+      onlinePayment: false,
+      paymentStatus:"NOT DONE",
+      totalAmount:totalAmount,
+      deliveryAddress: {
+        addressLine1: userData?.userAddress?.selectedAddress?.addressLine1,
+        addressLine2: userData?.userAddress?.selectedAddress?.addressLine2,
+        city: userData?.userAddress?.selectedAddress?.city,
+        pinCode: userData?.userAddress?.selectedAddress?.pinCode.toString(),
+        phoneNumberAddress: userData?.userAddress?.selectedAddress?.phoneNumberAddress.toString()
+      },
+    }
+    console.log(payload,"payloaddd");
+    // axios.post("/order",{
+    //   payload
+    // }).then(res =>{
+    // }).catch(err =>message.info("Could not create an order"))
+
+    axios
+    .post("/order", {
+     payload
+    })
+    .then((res) => {
+      console.log(res,"order created");
+    })
+    .catch((err) => {
+      console.log(err,"Could Not Add You, Try Again")
+    });
+    payload.orderDate = new Date();
+    userData.userOrders.orderedItems.push(payload);
+    // clear the cart
+    clearingCart();
+    history.push("/orderSuccess")
+
+  }
+
+console.log(userData,"userData");
+
+return (
     <div className="checkoutMainDiv">
       <div className="checkoutDiv">
         <div className="checkout-cart-Div">
@@ -142,13 +220,8 @@ const cartProducts = userData.userCart.itemsInCart;
                 <td>:</td>
                 <td>{shippingCharge}</td>
               </tr>
-              <tr>
-                <td>TAX & CHARGES</td>
-                <td>:</td>
-                <td>NO</td>
-              </tr>
+             
             </tbody>
-
             <thead>
               <tr>
                 <th>TOTAL PAYABLE</th>
@@ -164,9 +237,8 @@ const cartProducts = userData.userCart.itemsInCart;
             PAY ONLINE
           </button>
           <button className="checkoutButton-checkout-cod"
-          onClick={() =>{
-            alert("Thanks for making it till here, If you have any amazing functionality in mind do let me know through mail mirzalaique2ey@gmail.com.")
-          }}
+          onClick={createNewOrder}
+
           >
             CASH ON DELIVERY
           </button>

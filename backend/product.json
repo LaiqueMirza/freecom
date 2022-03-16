@@ -1,0 +1,1547 @@
+[
+  {"_id":{"$oid":"61f18ce610447f4acfb84dbe"},
+  "productName":"ACIGONE CAPSULE",
+  "productImage":"https://i.postimg.cc/W40sdf9J/ACIGONE-CAP.png",
+  "photos":["https://i.postimg.cc/W40sdf9J/ACIGONE-CAP.png","https://i.postimg.cc/PfmGjwC2/Abhrak-Bhasma-removebg-preview.png","https://i.postimg.cc/QVLvpjYg/Guduchi-Satva.jpg"],
+  "description":"Hyperacidity, Dyspepsia, Flatulence,Heartburn,Improves appetite. Offers relief from hyperacidity. Relieves from gaseous distension. Relieves the symptoms of indigestion and improves appetite. Free from dryness of mouth by lowering acidity.",
+  "size":["30 Cap","100 Cap"],
+  "types":"Capsules",
+  "selectedSize":"30 Cap",
+  "quantity":{"$numberInt":"1"},
+  "price":{"$numberInt":"180"},
+  "productIngredients":["GUDUCHI SATVA :- It rectify in constipation and indigestion","ABHRAK BHASMA :- Improves digestion due to its Deepan (appetizer) and Pachan (digestive)"],
+  "directionForUse":"Please consult your physician to prescribe the dosage that best suits the condition.",
+    "additionalInfo":"Indications :- 1) Hyperacidity 2) Dyspepsia 3) Flatulence 4) Heartburn"
+  }
+,  {
+  "productName": "ASTHAREN SYRUP",
+  "productImage": "https://i.postimg.cc/Dfj4fvHP/Astharen-Syrup.jpg",
+  "photos": [
+    "https://i.postimg.cc/Dfj4fvHP/Astharen-Syrup.jpg",
+    "https://i.postimg.cc/xjv3XgfR/Vasa-removebg-preview.png"
+  ],
+  "description": "It relieves bronchospasm by Broncho relaxant effect.Anticholinergic action.Tackles bronchial allergy and decreases the mucosal swelling. Anti Allergy,Anti – inflammatory,Expectorant,Mucolytic.",
+  "size": ["100 ML"],
+  "types": "Syrup",
+  "selectedSize": "100 ML",
+  "quantity": { "$numberInt": "1" },
+  "price": { "$numberInt": "83" },
+  "productIngredients": [
+    "Astharen Syrup VASA :- Bronchial asthama"
+  ],
+  "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition.",
+  "additionalInfo": "Indications : 1) Bronchial Asthama 2) Chronic Bronchitis"
+},
+{
+    "productName": "ASTHAREN CAPSULE",
+    "productImage": "https://i.postimg.cc/jj2dFPdV/Astharen-Capsules.jpg",
+      "photos": [
+        "https://i.postimg.cc/jj2dFPdV/Astharen-Capsules.jpg" ,
+        "https://i.postimg.cc/nhbx3FbZ/Hing-removebg-preview.png"
+      ],
+    "description": "It relieves bronchospasm by Broncho relaxant effect.Anticholinergic action.Tackles bronchial allergy and decreases the mucosal swelling. Anti Allergy,Anti – inflammatory,Expectorant,Mucolytic.",
+    "size": ["30 Cap"],
+    "types": "Capsules",
+    "selectedSize": "30 Cap",
+    "quantity": { "$numberInt": "1" },
+    "price": { "$numberInt": "150" },
+    "productIngredients": [
+      "Astharen Capsule HING :- Supressor in Asthama"
+          ],
+    "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition.",
+    "additionalInfo": "Indications : 1) Bronchial Asthama 2) Chronic Bronchitis"
+  },
+  {
+      "productName": "ARSOREN CAPSULE",
+      "productImage":"https://i.postimg.cc/gJKSLX8J/Arsoren-Capsules.jpg",
+    "photos": [
+      "https://i.postimg.cc/gJKSLX8J/Arsoren-Capsules.jpg",
+      "https://i.postimg.cc/3RBBwyHH/Aloevera.jpg",
+      "https://i.postimg.cc/QNvbdZ2C/Nagkesar-removebg-preview-1.png"
+    ],
+      "description": "It increases pile static movement of gastro intestine, softens the stool and helps in quick elimination.It repairs and fasten up healing process of damaged tissues.Maintains concentration of fluid and electrolytes in lumen of colon galact.It’s anti-inflammatory properties reduces swelling and shrink hemorrhoid and prevents recurrence.",
+      "size": ["30 Cap"],
+      "types": "Capsules",
+      "selectedSize": "30 Cap",
+      "quantity": { "$numberInt": "1" },
+      "price": { "$numberInt": "190" },
+      "productIngredients": [
+        "ALOEVERA Haemorrhoids :- reducing inflammation",
+        "NAGKESAR :- Bleeding piles"
+      ],
+      "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition.",
+      "additionalInfo": "Indications : 1) Useful in piles fissures and fistula 2) Hemorrhoid in External & Internal 3) Relives constipations"
+    },
+    {
+        "productName": "CARDIOVED CAPSULE",
+        "productImage": "https://i.postimg.cc/sD493Gsf/Cardioved-Capsules.jpg",
+        "photos": [
+          "https://i.postimg.cc/sD493Gsf/Cardioved-Capsules.jpg",
+          "https://i.postimg.cc/DwtzD5HS/Aswagandha-removebg-preview.png",
+          "https://i.postimg.cc/CMjb4nZC/Arjuna-Bark-removebg-preview.png"
+        ],
+        "description": "Decreases myocardial contractility.Moderate the heart rate.Decreases in vascular constriction leads to decrease in peripheral resistance.Produces vasodilation prevents arterial plaque formation.",
+        "size": ["30 Cap"],
+        "types": "Capsules",
+        "selectedSize": "30 Cap",
+        "quantity": { "$numberInt": "1" },
+        "price": { "$numberInt": "150" },
+        "productIngredients": [
+          "ASHWAGANDHA :- Reducing Cholesterol and triglyceride levels",
+          "ARJUN BARK :- Managing High Cholesterol Level"
+        ],
+        "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition.",
+        "additionalInfo": "Indications : 1) High blood pressure 2) Cardiac disorder"
+      },
+      {
+          "productName": "COFCARE SYRUP",
+          "productImage": "https://i.postimg.cc/gjf7q9St/Cofcare-Syrup.jpg",
+          "photos": [
+            "https://i.postimg.cc/gjf7q9St/Cofcare-Syrup.jpg",
+            "",
+            ""
+          ],
+          "description": "Reduces the viscosity of mucus by it’s expectorant activity. Liquefies the mucus and expels it out by it’s mucolytic action.Soothes irritated mucosa demulcent action.Does not cause constipation, drowsiness, G.I. upset.",
+          "size": ["100 ML"],
+          "types": "Syrup",
+          "selectedSize": "100 ML",
+          "quantity": { "$numberInt": "1" },
+          "price": { "$numberInt": "72" },
+          "productIngredients": [
+            "VASA :- Useful in chronic respiratory infection",
+            "TULSI :- Expectorant"
+          ],
+          "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition.",
+          "additionalInfo": "Indications : 1) Productive cough 2) Non Productive cough"
+        }
+        ,
+        {
+            "productName": "DIACARE CHURNA",
+            "productImage": "https://i.postimg.cc/FRzBJbgK/Diacare-Churna.jpg",
+            "photos": [
+              "https://i.postimg.cc/FRzBJbgK/Diacare-Churna.jpg",
+              "https://i.postimg.cc/9Qfg4Hm7/Gudmar.jpg",
+              "https://i.postimg.cc/RVSX8xnD/Vijaysar.jpg"
+            ],
+            "description": "Anti-hyper glycemic activity.Reduces the level of sugar in the blood.Hypolipidemic activity.Reduces the level of lipids in the blood.Improves insulin secretion and glucose utilization.Minimizes polyphagia.Improves the quality of life.",
+            "size": ["100 Gms"],
+            "types": "Churna",
+            "selectedSize": "100 Gms",
+            "quantity": { "$numberInt": "1" },
+            "price": { "$numberInt": "160" },
+            "productIngredients": [
+              "GUDMAR :- Help stimulate insulin secretion",
+              "VIJAYSAR :- Preventing the damage of pancreatic cells"
+            ],
+            "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition.",
+            "additionalInfo": "Indications : 1) Non insulin-dependent diabetes melitus (NIDDM) Type -2 2) Polycystic ovary syndrome (Pcos)"
+          }
+          ,
+          {
+              "productName": "DIAGOLD TABLET",
+              "productImage": "https://i.postimg.cc/k5YBc98y/Diagold-Tablet.jpg",
+              "photos": [
+                "https://i.postimg.cc/k5YBc98y/Diagold-Tablet.jpg",
+                "https://i.postimg.cc/J4RM20xC/Madhunashini-removebg-preview.png",
+                "https://i.postimg.cc/yxs4tpFy/Shilajeet-removebg-preview.png"
+              ],
+              "description": "Insulin sensation – it improves the efficacy of insulin by enhancing the uptake of glucose by cell.Increases the peripheral utilization of glucose.Minimizes the long term complication.Improves the quality of life.",
+              "size": ["60 Tab"],
+              "types": "Tablet",
+              "selectedSize": "60 Tab",
+              "quantity": { "$numberInt": "1" },
+              "price": { "$numberInt": "210" },
+              "productIngredients": [
+                "MADHUNASHINI :- Antidiabetic",
+                "SHUDDH SHILAJIT :- Controls lipid profile and glucose level"
+              ],
+              "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition.",
+              "additionalInfo": "Indications : 1) Non insulin-dependent diabetesmelitus (NIDDM) Type -2. 2) Adjuvant to Oral Hypoglycaemic Agents"
+            }
+            ,
+            {
+                "productName": "DAIBAVED CAPSULE",
+                "productImage": "https://i.postimg.cc/yNJFBqpN/Diabaved-Capsules.jpg",
+                "photos": [
+                  "https://i.postimg.cc/yNJFBqpN/Diabaved-Capsules.jpg",
+                  "",
+                  ""
+                ],
+                "description": "Helps in general debility.Reduces the level of sugar in the blood.Improves the quality of life.",
+                "size": ["30 Cap"],
+                "types": "Capsules",
+                "selectedSize": "30 Cap",
+                "quantity": { "$numberInt": "1" },
+                "price": { "$numberInt": "180" },
+                "productIngredients": [
+                  "GUDMA :- Helps in Diabetes"
+                
+            ],
+                "directionForUse": "",
+                "additionalInfo": ""
+              }
+              ,
+              {
+                  "productName": "DERMOCARE CAPSULE" ,
+                  "productImage": "https://i.postimg.cc/tg3yfJdt/Dermocare-Capsules.jpg",
+                  "photos": [
+                    "",
+                    "",
+                    ""
+                  ],
+                  "description": "Ensures effective anti microbial action.Checks aggravating acne.Overcomes sebaceous glands hypertrophy.Reduces pigmentation.",
+                  "size": ["30 Cap"],
+                  "types": "Capsules",
+                  "selectedSize": "30 Cap",
+                  "quantity": { "$numberInt": "1" },
+                  "price": { "$numberInt": "160" },
+                  "productIngredients": [
+                    "AROGYA VARDHINI :- Cures Skin Diseases",
+                    "MANJISTHADI GHAN Antioxidant, Antimicrobial and Anti-inflammatory properties"],
+                  "directionForUse" :"MANJISTHADI GHAN Antioxidant, Antimicrobial and  Anti-inflammatory properties",		
+                       
+                  "additionalInfo":"Indications : 1) Acute and chronic  dermatitis. 2) Acne Valgaris."	
+                     
+                }
+                ,
+                {
+                    "productName": "EASYCALL CHURNA ",
+                  "productImage": "https://i.postimg.cc/7YKN3npS/Easycall-Churna.jpg",
+                  "photos": [
+                    "https://i.postimg.cc/7YKN3npS/Easycall-Churna.jpg",
+                    "",
+                    ""
+                  ],
+                    "description": "Effective laxative, very much effective in all type of constipations.Laxative, demulcent.Useful in chronic constipation , and peptic ulcer.Carminative , digestive and laxative.Very useful in digestion.",
+                    "size": ["100 gm "],
+                    "types": "Churna ",
+                    "selectedSize": "100 gm ",
+                    "quantity": { "$numberInt": "1" },
+                    "price": { "$numberInt": "" },
+                    "productIngredients": [
+                      "TRIPHALA :- Digestive",
+                      "SONAMUKHI :- Laxative",
+                      "ISABGUL :- Demulcent & Laxative ",
+                      "AJMODA :- Carminative & digestive"
+                    ],
+                    "directionForUse": "",
+                    "additionalInfo": "Indications :- 1) Constipation of all types . 2) IBS. 3) Ulcerative colitis 4) Hemorrhoids"
+                  }
+                  ,
+                  {
+                      "productName": "FEMMAVED SYRUP",
+                      "productImage": "https://i.postimg.cc/4Nx6xhmy/Femmaved-Syrup.jpg",
+                      "photos": [
+                        "https://i.postimg.cc/4Nx6xhmy/Femmaved-Syrup.jpg",
+                        "",
+                        ""
+                      ],
+                      "description": "Balances the Hypothalamic-pituitary-ovarian (HPO) axis.Corrects estrogenic insufficiency and improves ovarian function.Arrest excessive uterine bleeding.Increases endometrium thickness.Safe for long term use.",
+                      "size": ["200 ML"],
+                      "types": "Syrup ",
+                      "selectedSize": "200 ML",
+                      "quantity": { "$numberInt": "1" },
+                      "price": { "$numberInt": "110 " },
+                      "productIngredients":[
+                        "LODHRA :- Arrest uterine bleeding","BALA :- Rejuvenating properties"
+                      ],
+                      "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition. ",
+                      "additionalInfo": "Indications :- 1) Menorrhagia 2) Metrorhagia 3) Oligo menorrhagia 4) Unexplained infertility"
+                    }
+                    ,
+                    {
+                        "productName": "LEUCOREN CAPSULE ",
+                        "productImage": "https://i.postimg.cc/NjfHQyfD/Leucoren-Capsules.jpg",
+                        "photos": [
+                          "https://i.postimg.cc/NjfHQyfD/Leucoren-Capsules.jpg",
+                          "",
+                          ""
+                        ],
+                        "description": "Normalises pH and vaginal microflora.Initiates reduction in the permeability of vaginal mucosa and normalises secretion.Minimises the chances of urosepsis and infection. ",
+                        "size": ["30 Cap "],
+                        "types": "Capsule  ",
+                        "selectedSize": "30 Cap ",
+                        "quantity": { "$numberInt": "1" },
+                        "price": { "$numberInt": "175" },
+                        "productIngredients": [
+                          "PUSHYANAUG :- Treats infection",
+                          "PRADARANTAK LOH :-Leucorrhoea associated with weakness, pain in lower abdomen."
+                        ],
+                        "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition. ",
+                        "additionalInfo": "Indications :- 1) Leucorrhoea "
+                      }
+,
+{
+    "productName": "MENSTROREN CAPSULE ",
+    "productImage": "https://i.postimg.cc/TP2M760p/Menstroren-Capsules.jpg",
+    "photos": [
+      "https://i.postimg.cc/TP2M760p/Menstroren-Capsules.jpg",
+      "",
+      ""
+    ],
+    "description": "Initiates, modulates and regulates menstrual flow in menstrual disorders due to rheological down regulation.Stimulates ovarian function and general metabolism, most notably in the under developed female patients. ",
+    "size": ["30 Cap "],
+    "types": "Capsule ",
+    "selectedSize": "30 Cap ",
+    "quantity": { "$numberInt": "1" },
+    "price": { "$numberInt": "175 " },
+    "productIngredients": [
+      "GAJAR BEEJ :- Irregular period","HING :- A natural blood thinner, reduces blood clots during periods."
+    ],
+    "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition.",
+    "additionalInfo": "Indications :- 1) Oligo menorrhoea 2) Secondary amenorrhoea"	
+  }
+  ,
+  {
+      "productName": "ORTHOVED CAPSULE",
+      "productImage": "https://i.postimg.cc/ZK15MCv0/Othoved-Capsules.jpg",
+      "photos": [
+        "https://i.postimg.cc/ZK15MCv0/Othoved-Capsules.jpg",
+        "",
+        ""
+      ],
+      "description": "Mobility is a dream of every arthritic patients which come true with  Orthoved  capsule.Provides fast relief from pain and inflammation.Prevents the degradation of articular cartilage by inhibiting inflammation.Promotes mobility and flexibility.Safe for longer time.",
+      "size": ["30 Cap"],
+      "types": "Capsules ",
+      "selectedSize": "30 Cap  ",
+      "quantity": { "$numberInt": "1" },
+      "price": { "$numberInt": "140 " },
+      "productIngredients":  ["BALA :- Osteoarthritis and Gout",
+        "MAHAYOGRAJ GUGGULU :- Helps in treating inflammatory conditions"
+      ],
+      "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition. ",
+      "additionalInfo": "Indications :- 1) Low back pain 2) Cervical and lumbar spondylosis. 3) Rheumatoid arthritis 4) Morning stiffness and frozen shoulder. 5) Acute and chronic arthritis "
+    }
+,
+{
+    "productName": "RUMOBACK OIL ",
+    "productImage": "https://i.postimg.cc/d3GJM9y1/Rumoback-Oil.jpg",
+    "photos": [
+      "https://i.postimg.cc/d3GJM9y1/Rumoback-Oil.jpg",
+      "",
+      ""
+    ],
+    "description": "Rumoback oil relaxes muscles and relives pain.Increases penetration of active ingredients.Prevent skin irritation.Provides fast relief from pain and swelling.Safe for long time use.",
+    "size": [" 50 ml "],
+    "types": "Oil ",
+    "selectedSize": "50 ml ",
+    "quantity": { "$numberInt": "1" },
+    "price": { "$numberInt": "140 " },
+    "productIngredients": [
+      "MAHANARAYAN OIL :- Reduce muscle tension and treat sore muscles and joints",
+      "GANDHPURNA OIL :- Acts in joint and muscular ailments"
+    ],
+    "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition.",
+    "additionalInfo": "Indications :- 1) Arthritic Pain 2) Sport Injury 3) Low back pain"	          
+  }
+  ,
+  {
+      "productName": "RUMOBACK CAPSULE",
+      "productImage": "https://i.postimg.cc/HkVPVk60/Rumoback-Capsules.jpg",
+      "photos": [
+        "https://i.postimg.cc/HkVPVk60/Rumoback-Capsules.jpg",
+        "",
+        ""
+      ],
+      "description": "Reduces pain and inflammation.Reduces morning stiffness.It promotes strength to bones and joints.Acts as an excellent anti-inflammatory and analgesic.",
+      "size": [" 30 Cap "],
+      "types": "Capsules ",
+      "selectedSize": "30 Cap ",
+      "quantity": { "$numberInt": "1" },
+      "price": { "$numberInt": "160 " },
+      "productIngredients": ["MAHARASNADI GHAN :- Muscle and joint pain",
+        "YOGRAJ GUGGULU :- Osteoarthritis"
+      ],
+      "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition.",
+      "additionalInfo": "Indications : 1) Ankle pain 2) Slipped Disk 3) Sprain 4) Backache 5) Stiffness of Muscles"
+    }
+,
+{
+    "productName": "SRIZER SYRUP ",
+    "productImage": "https://i.postimg.cc/rsRKDWtX/Srizer-Syrup.jpg",
+    "photos": [
+      "https://i.postimg.cc/rsRKDWtX/Srizer-Syrup.jpg",
+      "",
+      ""
+    ],
+    "description": "Improve metabolism and supports proper function of vital organs.Activate endogenous enzymes activity of liver, pancreas and intestine mucosa.Promotes digestion quickly and stimulate appetite, complete relief from indigestion and abdominal bloating and heaviness by potential digestive action. ",
+    "size": ["200 ML "],
+    "types": "Syrup ",
+    "selectedSize": "200 ML ",
+    "quantity": { "$numberInt": "1" },
+    "price": { "$numberInt": "110 " },
+    "productIngredients": ["AJMODA :- Useful for gas, bloating and indigestion.",
+      "MARICHA :- Carminative and flatulence "
+    ],
+    "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition.",
+    "additionalInfo": "Indications :- 1) Powerful digestive and appetizer 2) Anorexia 3) Indigestion"
+  }
+  ,
+  {
+      "productName": "SUVARNAPRASH DROPS",
+      "productImage": "https://i.postimg.cc/B69qmyjy/Suvarnaprash-Drops.jpg",
+      "photos": [
+        "https://i.postimg.cc/B69qmyjy/Suvarnaprash-Drops.jpg",
+        "",
+        ""
+      ],
+      "description": "Suvarnaprash contains Gold  as a main ingredients it is made into Suvarnabhasma through special process because Gold can not be consumed in its metallic form.GOLD is known to boost immunity as well as enhance memory .For boost immunity & intellect of child, improve digestion, immunomodulator",
+      "size": ["5 ML "],
+      "types": "Drops  ",
+      "selectedSize": "5 ML ",
+      "quantity": { "$numberInt": "1" },
+      "price": { "$numberInt": "413 " },
+      "productIngredients": ["SWARNA BHASMA :- USE TO BOOST IMMUNITY",
+        "BRAHMI :- MEMORY BOOSTER",
+        "HONEY :- Acts as Absorber for Swarna"
+      ],
+      "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition. ",
+      "additionalInfo": "Indications :-  1) Immunity booster 2) Memory Enhancers"
+    }
+    ,
+    {
+        "productName": "UROCARE CHURNA  ",
+        "productImage": "https://i.postimg.cc/wvGkKXdS/Urocare-Churna.jpg",
+        "photos": [
+          "https://i.postimg.cc/wvGkKXdS/Urocare-Churna.jpg",
+          "",
+          ""
+        ],
+        "description": "Inhibits calculogenesis by reducing stone forming substances.Ensures disintegration of calculi & the crystals.Improves functional capacity of kidney.Reduce elevated blood urea & serum creatinine.",
+        "size": ["100 Gms"],
+        "types": "Churna ",
+        "selectedSize": "100 Gms ",
+        "quantity": { "$numberInt": "1" },
+        "price": { "$numberInt": "132 " },
+        "productIngredients": ["GOKHRU :- Anti-lithiasis property",
+          "PUNARNAVA :- Expels kidney stones",
+          "PASHANBHED :- Increase urination and removes kidney stones"
+        ],
+        "directionForUse": "Please consult your physician to prescribe the dosage that best suits the condition. ",
+        "additionalInfo": "Indications :- 1) Increased urea & creatinine 2) Urinary tract infections 3) Nephrotic syndrome 4) Kidney stones 5) Nephritis"	
+      }
+      ,
+      {
+          "productName": "TOBSOLV CHURNA",
+          "productImage": "",
+          "photos": [
+            "",
+            "",
+            ""
+          ],
+          "description": "Useful to remove habits of Alcohol, Cigaratte, Tobaco, and Gutka",
+          "size": ["100 Gms"],
+          "types": "Churna",
+          "selectedSize": "100 Gms",
+          "quantity": { "$numberInt": "1" },
+          "price": { "$numberInt": "1100" },
+          "productIngredients": [
+            "",
+            ""
+          ],
+          "directionForUse": "",
+          "additionalInfo": ""
+        }
+        ,
+        {
+            "productName": "MADYARI CHURNA	",
+            "productImage": "",
+            "photos": [
+              "",
+              "",
+              ""
+            ],
+            "description": "Useful to remove habits of Alcohol and Afin.	",
+            "size": ["100 Gms"],
+            "types": "Churna",
+            "selectedSize": "100 Gms",
+            "quantity": { "$numberInt": "1" },
+            "price": { "$numberInt": "1320" },
+            "productIngredients": [
+              "",
+              ""
+            ],
+            "directionForUse": "",
+            "additionalInfo": ""
+          }
+          ,
+          {
+              "productName": "Gurukul Honey",
+              "productImage": "",
+              "photos": [
+                "",
+                "",
+                ""
+              ],
+              "description": "Anti-oxidant properties due to organic acids and phenolic compounds which helps in reducing heart attacks, strokes.,Can lower Blood Pressure,Increases good cholesterol,Healing wounds and burns.",
+              "size": ["100 gm 250 gm 500 gm"],
+              "types": "Liquid",
+              "selectedSize": "100 gm 250 gm 500 gm",
+              "quantity": { "$numberInt": "1" },
+              "price": { "$numberInt": "55 121  500 gm" },
+              "productIngredients": [
+                HONEY                           Helps in cough and sooths throat. Can use in regular use also."",
+                ""
+              ],
+              "directionForUse": "Use as per requirement. ",
+              "additionalInfo": ""Indications :-1) Throat Infection
+              2) Antioxidant
+              3) Blood Pressure
+              4) Cholesterol"	
+            }
+            ,
+            {
+                "productName": "Gurukul Chyavanprash Special ",
+                "productImage": "",
+                "photos": [
+                  "",
+                  "",
+                  ""
+                ],
+                "description": ""Added with Amla, honey which helps in boosting immunity.
+                Antioxidant properties by honey helps in various diseases.Consist of Ghee for improving absorption of Amla.
+                Vitamin C properties. "			
+                      ",
+                "size": ["500 gm "],
+                "types": "Avaleha ",
+                "selectedSize": "500 gm ",
+                "quantity": { "$numberInt": "1" },
+                "price": { "$numberInt": "176 " },
+                "productIngredients": [
+                  "AMLA                                Antioxidant and immuno booster",
+                  "GHEE                              Easy absorption of Chyavanprash                          "
+                ],
+                "directionForUse": "1 Tspf BID ",
+                "additionalInfo": ""Indications :          1) Boost Immunity
+                2) Antioxidant
+                3) Cholesterol"	
+                  "
+              }
+              ,
+              {
+                  "productName": "Chhas Masala ",
+                  "productImage":                "photos": [
+                    "",
+                    "",
+                    ""
+                  ],
+                  "description": "Buttermilk spices, fruits, juices, use after or before food. Improves mood. ",
+                  "size": ["115 gm "],
+                  "types": "Powder ",
+                  "selectedSize": "115 gm",
+                  "quantity": { "$numberInt": "1" },
+                  "price": { "$numberInt": "60  " },
+                  "productIngredients": [CARAWAY SEED          Used in digestion                  It has anti-inflammatory, analgesic, anti-spasmodic and carminative
+                    "CUMIN SEED                    It increases antioxidant intake, promotes digestion, provides iron, may improve blood sugar control and may reduce food-borne illnesses",
+                    ""TRIKATU                Promotes Digestion:
+                    Relieves Pain And Inflammation.""
+                  ],
+                  "directionForUse": "1 Tspf in Buttermilk, salad and many other food item to increase taste. ",
+                  "additionalInfo": ""Indications :-1)Antioxidant
+                  2)Digestive            3)Food buster"	
+                }
+                ,
+                {
+                    "productName": "Gurukul Pain Balm	",
+                    "productImage": "",
+                    "photos": [
+                      "",
+                      "",
+                      ""
+                    ],
+                    "description": "Reliefs from cough, cold, headache and pain	",
+                    "size": ["25 gm"],
+                    "types": "Balm",
+                    "selectedSize": "25 gm",
+                    "quantity": { "$numberInt": "1" },
+                    "price": { "$numberInt": "55" },
+                    "productIngredients": [
+                      "",
+                      ""
+                    ],
+                    "directionForUse": "",
+                    "additionalInfo": ""
+                  }
+                  ,
+                  {
+                      "productName": "Dantmanjan Powder	",
+                      "productImage": "",
+                      "photos": [
+                        "",
+                        "",
+                        ""
+                      ],
+                      "description": "Prevents swelling and bleeding, removes plague, strengthen gums.",
+                      "size": ["35 gm"],
+                      "types": "Powder",
+                      "selectedSize": "35 gm",
+                      "quantity": { "$numberInt": "1" },
+                      "price": { "$numberInt": "61" },
+                      "productIngredients": [
+                        "",
+                        ""
+                      ],
+                      "directionForUse": "",
+                      "additionalInfo": ""
+                    }
+,
+{
+    "productName": "Rich Herbal Hair Oil",
+    "productImage": "",
+    "photos": [
+      "",
+      "",
+      ""
+    ],
+    "description": "Rich Herbal Hair oil is formulation enriched with Natural Hair Protein and multi vitamins like Vitamin C & E and minerals to prevent Dandruff, Hair loss and Pre-mature graying as well as splitting of hair.  ",
+    "size": ["100 ml 200 ml"],
+    "types": "Oil",
+    "selectedSize": "100 ml 200 ml",
+    "quantity": { "$numberInt": "1" },
+    "price": { "$numberInt": "138 253 " },
+    "productIngredients": [
+      "",
+      ""
+    ],
+    "directionForUse": "",
+    "additionalInfo": ""
+  }
+  ,
+  {
+      "productName": "Vyasanmukti Powder",
+      "productImage": "",
+      "photos": [
+        "",
+        "",
+        ""
+      ],
+      "description": "An ideal combination which reduce the toxic and after effects of nicotine and alcohol. reduced the craving for the same.",
+      "size": ["25 gm ],
+      "types": "Powder",
+      "selectedSize": "25 gm",
+      "quantity": { "$numberInt": "1" },
+      "price": { "$numberInt": "100" },
+      "productIngredients": [
+        "",
+        ""
+      ],
+      "directionForUse": "",
+      "additionalInfo": ""
+    }
+    ,
+    {
+        "productName": "Dentoclean Herbal Toothpaste ",
+        "productImage": "",
+        "photos": [
+          "",
+          "",
+          ""
+        ],
+        "description": "Remove dental plaque, tighten gums, provide resistant to gum swelling and bleeding. ",
+        "size": ["50 gm 100 gm"],
+        "types": "Paste",
+        "selectedSize": "50 gm 100 gm",
+        "quantity": { "$numberInt": "1" },
+        "price": { "$numberInt": "32 60" },
+        "productIngredients": [
+          "",
+          ""
+        ],
+        "directionForUse": "",
+        "additionalInfo": ""
+      }
+      ,
+      {
+          "productName": "Aloevera Soap",
+          "productImage": "",
+          "photos": [
+            "",
+            "",
+            ""
+          ],
+          "description": "It makes skin beautiful, soft and smooth.Give protection against UV radiation	",
+          "size": ["75 gm"],
+          "types": "Soap",
+          "selectedSize": "75 gm",
+          "quantity": { "$numberInt": "1" },
+          "price": { "$numberInt": "40" },
+          "productIngredients": [
+            "",
+            ""
+          ],
+          "directionForUse": "",
+          "additionalInfo": ""
+        }
+        ,
+        {
+            "productName": "Neem Soap",
+            "productImage": "",
+            "photos": [
+              "",
+              "",
+              ""
+            ],
+            "description": "Give Protection Against Skin Disease, Removes dead cells from skin, helps removes dirt from hair",
+            "size": ["75 gm"],
+            "types": "Soap",
+            "selectedSize": "75 gm",
+            "quantity": { "$numberInt": "1" },
+            "price": { "$numberInt": "40" },
+            "productIngredients": [
+              "",
+              ""
+            ],
+            "directionForUse": "",
+            "additionalInfo": ""
+          }
+          ,
+          {
+              "productName": "Sandal Soap",
+              "productImage": "",
+              "photos": [
+                "",
+                "",
+                ""
+              ],
+              "description": "It removes dirt and smell from skin,give protection against skin Disease.",
+              "size": ["75 gm"],
+              "types": "Soap",
+              "selectedSize": "75 gm",
+              "quantity": { "$numberInt": "1" },
+              "price": { "$numberInt": "45" },
+              "productIngredients": [
+                "",
+                ""
+              ],
+              "directionForUse": "",
+              "additionalInfo": ""
+            }
+            ,
+            {
+                "productName": "Gaumutra Ark",
+                "productImage": "",
+                "photos": [
+                  "",
+                  "",
+                  ""
+                ],
+                "description": "Helps in curing various health problems, Improves digestion, Increases immunity			",
+                "size": ["200 ml
+                "],
+                "types": "Liquid
+                ",
+                "selectedSize": "200 ml
+                ",
+                "quantity": { "$numberInt": "1" },
+                "price": { "$numberInt": "130
+                " },
+                "productIngredients": [
+                  "",
+                  ""
+                ],
+                "directionForUse": "",
+                "additionalInfo": ""
+              }
+              ,
+              {
+                  "productName": "Gaumutra Ark Tulsi			
+                  ",
+                  "productImage": "",
+                  "photos": [
+                    "",
+                    "",
+                    ""
+                  ],
+                  "description": "Cancer, Cough, Cold, Viral Infection,Sore Throat, Fever,It consists of vitamin C and antioxidants such as eugenol, which protects the heart from the harmful effects of free radicals			
+                  ",
+                  "size": ["200 ml
+                  "],
+                  "types": "Liquid
+                  ",
+                  "selectedSize": "200 ml
+                  ",
+                  "quantity": { "$numberInt": "1" },
+                  "price": { "$numberInt": "150
+                  " },
+                  "productIngredients": [
+                    "",
+                    ""
+                  ],
+                  "directionForUse": "",
+                  "additionalInfo": ""
+                }
+,
+{
+    "productName": "Gaumutra Ark Giloy			
+    ",
+    "productImage": "",
+    "photos": [
+      "",
+      "",
+      ""
+    ],
+    "description": "Fever, Cold, Cough, Dengue ,Viral Health Problems, consist  of potent active ingredient like tinosporin, palmetin, choline, ethanol which helps in boosting immunity.			
+    ",
+    "size": ["200 ml
+    "],
+    "types": "Liquid
+    ",
+    "selectedSize": "200 ml
+    ",
+    "quantity": { "$numberInt": "1" },
+    "price": { "$numberInt": "150
+    " },
+    "productIngredients": [
+      "",
+      ""
+    ],
+    "directionForUse": "",
+    "additionalInfo": ""
+  }
+,
+{
+    "productName": "Gaumutra Ark  Kanchanaar			
+    ",
+    "productImage": "",
+    "photos": [
+      "",
+      "",
+      ""
+    ],
+    "description": "Second Stage of Cancer, helps in weight loss,Stomach problems or mild gastritis			
+    ",
+    "size": ["200 ml
+    "],
+    "types": "Liquid
+    ",
+    "selectedSize": "200 ml
+    ",
+    "quantity": { "$numberInt": "1" },
+    "price": { "$numberInt": "180
+    " },
+    "productIngredients": [
+      "",
+      ""
+    ],
+    "directionForUse": "",
+    "additionalInfo": ""
+  }
+  ,
+  {
+      "productName": "Gaumutra Ark Sarpagandha			
+      ",
+      "productImage": "",
+      "photos": [
+        "",
+        "",
+        ""
+      ],
+      "description": "1st Stage of Cancer, Purifying Blood,Controling Hiigh BP, potent ingredient RESERPINE, which is well-known for its antipsychotic and antihypertensive action.			
+      ",
+      "size": ["200 ml
+      "],
+      "types": "Liquid
+      ",
+      "selectedSize": "200 ml
+      ",
+      "quantity": { "$numberInt": "1" },
+      "price": { "$numberInt": "180
+      " },
+      "productIngredients": [
+        "",
+        ""
+      ],
+      "directionForUse": "",
+      "additionalInfo": ""
+    }
+    ,
+    {
+        "productName": "Gaumutra Ark Neem			
+        ",
+        "productImage": "",
+        "photos": [
+          "",
+          "",
+          ""
+        ],
+        "description": "Blood Purification, Skin Desease, Itching,Boosts Immunity, consist of potent isomeldenin, nimbin, nimbinene which helps in malarie, fever.			
+        ",
+        "size": ["200 ml
+
+        "],
+        "types": "Liquid
+
+        ",
+        "selectedSize": "200 ml
+        ",
+        "quantity": { "$numberInt": "1" },
+        "price": { "$numberInt": "150
+        " },
+        "productIngredients": [
+          "",
+          ""
+        ],
+        "directionForUse": "",
+        "additionalInfo": ""
+      }
+,
+{
+    "productName": "Gaumutra Ark Parijaat			
+    ",
+    "productImage": "",
+    "photos": [
+      "",
+      "",
+      ""
+    ],
+    "description": "Helps in artharitis, sciatica, back & body ache, knee&joint problems, Boosts Immunity, contains potent  D-mannitol, β-sitosterol, flavanol glycosides, astragalin which helps in  arthritis			
+    ",
+    "size": ["200 ml
+    "],
+    "types": "Liquid
+    ",
+    "selectedSize": "200 ml
+    ",
+    "quantity": { "$numberInt": "1" },
+    "price": { "$numberInt": "150
+    " },
+    "productIngredients": [
+      "",
+      ""
+    ],
+    "directionForUse": "",
+    "additionalInfo": ""
+  }
+  ,
+  {
+      "productName": "Gaumutra Ark Gorakhmundi			
+      ",
+      "productImage": "",
+      "photos": [
+        "",
+        "",
+        ""
+      ],
+      "description": "Psoraisis problem, Boosts Immunity, used in tuberculous glands, indigestion, bronchitis, spleen diseases, elephantiasis, anaemia, pain in the uterus and vagina, piles, epileptic convulsions, asthma, leukoderma, dysentery, vomiting			
+      ",
+      "size": ["200 ml
+      "],
+      "types": "Liquid
+      ",
+      "selectedSize": "200 ml
+      ",
+      "quantity": { "$numberInt": "1" },
+      "price": { "$numberInt": "150
+      " },
+      "productIngredients": [
+        "",
+        ""
+      ],
+      "directionForUse": "",
+      "additionalInfo": ""
+    }
+    ,
+    {
+        "productName": "Gaumutra Ark Medhasvi			
+        ",
+        "productImage": "",
+        "photos": [
+          "",
+          "",
+          ""
+        ],
+        "description": "Helps in weight loss, Boosts Immunity, Cardioprotective activity, Antioxidant			
+        ",
+        "size": ["200 ml
+        "],
+        "types": "Liquid
+        ",
+        "selectedSize": "200 ml
+        ",
+        "quantity": { "$numberInt": "1" },
+        "price": { "$numberInt": "150
+        " },
+        "productIngredients": [
+          "",
+          ""
+        ],
+        "directionForUse": "",
+        "additionalInfo": ""
+      }
+      ,
+      {
+          "productName": "Gaumutra Ark Gokhuru			
+          ",
+          "productImage": "",
+          "photos": [
+            "",
+            "",
+            ""
+          ],
+          "description": "Helps in relief from Kidney related problems like stone, Boosts Immunity, removes mucin attached to stones with flushing of stone out of the body.			
+          ",
+          "size": ["200 ml
+          "],
+          "types": "Liquid
+          ",
+          "selectedSize": "200 ml
+          ",
+          "quantity": { "$numberInt": "1" },
+          "price": { "$numberInt": "150
+          " },
+          "productIngredients": [
+            "",
+            ""
+          ],
+          "directionForUse": "",
+          "additionalInfo": ""
+        }
+        ,
+        {
+            "productName": "Gaumutra Ark Kalmegh			
+            ",
+            "productImage": "",
+            "photos": [
+              "",
+              "",
+              ""
+            ],
+            "description": "Reduses fever and stomach cramps,Boosts Immunity, it protects the liver against damage caused by free radicals due to its antioxidant and anti-inflammatory activity.			
+            ",
+            "size": ["200 ml
+            "],
+            "types": "Liquid
+            ",
+            "selectedSize": "200 ml
+            ",
+            "quantity": { "$numberInt": "1" },
+            "price": { "$numberInt": "150
+            " },
+            "productIngredients": [
+              "",
+              ""
+            ],
+            "directionForUse": "",
+            "additionalInfo": ""
+          }
+          ,
+          {
+              "productName": "Gaumutra Ark Triphala			
+              ",
+              "productImage": "",
+              "photos": [
+                "",
+                "",
+                ""
+              ],
+              "description": "Helps in digestion, reduces constipation,Boosts Immunity, it is a cornerstone of gastrointestinal and rejuvenative treatment			
+              ",
+              "size": ["200 ml
+              "],
+              "types": "Liquid
+              ",
+              "selectedSize": "200 ml
+              ",
+              "quantity": { "$numberInt": "1" },
+              "price": { "$numberInt": "150
+              " },
+              "productIngredients": [
+                "",
+                ""
+              ],
+              "directionForUse": "",
+              "additionalInfo": ""
+            }
+            ,
+            {
+                "productName": "Gaumutra Ark Saptharangi			
+                ",
+                "productImage": "",
+                "photos": [
+                  "",
+                  "",
+                  ""
+                ],
+                "description": "Helpful in diabetes control,Boosts immunity, Arthritis.			
+                ",
+                "size": ["200 ml
+                "],
+                "types": "Liquid
+                ",
+                "selectedSize": "200 ml
+                ",
+                "quantity": { "$numberInt": "1" },
+                "price": { "$numberInt": "150
+                " },
+                "productIngredients": [
+                  "",
+                  ""
+                ],
+                "directionForUse": "",
+                "additionalInfo": ""
+              }
+              ,
+              {
+                  "productName": "Gaumutra Ark Arjun			
+                  ",
+                  "productImage": "",
+                  "photos": [
+                    "",
+                    "",
+                    ""
+                  ],
+                  "description": "Balances Colostrol, controls blood pressure,Boosts Immunity, used as a cardiotonic in heart failure, ischemic, cardiomyopathy, atherosclerosis, myocardium necrosis			
+                  ",
+                  "size": ["200 ml
+                  "],
+                  "types": "Liquid
+                  ",
+                  "selectedSize": "200 ml
+                  ",
+                  "quantity": { "$numberInt": "1" },
+                  "price": { "$numberInt": "180
+                  " },
+                  "productIngredients": [
+                    "",
+                    ""
+                  ],
+                  "directionForUse": "",
+                  "additionalInfo": ""
+                }
+                ,
+                {
+                    "productName": "Gaumutra Ark Pashanbhed			
+                    ",
+                    "productImage": "",
+                    "photos": [
+                      "",
+                      "",
+                      ""
+                    ],
+                    "description": "Kidney & Gall Bladder stone problems, Boosts Immunity, also used mainly as diuretic and lithotropic for removal of stones			
+                    ",
+                    "size": ["200 ml
+                    "],
+                    "types": "Liquid
+                    ",
+                    "selectedSize": "200 ml
+                    ",
+                    "quantity": { "$numberInt": "1" },
+                    "price": { "$numberInt": "150
+                    " },
+                    "productIngredients": [
+                      "",
+                      ""
+                    ],
+                    "directionForUse": "",
+                    "additionalInfo": ""
+                  }
+                  ,
+                  {
+                      "productName": "Gaumutra Ark Punarnava			
+                      ",
+                      "productImage": "",
+                      "photos": [
+                        "",
+                        "",
+                        ""
+                      ],
+                      "description": "Urinary tract infection, Kidney problems,Prostate problems, Boosts Immunity, also  used for cooling, astringent to bowels, useful in biliousness, blood impurities, leucorrhoea, anaemia, inflammations, heart diseases, asthma			
+                      ",
+                      "size": ["200 ml
+                      "],
+                      "types": "Liquid
+                      ",
+                      "selectedSize": "200 ml
+                      ",
+                      "quantity": { "$numberInt": "1" },
+                      "price": { "$numberInt": 150
+                      },
+                      "productIngredients": [
+                        "",
+                        ""
+                      ],
+                      "directionForUse": "",
+                      "additionalInfo": ""
+                    }
+                    ,
+                    {
+                        "productName": "Gaumutra Ark Ashwagandha			
+                        ",
+                        
+                      
+                        "productImage": "",
+                        "photos": [
+                          "",
+                          "",
+                          ""
+                        ],
+                        "description": "Helps in increasing stamina, boosts testosterone, boosts immunity			
+                        ",
+                        "size": ["200 ml
+                        "],
+                        "types": "Liquid
+                        ",
+                        "selectedSize": "200 ml
+                        ",
+                        "quantity": { "$numberInt": "1" },
+                        "price": { "$numberInt": "150
+                        " },
+                        "productIngredients": [
+                          "",
+                          ""
+                        ],
+                        "directionForUse": "",
+                        "additionalInfo": ""
+                      }
+                      ,
+                      {
+                          "productName": "Panchagavya Mahadhrut			
+                          ",
+                          "productImage": "",
+                          "photos": [
+                            "",
+                            "",
+                            ""
+                          ],
+                          "description": "Cancer, Increasing Mental Health, Immunity boosting			
+                          ",
+                          "size": ["100 ml
+                          "],
+                          "types": "Liquid
+                          ",
+                          "selectedSize": "100 ml
+                          ",
+                          "quantity": { "$numberInt": "1" },
+                          "price": { "$numberInt": "2000
+                          " },
+                          "productIngredients": [
+                            "",
+                            ""
+                          ],
+                          "directionForUse": "",
+                          "additionalInfo": ""
+                        }
+                        ,
+                        {
+                            "productName": "Panchagavya Nasal Drops			
+                            ",
+                            "productImage": "",
+                            "photos": [
+                              "",
+                              "",
+                              ""
+                            ],
+                            "description": "Headache, Sinus, Snoring, Migrane,Cough, Cold, Asthma, Allergy			
+                            ",
+                            "size": ["15 ml
+                            "],
+                            "types": "Liquid
+                            ",
+                            "selectedSize": "15 ml
+                            ",
+                            "quantity": { "$numberInt": "1" },
+                            "price": { "$numberInt": "300
+                            " },
+                            "productIngredients": [
+                              "",
+                              ""
+                            ],
+                            "directionForUse": "",
+                            "additionalInfo": ""
+                          }
+                          ,
+                          {
+                              "productName": "Gaumay Assav			
+                              ",
+                              "productImage": "",
+                              "photos": [
+                                "",
+                                "",
+                                ""
+                              ],
+                              "description": "Asthama, Stomach Ache, Cough, Cold,for Adults & Children			
+                              ",
+                              "size": ["100 ml
+                              "],
+                              "types": "Liquid
+                              ",
+                              "selectedSize": "100 ml
+                              ",
+                              "quantity": { "$numberInt": "1" },
+                              "price": { "$numberInt": "120
+                              " },
+                              "productIngredients": [
+                                "",
+                                ""
+                              ],
+                              "directionForUse": "",
+                              "additionalInfo": ""
+                            }
+                            ,
+                            {
+                                "productName": "Gavya Psoraisis Oil			
+                                ",
+                                "productImage": "",
+                                "photos": [
+                                  "",
+                                  "",
+                                  ""
+                                ],
+                                "description": "Helps in Psoraisis desease			
+                                ",
+                                "size": ["100 ml
+                                "],
+                                "types": "Liquid
+                                ",
+                                "selectedSize": "100 ml
+                                ",
+                                "quantity": { "$numberInt": "1" },
+                                "price": { "$numberInt": "250
+                                " },
+                                "productIngredients": [
+                                  "",
+                                  ""
+                                ],
+                                "directionForUse": "",
+                                "additionalInfo": ""
+                              }
+                              ,
+                              {
+                                  "productName": "Gauamruttam Colostrum Caps			
+                                  ",
+                                  "productImage": "",
+                                  "photos": [
+                                    "",
+                                    "",
+                                    ""
+                                  ],
+                                  "description": "Immunity boosting, Pregnancy Health			
+                                  ",
+                                  "size": ["60 Cap
+                                  "],
+                                  "types": "Capsules
+                                  ",
+                                  "selectedSize": "60 Cap
+                                  ",
+                                  "quantity": { "$numberInt": "1" },
+                                  "price": { "$numberInt": "1200
+                                  " },
+                                  "productIngredients": [
+                                    "",
+                                    ""
+                                  ],
+                                  "directionForUse": "",
+                                  "additionalInfo": ""
+                                }
+                                ,
+                                {
+                                    "productName": "Amrutdhara			
+                                    ",
+                                    "productImage": "",
+                                    "photos": [
+                                      "",
+                                      "",
+                                      ""
+                                    ],
+                                    "description": "Migrane, Headache, Cold,Stomach Ache			
+                                    ",
+                                    "size": ["6 ml
+                                    "],
+                                    "types": "Liquid
+                                    ",
+                                    "selectedSize": "6 ml
+                                    ",
+                                    "quantity": { "$numberInt": "1" },
+                                    "price": { "$numberInt": "120
+                                    " },
+                                    "productIngredients": [
+                                      "",
+                                      ""
+                                    ],
+                                    "directionForUse": "",
+                                    "additionalInfo": ""
+                                  }
+,
+{
+    "productName": "Tulsi Drops			
+    ",
+    "productImage": "",
+    "photos": [
+      "",
+      "",
+      ""
+    ],
+    "description": "Cancer, Cough, Cold, Viral Infection			
+    ",
+    "size": ["10 ml
+    "],
+    "types": "Liquid
+    ",
+    "selectedSize": "10 ml
+    ",
+    "quantity": { "$numberInt": "1" },
+    "price": { "$numberInt": "75
+" },
+    "productIngredients": [
+      "",
+      ""
+    ],
+    "directionForUse": "",
+    "additionalInfo": ""
+  }
+  ,
+  {
+      "productName": "",
+      "productImage": "",
+      "photos": [
+        "",
+        "",
+        ""
+      ],
+      "description": "",
+      "size": [""],
+      "types": "",
+      "selectedSize": "",
+      "quantity": { "$numberInt": "1" },
+      "price": { "$numberInt": "" },
+      "productIngredients": [
+        "",
+        ""
+      ],
+      "directionForUse": "",
+      "additionalInfo": ""
+    }
+    ,
+    {
+        "productName": "",
+        "productImage": "",
+        "photos": [
+          "",
+          "",
+          ""
+        ],
+        "description": "",
+        "size": [""],
+        "types": "",
+        "selectedSize": "",
+        "quantity": { "$numberInt": "1" },
+        "price": { "$numberInt": "" },
+        "productIngredients": [
+          "",
+          ""
+        ],
+        "directionForUse": "",
+        "additionalInfo": ""
+      }
+,
+{
+    "productName": "",
+    "productImage": "",
+    "photos": [
+      "",
+      "",
+      ""
+    ],
+    "description": "",
+    "size": [""],
+    "types": "",
+    "selectedSize": "",
+    "quantity": { "$numberInt": "1" },
+    "price": { "$numberInt": "" },
+    "productIngredients": [
+      "",
+      ""
+    ],
+    "directionForUse": "",
+    "additionalInfo": ""
+  }
+  ,
+  {
+      "productName": "",
+      "productImage": "",
+      "photos": [
+        "",
+        "",
+        ""
+      ],
+      "description": "",
+      "size": [""],
+      "types": "",
+      "selectedSize": "",
+      "quantity": { "$numberInt": "1" },
+      "price": { "$numberInt": "" },
+      "productIngredients": [
+        "",
+        ""
+      ],
+      "directionForUse": "",
+      "additionalInfo": ""
+    }
+    ,
+    {
+        "productName": "",
+        "productImage": "",
+        "photos": [
+          "",
+          "",
+          ""
+        ],
+        "description": "",
+        "size": [""],
+        "types": "",
+        "selectedSize": "",
+        "quantity": { "$numberInt": "1" },
+        "price": { "$numberInt": "" },
+        "productIngredients": [
+          "",
+          ""
+        ],
+        "directionForUse": "",
+        "additionalInfo": ""
+      }
+      ,
+      {
+          "productName": "",
+          "productImage": "",
+          "photos": [
+            "",
+            "",
+            ""
+          ],
+          "description": "",
+          "size": [""],
+          "types": "",
+          "selectedSize": "",
+          "quantity": { "$numberInt": "1" },
+          "price": { "$numberInt": "" },
+          "productIngredients": [
+            "",
+            ""
+          ],
+          "directionForUse": "",
+          "additionalInfo": ""
+        }
+,
+{
+    "productName": "",
+    "productImage": "",
+    "photos": [
+      "",
+      "",
+      ""
+    ],
+    "description": "",
+    "size": [""],
+    "types": "",
+    "selectedSize": "",
+    "quantity": { "$numberInt": "1" },
+    "price": { "$numberInt": "" },
+    "productIngredients": [
+      "",
+      ""
+    ],
+    "directionForUse": "",
+    "additionalInfo": ""
+  }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+]

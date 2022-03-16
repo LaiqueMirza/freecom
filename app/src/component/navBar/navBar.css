@@ -1,5 +1,11 @@
+.navBarMainDiv{
+    max-height: 96px;
+}
+
+
+
 .navBarNav{
-    background-color: indianred;
+    background-color: #61ca59;
     margin: 0;
 }
 .navBarDiv{
@@ -10,12 +16,11 @@
     margin: 0 auto;
     padding: 20px;
 }
-
 /* .navBarImgDiv{
     width: 10px;
 } */
 .navBarImg{
-    width: 100px;
+    width: 55px;
     margin:-30px;
 }
 
@@ -132,5 +137,10 @@
     }
     .navBarItems{
         display: none;
+    }
+    .navBarCartImageDiv{
+        font-size: 8px;
+        padding: 3px 7px;
+        border-radius: 2.5px;
     }
 }

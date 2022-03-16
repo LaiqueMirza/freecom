@@ -51,26 +51,7 @@ const Shop = ({
 <section className="clothing-section">
 
 <h3 className="header-clothing" style={{textAlign: 'center'}}>MEDICINES</h3>
-
-{/* <div className="clothing" id="clothing"> */}
-
-       {/* <InfiniteScroll
-       className="clothing"
-       id="clothing"
-       style={{ overflow:"hidden" }}
-          dataLength={products?.length}
-          next={fetchProducts}
-          hasMore={hasMore}
-          loader={<><div className="lds-facebook"><div></div><div></div><div></div></div></>}
-          endMessage={
-            <h3 style={{ textAlign: 'center', marginLeft:"50px" }}>
-              <br/>
-              Yay! You have seen it all
-            </h3>
-          }
-        >
-      </InfiniteScroll> */}
-      <Space direction="horizontal" wrap align="center">
+      <Space direction="horizontal" wrap>
         
           {products?.map((product) => (
             <Products

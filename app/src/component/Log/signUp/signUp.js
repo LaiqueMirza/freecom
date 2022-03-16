@@ -7,7 +7,7 @@ import { loginUser, incrementCart } from "../../redux/action/index";
 import { Link } from "react-router-dom";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import "../logIn/logIn.css";
-import { Card } from 'antd';
+import { Card, message } from 'antd';
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -38,27 +38,27 @@ const SignUp = () => {
       })
       .then((res) => {
         if(res.status == 206){
-         return alert(res.data)
+         return message.info(res.data)
           // Email or Phone Number is already there. Go Login
         }
         setLoginData(res.data);
         setLogin(true);
       })
       .catch((err) => {
-        alert("Could Not Add You, Try Again")
+        message.info("Could Not Add You, Try Again")
       });
    
           }else {
-            alert("Name Or Gender Is Not Provided")
+            message.info("Name Or Gender Is Not Provided")
           }
         }else {
-          alert("Phone Number Is Not Right, It Should Have 10 digits")
+          message.info("Phone Number Is Not Right, It Should Have 10 digits")
         }
       }else {
-        alert("Password Is Not Right")
+        message.info("Password Is Not Right")
       }
     } else {
-      alert("Email Is Not Right")
+      message.info("Email Is Not Right")
     }
   
   };

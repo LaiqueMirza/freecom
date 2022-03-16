@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./addressSection1.css";
 import axios from "axios";
 import { useHistory } from "react-router";
+import { message } from "antd";
 
 
 const AddressSection1 = () => {
@@ -20,7 +21,7 @@ const AddressSection1 = () => {
     axios.post("/users",{
       userData
     }).then(res =>{
-    }).catch(err =>alert("Could Not Add The Address"))
+    }).catch(err =>message.info("Could Not Add The Address"))
       sessionStorage.setItem("userInfo", JSON.stringify(userData));
     history.push("/checkout")
   }

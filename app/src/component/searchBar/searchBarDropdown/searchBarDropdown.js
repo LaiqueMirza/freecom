@@ -61,7 +61,9 @@ const SearchBarDropdown = (props) => {
             to="/searchResult"
             style={{ textDecoration: "none", color: "black" }}
           > 
+              <li>
               {option}
+                </li>
            </Link>
             </button>
           );

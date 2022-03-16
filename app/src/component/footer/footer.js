@@ -1,89 +1,56 @@
 import React from "react";
 import "./footer.css";
-import { Row, Col } from "antd";
+import { Row, Col,Space,Card } from "antd";
 import logoNav from "../../img/CompanyLogo.jpeg";
 
 const Footer = () => {
   return (
-    <Row gutter={16} className="footer-main-div" justify="center">
-      <Col xs={24} sm={24} lg={12} className="responsive-margin">
-        <Row>
-          <Col style={{'margin-right':'50px'}}>
+    <div className="footerMainDiv">
+<hr/>
+    <Space className="footerMainSpace">
+
+    <Card  bordered={false} className="footerCards">
+
             <img width="130" height="100" src={logoNav} alt="nav-logo" />
-          </Col>
-          <Col>
-            <Row>
+             </Card>
+    <Card  bordered={false} className="footerCards">
+
               <h3>
-                <bold className="orange">AMRUTTAM </bold>
-                <bold className="green"> TATTVA PVT. LTD.</bold>
+                <span className="orange">AMRUTTAM </span>
+                <span className="green"> TATTVA PVT. LTD.</span>
+              
               </h3>
-            </Row>
-            <Row>
               {" "}
               <h5>(IN ASSOCIATION WITH</h5>
-            </Row>
-            <Row>
               {" "}
               <h5>SHREE SWAMINARAYAN GURUKUL</h5>
-            </Row>
-            <Row>
               {" "}
               <h5>HERBAL AUSHADHAM - RAJKOT)</h5>
-            </Row>
-          </Col>
-        </Row>
-      </Col>
-      <Col xs={24} sm={12} lg={6} className="responsive-margin">
-        <Row>
-          <h4>CORPORATE OFFICE</h4>
-        </Row>
-        <Row>
-          <h5>203, Shivram Square,</h5>
-        </Row>
-        <Row>
-          <h5>Sahar road, Adheri (East)</h5>
-        </Row>
-        <Row>
-          <h5>Mumbai - 400 099,</h5>
-        </Row>
-        <Row>
-          <h5>Maharastra.</h5>
-        </Row>
-        <Row>
-          <h4>Customer Care No. :</h4>
-        </Row>
-        <Row>
-          <h4>+91 98 53 49 75 34</h4>
-        </Row>
-      </Col>
-      <Col xs={24} sm={12} lg={6} className="responsive-margin">
-        <Row>
-          <h4>BRANCH OFFICE</h4>
-        </Row>
-        <Row>
-          <h5>B-104, Popular Center,</h5>
-        </Row>
-        <Row>
-          <h5>Opp. Brand Factory,</h5>
-        </Row>
-        <Row>
-          <h5>Near Shyamal Junction,</h5>
-        </Row>
-        <Row>
-          <h5>Satelite Ahmedabad,</h5>
-        </Row>
-        <Row>
-          <h5>Gujarat - 380 015.</h5>
-        </Row>
+</Card>
+<Card  bordered={false} className="footerCards">
 
-        <Row>
+          <h4>CORPORATE OFFICE</h4>
+          <h5>203, Shivram Square,</h5>
+          <h5>Sahar road, Adheri (East)</h5>
+          <h5>Mumbai - 400 099,</h5>
+          <h5>Maharastra.</h5>
           <h4>Customer Care No. :</h4>
-        </Row>
-        <Row>
+          <h4>+91 98 53 49 75 34</h4>
+</Card>
+<Card  bordered={false} className="footerCards">
+
+          <h4>BRANCH OFFICE</h4>
+          <h5>B-104, Popular Center,</h5>
+          <h5>Opp. Brand Factory,</h5>
+          <h5>Near Shyamal Junction,</h5>
+          <h5>Satelite Ahmedabad,</h5>
+          <h5>Gujarat - 380 015.</h5>
+
+          <h4>Customer Care No. :</h4>
           <h4>+91 93 28 20 99 98</h4>
-        </Row>
-      </Col>
-    </Row>
+</Card>
+    </Space>
+    </div>
   );
 };
 
