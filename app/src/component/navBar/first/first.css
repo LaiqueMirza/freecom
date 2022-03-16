@@ -1,0 +1,47 @@
+.navBarNavFirst{
+    background-color: #61ca59;
+    margin: 0;
+}
+.navBarDivFirst{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #61ca59;
+}
+.navBarFirstSearch{
+    margin: auto;
+    width: 50%;
+}
+.navBarCartImageDivFirst{
+font-size: 22px;
+}
+
+.navBarCartFirst{
+width: 26px;
+}
+
+.navBarImg{
+    width: 55px;
+    margin:-30px;
+}
+
+.navBarCountsDivFirst{
+    background-color: #fff;
+    position: relative;
+    border-radius: 7px;
+    bottom: 33px;
+    right: -10px;
+    padding: 0 6px;
+    margin: -6px 8px;
+    height: 15px;
+}
+
+.navBarCountsFirst{
+    margin: 0 auto;
+    height: 12px;
+    font-size: 14px;
+    position: relative;
+    bottom: 20px;
+    right: 0px;
+}

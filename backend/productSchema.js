@@ -19,7 +19,7 @@ import mongoose from 'mongoose';
     selectedSize:String,
     price: Number,
     quantity: Number,
-    productIngredients:String,
+    productIngredients: [{ type: String }],
     directionForUse:String,
     additionalInfo:String,
     date: {
@@ -30,6 +30,4 @@ import mongoose from 'mongoose';
 
 const Product = new mongoose.model("Product", productsSchema);
 
-
-export default Product
-
+export default Product;

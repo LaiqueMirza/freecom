@@ -1,0 +1,20 @@
+{
+  "userAddress": { "addresses": [] },
+  "userOrders": { "orderedItems": [] },
+  "userInfo": {
+    "userName": "LAIQUE MIRZA",
+    "email": "adminamruttam@gmail.com",
+    "password": "$2a$10$JzuFpaARYJBTj1dX19nA7uUa5x49EI7xz9OlqUDVTv4DQtlN5V23q",
+    "phoneNumberMain": { "$numberDouble": "9324684231.0" },
+    "gender": "Male",
+    "date": { "$date": { "$numberLong": "1643551834747" } }
+  },
+  "userCart": { "countOfCart": { "$numberInt": "0" }, "itemsInCart": [] },
+  "tokens": [
+    {
+      "_id": { "$oid": "61f69c5a44c8912e14aaa56b" },
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWY2OWM1YTQ0Yzg5MTJlMTRhYWE1NmEiLCJpYXQiOjE2NDM1NTE4MzR9.7iLMzUx7N-ywBUYPBi1gksguWwO8Ssatet1xLieZcwg"
+    }
+  ],
+  "__v": { "$numberInt": "0" }
+}

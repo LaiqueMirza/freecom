@@ -11,39 +11,37 @@ import './checkoutCart.css'
 
 
 
-const CheckoutCart = (props) => {
-  const {targetProduct} = props;
+const CheckoutCart = ({targetProduct}) => {
+const totalPrice = targetProduct?.quantity * targetProduct?.price;
+
     return ( 
         <section className="checkoutCart-main-sectionProduct" id="main-section">
          <div className="checkoutCart-img-divProduct" id="img-div">
-    <img className="checkoutCart-img-mainProduct" src={targetProduct.photos[0]} alt="" />
+    <img className="checkoutCart-img-mainProduct" src={targetProduct?.photos[0]} alt="" />
   </div>
   <div className="checkoutCart-body-partProduct">
       <div className="checkoutCart-name-brand-div">
         <h4 className="checkoutCart-mainheadingProduct">
-                {targetProduct.productName}
-        </h4>
-        <h4 className="checkoutCart-brandProduct">
-        {targetProduct.brand}
+                {targetProduct?.productName}
         </h4>
       </div>
       <div className="checkoutCart-price-button-div">
       <h4 className="checkoutCart-size">
-        Size : {targetProduct.selectedSize}
+        SIZE : {targetProduct?.selectedSize}
     </h4>
    
  
     <h4 className="checkoutCart-quantity">
-        Qty : 
+        QTY : 
     </h4>
    
     <h4 className="checkoutCart-quantity-number">
-    {targetProduct.quantity}
+    {targetProduct?.quantity}
     </h4>
   
     </div>
     <h4 className="checkoutCart-price">
-    ₹  {targetProduct.price}
+    PRICE : {targetProduct?.quantity} X {targetProduct?.price} = {totalPrice} ₹
     </h4>
   </div> 
 

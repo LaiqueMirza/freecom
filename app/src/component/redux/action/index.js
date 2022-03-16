@@ -14,3 +14,7 @@ export const loginUser=(data) => ({
     type: "LOGIN_USER",
     payload: data
 })
+export const loginAdmin=(data) => ({
+    type: "LOGIN_ADMIN",
+    payload: data
+})

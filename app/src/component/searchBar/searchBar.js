@@ -44,13 +44,11 @@ const emptySearchValue =()=> {
   return history.push("/searchResult");
 }
 }
-
 const onSearchIconClick =(e) =>{
-  dispatch(searchValue(targetvalue));
+dispatch(searchValue(targetvalue));
   setsearchValues("")
   setshowInputRef(false)
   return history.push("/searchResult")
-
 } 
 // tolowercase
 //  const defaultOptions = [];
@@ -59,11 +57,9 @@ const onSearchIconClick =(e) =>{
 //   products.map(product => defaultOptions.push(product.productName.toLowerCase()))
 //   // console.log(defaultOptions);
 //  }
- 
  const onInputChange = (event) => {
-   
     setOptions(
-      defaultOptions.filter((option) => option.includes(event.target.value.toLowerCase()))
+      defaultOptions?.filter((option) => option.includes(event.target.value.toLowerCase()))
     );
     setsearchValues(event.target.value)
     setshowInputRef(true)

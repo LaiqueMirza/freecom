@@ -13,6 +13,11 @@ import AddressSection1 from "./component/addressSection/addressSection1/addressS
 import SelectAddress from "./component/addressSection/selectAddress/selectAddress";
 import Footer from "./component/footer/footer";
 import RenderSearchResult from "./component/renderSearchResult/renderSearchResult";
+import ProtectedRoute from "./component/protectedRoute";
+import AdminMain from  "./component/admin/Admin";
+import OrderSuccess from  "./component/orderSuccess/orderSuccess";
+import { message } from "antd";
+
 import axios from "axios";
 import "./App.css";
 
@@ -30,9 +35,9 @@ function App() {
         setProducts(res.data.result);
       })
       .catch((err) => {
-        console.log(err,"Something went wrong")
-        // alert("Something went wrong")
-      });
+        message.info('Error, refresh the page');
+    setLoading(false);
+  });
     setLoading(false);
   }, []);
 console.log(products,"frontend products");
@@ -80,15 +85,17 @@ console.log(products,"frontend products");
           />
           <Route path="/logIn" component={LogIn} />
           <Route path="/signUp" component={SignUp} />
-          <Route path="/cart" component={MainCart} />
-          <Route path="/checkout" component={Checkout} />
-          <Route path="/address" component={AddressSection1} />
-          <Route path="/addressNew" component={SelectAddress} />
           <Route path="/product" component={Product} />
           <Route
             path="/searchResult"
             component={() => <RenderSearchResult products={products} />}
           />
+                <ProtectedRoute path="/cart" component={MainCart} />
+                <ProtectedRoute path="/checkout" component={Checkout} />
+                <ProtectedRoute path="/address" component={AddressSection1} />
+                <ProtectedRoute path="/addressNew" component={SelectAddress} />
+                <ProtectedRoute path="/admin" component={AdminMain} />
+                <ProtectedRoute path="/orderSuccess" component={OrderSuccess} />
           <Route
             component={() => (
               <h2 style={{ textAlign: "center" }}>
@@ -97,9 +104,7 @@ console.log(products,"frontend products");
             )}
           />
         </Switch>
-        <div className="footerDiv">
           <Footer />
-        </div>
       </div>
     </HashRouter>
   );

@@ -3,15 +3,16 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { loginUser, incrementCart } from "../../redux/action/index";
+import { loginUser, loginAdmin, incrementCart } from "../../redux/action/index";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import "./logIn.css";
-import { Card } from 'antd';
+import { Card, message } from 'antd';
 const LogIn = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [login, setLogin] = useState(false);
+  const [loginAdminState, setLoginAdminState] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const [loginData, setLoginData] = useState();
   const [email, setEmail] = useState("");
@@ -22,27 +23,37 @@ const LogIn = () => {
   const submitForm = () => {
     if(email && email.length > 5 && email.includes(".") && password){
 
-    
-    axios
-      .post("/login", {
-        email,
-        password,
-      })
-      .then((res) => {
-        setLoginData(res.data);
-        setLogin(true);
-      })
-      .catch((err) => alert("wrong details, User Not Found"));
-    } else {
-      alert("PLease Fill All Right Details")
+    if(email === "adminamruttam@gmail.com" && password==="Amrutt@m2022"){
+      setLoginAdminState(true)
     }
-  };
-
-  if (login) {
+    axios
+    .post("/login", {
+      email,
+      password,
+    })
+    .then((res) => {
+      setLoginData(res.data);
+      setLogin(true);
+    })
+    .catch((err) => message.info("wrong details, User Not Found"));
+  } else {
+    message.info("PLease Fill All Right Details")
+  }
+};
+if(loginAdminState && login){
+    sessionStorage.setItem("adminAcc", true);
     sessionStorage.setItem("login", true);
     sessionStorage.setItem("userInfo", JSON.stringify(loginData));
     dispatch(loginUser());
-    let countOfCart = loginData.userCart.countOfCart;
+    let countOfCart = loginData?.userCart?.countOfCart;
+    dispatch(incrementCart(countOfCart));
+    history.push("/admin");
+
+}else if (login) {
+    sessionStorage.setItem("login", true);
+    sessionStorage.setItem("userInfo", JSON.stringify(loginData));
+    dispatch(loginUser());
+    let countOfCart = loginData?.userCart?.countOfCart;
     dispatch(incrementCart(countOfCart));
     const loginPath = JSON.parse(sessionStorage.getItem("loginPath"));
     console.log(loginPath);

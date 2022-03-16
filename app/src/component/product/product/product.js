@@ -5,7 +5,7 @@ import axios from "axios";
 import { incrementCart, selectedSize } from "../../redux/action/index";
 import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { Button } from "antd";
+import { Button, message } from "antd";
 
 const Product = () => {
   const [loginCheck, setLoginCheck] = useState(false);
@@ -23,7 +23,7 @@ const Product = () => {
 
   const incrementQuantity = () => {
     if (quantity >= 10) {
-      alert("You can't add more than 10");
+      message.info("You can't add more than 10");
       return;
     }
 
@@ -53,7 +53,7 @@ const Product = () => {
 
   function incrementingTheCartCount() {
     if (!loginCheck) {
-      alert("SignUp or LogIn First");
+      message.info("SignUp or LogIn First");
       sessionStorage.setItem(
         "loginPath",
         JSON.stringify(history.location.pathname)
@@ -90,7 +90,7 @@ const Product = () => {
       //   for(let i = 0; i< lengthOfItemsInCart; i++){
       //     if(theAddedItems[i]._id === targetProduct?._id && theAddedItems[i].selectedSize === checkSelectedSize){
       //       console.log("Product Is already there in cart");
-      //       alert("Same Item is already There in Cart")
+      //       message.info("Same Item is already There in Cart")
 
       //       // console.log(checkSelectedSize)
       //       // console.log(theAddedItems[i].selectedSize)
@@ -131,7 +131,7 @@ const Product = () => {
             userData,
           })
           .then(() => {})
-          .catch((err) => alert("Could Not Add To Cart"));
+          .catch((err) => message.info("Could Not Add To Cart"));
 
         sessionStorage.setItem("userInfo", JSON.stringify(userData));
       } else {
@@ -142,7 +142,7 @@ const Product = () => {
             itemsInCart[i]?._id === targetProduct?._id &&
             itemsInCart[i]?.selectedSize === checkSelectedSize
           ) {
-            alert("Same product is already there in cart");
+            message.info("Same product is already there in cart");
 
             thereInCart = true;
           }
@@ -159,7 +159,7 @@ const Product = () => {
               userData,
             })
             .then(() => {})
-            .catch((err) => alert("Could Not Add To Cart"));
+            .catch((err) => message.info("Could Not Add To Cart"));
 
           sessionStorage.setItem("userInfo", JSON.stringify(userData));
         }
@@ -222,7 +222,7 @@ const Product = () => {
 
   const buyNowClick = () => {
     if (!loginCheck) {
-      alert("SignUp or LogIn First");
+      message.info("SignUp or LogIn First");
       sessionStorage.setItem(
         "loginPath",
         JSON.stringify(history.location.pathname)
@@ -235,7 +235,7 @@ const Product = () => {
   };
   return (
     <>
-      <section className="main-sectionProduct" id="main-section">
+      <section className="main-sectionProduct" id="main-section" key={targetProduct?._id}>
         <div className="img-divProduct" id="img-div">
           <img
             className="img-mainProduct"

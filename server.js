@@ -3,6 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import Product from "./backend/productSchema.js";
 import User from "./backend/usersSchema.js";
+import Order from "./backend/orderSchema.js";
 import Razorpay from "razorpay";
 import bcrypt from "bcryptjs";
 import cors from "cors";
@@ -18,10 +19,7 @@ app.use(cors());
 app.use(express.json({limit:"30mb", extended:true}));
 app.use(express.urlencoded({limit:"30mb", extended:true}));
 app.use(cookieParser())
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
+
 
 
 const PORT = process.env.PORT || 5000;
@@ -37,33 +35,13 @@ mongoose.connect(CONNECTION_URL, {
   console.log(`server listening at http://localhost:${PORT}`);
 }))
 .catch(err => {
-  console.log(err,"errrr");
+  console.log(err,"error");
 });
 
 // heroku hosting step
 // if(process.env.NODE_ENV === "production"){
 //   app.use(express.static("app/build"));
-
 // }
-
-app.post("/verifyPayment", (req, res) => {
-  const order = req.body;
-
-  const text = order.razorpay_order_id + "|" + order.razorpay_payment_id;
-  var signature = crypto
-    .createHmac("sha256", "12345678")
-    .update(text)
-    .digest("hex");
-
-  if (signature === order.razorpay_signature) {
-    // You can update payment details in your database here
-    return res.status(201).send({ message: "Successful payment" });
-  } else {
-    return res.status(400).send({ message: "Payment verification failed" });
-  }
-});
-
-
 
 const auth = async (req,res,next) => {
   try {
@@ -90,6 +68,33 @@ const auth = async (req,res,next) => {
     res.status(500).send(err);
   }
 }
+
+
+// PAYMENT ------------------------------------------------------------
+
+const razorpay = new Razorpay({
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret: process.env.RAZORPAY_KEY_SECRET,
+});
+
+app.post("/verifyPayment", (req, res) => {
+  const payment = req.body;
+
+  const text = payment.razorpay_payment_id + "|" + payment.razorpay_payment_id;
+  var signature = crypto
+    .createHmac("sha256", "12345678")
+    .update(text)
+    .digest("hex");
+
+  if (signature === payment.razorpay_signature) {
+    // You can update payment details in your database here
+    return res.status(201).send({ message: "Successful payment" });
+  } else {
+    return res.status(400).send({ message: "Payment verification failed" });
+  }
+});
+
+
 // jwt must be provided
 app.post("/razorpay",auth, async (req, res) => {
 const totalAmount = req.totalAmount
@@ -111,6 +116,7 @@ const totalAmount = req.totalAmount
       amount: response.amount,
       key: process.env.RAZORPAY_KEY_ID
     });
+    
   } catch (error) {
     res.json({ status: 500, error });
 
@@ -130,14 +136,24 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
+app.get("/orders", async (req, res) => {
+  try {
+    const result = await Order.find();
+    res.json({status: 200, result})
+
+  } catch (err) {
+    res.json({ status: 500, err });
+  }
+});
+
 //searcnh result may be modified with mongo
 app.get("/products/:product", async (req, res) => {
   try {
     const word = req.params.product;
     const mongoData = await Product.find();
     let resultedData = mongoData.filter((searchedValue) => {
-      let nameOfProduct = searchedValue?.productName?.toLowerCase();
-      return nameOfProduct?.includes(word);
+      let nameOfProduct = searchedValue.productName.toLowerCase();
+      return nameOfProduct.includes(word);
     });
 
     if (resultedData && resultedData.length) {
@@ -154,14 +170,60 @@ app.get("/products/:product", async (req, res) => {
 // 	res.send(users)
 // })
 
+
+app.post("/order", async (req, res) => {
+  try {
+      const newOrder = new Order({
+          userPhoneNumber: req.body.payload.userPhoneNumber,
+          userName: req.body.payload.userName, 
+          userId: req.body.payload.userId, 
+          productId: req.body.payload.productId, 
+          productName: req.body.payload.productName,  
+          selectedSize: req.body.payload.selectedSize, 
+          quantity: req.body.payload.quantity, 
+          price: req.body.payload.price, 
+          onlinePayment: req.body.payload.onlinePayment,
+          paymentStatus: req.body.payload.paymentStatus,
+          totalAmount: req.body.payload.totalAmount,
+          deliveryAddress: {
+          addressLine1: req.body.payload.deliveryAddress.addressLine1, 
+            addressLine2: req.body.payload.deliveryAddress.addressLine2, 
+            city: req.body.payload.deliveryAddress.city, 
+            pinCode: req.body.payload.deliveryAddress.pinCode,
+            phoneNumberAddress: req.body.payload.deliveryAddress.phoneNumberAddress
+           }
+      });
+      const newOrderCreated = await newOrder.save();
+      res.status(201).send(newOrderCreated);
+  } catch (err) {
+    res.status(400).send("Could not create the order, Try again");
+  }
+});
+
+
 app.post("/login", async (req, res) => {
+  
+const removingToken = async (id) => {
+  await User.updateOne(
+    { _id: id },
+    [{
+      $set: {
+        tokens: []
+      },
+    }]
+  );
+}
+
   try {
     const email = req.body.email;
     const password = req.body.password;
     const userData = await User.findOne({ "userInfo.email": email });
     const isMatch = await bcrypt.compare(password, userData.userInfo.password);
     if (isMatch) {
+      //remove the  previous token of the user and create a new one
+    await removingToken(userData._id)
       const token = await userData.generateAuthToken();
+      console.log(userData, "userData");
       res.cookie("jwt", token)
       // {
       //   expires:new Date(Date.now()+ 300000),
@@ -172,6 +234,7 @@ app.post("/login", async (req, res) => {
       res.status(400).send("no user found");
     }
   } catch (err) {
+    console.log(err,"eroor");
     res.status(500).send("server error");
   }
 });
@@ -212,18 +275,67 @@ app.post("/signUp", async (req, res) => {
     res.status(400).send("Could Not Add You, Try Again");
   }
 });
+
 app.post("/users", async (req, res) => {
   try {
     const userData = req.body.userData;
-    const result = await User.updateOne(
+    console.log(userData,"userData")
+    if(req.body?.addUserOrder){
+    await User.updateOne(
       { _id: userData._id },
       {
         $set: {
           userCart: userData.userCart,
           userAddress: userData.userAddress,
+          userOrders: userData.userOrders
         },
       }
     );
+    } else {
+      await User.updateOne(
+        { _id: userData._id },
+        {
+          $set: {
+            userCart: userData.userCart,
+            userAddress: userData.userAddress,
+          },
+        }
+      );
+    }
+    res.status(201).send("Updated the dataBase");
+  } catch (err) {
+    res.status(500).send("server error");
+  }
+});
+
+
+app.post("/editOrder", async (req, res) => {
+  try {
+    const payload = req.body.payload;
+  
+      await Order.updateOne(
+        { _id: payload._id },
+        {
+          $set: {
+            paymentStatus: payload.paymentStatus,
+            orderStatus: payload.orderStatus,
+            deliveryDate: payload.deliveryDate
+          }
+        }
+      );
+    res.status(201).send("Updated the dataBase");
+  } catch (err) {
+    res.status(500).send("server error");
+  }
+});
+
+app.post("/deleteOrder", async (req, res) => {
+  try {
+    const id = req.body.id;
+  
+        await Order.deleteOne(
+        { _id: id }
+      );
     res.status(201).send("Updated the dataBase");
   } catch (err) {
     res.status(500).send("server error");

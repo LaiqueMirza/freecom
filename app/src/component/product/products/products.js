@@ -47,14 +47,18 @@ const Products = ({ data }) => {
             width="150px"
             height="350px"
           />
-          <Row className="productRow" justify="space-between">
-            <Col>
+          <hr/>
               <h4 className="h4-clothing">{data.productName}</h4>
+              <p>
+                {data.description}
+              </p>
+              <h5 className="price-clothing">{data.price} ₹</h5>
+          {/* <Row className="productRow" justify="space-between">
+            <Col>
             </Col>
             <Col>
-              <h5 className="price-clothing">{data.price} ₹</h5>
             </Col>
-          </Row>
+          </Row> */}
         </div>
       </Link>
     </Card>

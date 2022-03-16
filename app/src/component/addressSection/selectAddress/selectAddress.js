@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {useHistory} from "react-router-dom";
 import axios from "axios";
+import { message } from "antd";
 import "./selectAddress.css";
 
 const SelectAddress = () => {
@@ -47,12 +48,12 @@ const history = useHistory();
       axios.post("/users",{
         userData
       }).then(res =>{
-      }).catch(err =>alert("Could Not Add The Address"))
+      }).catch(err =>message.info("Could Not Add The Address"))
       
         sessionStorage.setItem("userInfo", JSON.stringify(userData));
       history.push("/checkout")
     } else{
-    alert("Fill All The Details Correctly")
+      message.info("Fill All The Details Correctly")
   }
   }
     return ( <div className="addressDiv">
@@ -90,6 +91,7 @@ const history = useHistory();
           type="text"
           name="city"
           className="addressAddressLine1"
+          placeholder="City"
           required
           value={city}
           onChange={(e) => setCity(e.target.value)}
@@ -102,7 +104,7 @@ const history = useHistory();
           name="pinCode"
           className="addressAddressLine1"
           required
-          placeholder="400612"
+          placeholder="Pin Code"
           value={pinCode}
           onChange={(e) => setPinCode(parseInt(e.target.value))}
         />
@@ -114,6 +116,7 @@ const history = useHistory();
           name="phoneNumber"
           className="addressAddressLine1"
           value={phoneNumber}
+          placeholder="Number"
           onChange={(e) => setPhoneNumber(parseInt(e.target.value))}
         />
         <br></br>
@@ -127,22 +130,15 @@ const history = useHistory();
         onClick={addressSubmit}
         />
     
-      </div>
       <button
         className="address-getLocation" 
 
         onClick={gettingCurrrentLocation}
         >
-            Get Location
+            Get location
         </button>
-      {/* <Link
-                to="/checkout"
-                style={{ textDecoration: "none", color: "whitesmoke" }}
-              >
-        <button className="checkoutButton-address"
->PROCEED TO CHECKOUT
-        </button>
-              </Link> */}
+      </div>
+  
     </div> );
 }
  

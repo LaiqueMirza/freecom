@@ -1,19 +1,17 @@
 import React from 'react';
-import HomeImageTop from './homeImageTop/homeImageTop'
-import HomeFirstBody from './homeFirstBody/homeFirstBody'
-import './home.css'
-import HomeCard from './homeCard/homeCard';
 import CarouselImages from './carouselImages/CarouselImages';
-import FeaturedProduct from '../product/featuredProduct/featuredProduct';
+import ReviewsHome from './ReviewsHome/reviewsHome';
+import homeImage from '../../img/aboutFirst.jpg';
+import './home.css';
+;
 
 const Home = () => {
     return ( 
         <div className="homeDiv">
-            <HomeImageTop />
-            <FeaturedProduct />
-            <CarouselImages />
-            {/* <HomeFirstBody />
-            <HomeCard /> */}
+        <div  className="homeImageTopFirstDiv">    
+        <img  className="homeImageTopFirst" src={homeImage} alt="banner img" />
+</div>
+            <ReviewsHome />
         </div>
      );
 }
