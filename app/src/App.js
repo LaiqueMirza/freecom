@@ -5,6 +5,8 @@ import Home from "./component/home/home";
 import blog from "./component/blog/blog";
 import SignUp from "./component/Log/signUp/signUp";
 import LogIn from "./component/Log/logIn/logIn";
+import ForgotPassword from "./component/Log/forgotPassword/forgotPassword";
+import ChangePassword from "./component/Log/changePassword/changePassword";
 import Shop from "./component/shop/shop";
 import MainCart from "./component/mainCart/mainCart";
 import Checkout from "./component/checkout/checkout";
@@ -86,6 +88,8 @@ console.log(products,"frontend products");
           <Route path="/logIn" component={LogIn} />
           <Route path="/signUp" component={SignUp} />
           <Route path="/product" component={Product} />
+          <Route path="/forgotPassword" component={ForgotPassword} />
+          <Route path="/changePassword" component={ChangePassword} />
           <Route
             path="/searchResult"
             component={() => <RenderSearchResult products={products} />}

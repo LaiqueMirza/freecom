@@ -132,9 +132,13 @@ console.log(data,"fataaaaaaa");
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   }
-const clearingCart =()=>{
+const clearingCart =(order_id)=>{
 userData.userCart.itemsInCart = [];
 userData.userCart.countOfCart = 0;
+let arrOrder = userData.userOrders;
+arrOrder.push(order_id);
+userData.userOrders = arrOrder;
+// userData.userOrders.push(order_id);
 console.log(userData, "clearing cart userData");
 sessionStorage.setItem("userInfo", JSON.stringify(userData));
 
@@ -144,10 +148,11 @@ axios.post("/users",{
 }).catch(err => console.log(err,"error in calling users"));
 
 }
-  const createNewOrder =()=>{
+  const createNewOrder = async ()=>{
     let payload ={
       userPhoneNumber: userData?.userInfo?.phoneNumberMain,
       userName: userData?.userInfo?.userName,
+      userEmail: userData?.userInfo?.email,
       userId: userData?._id,
       productId: productIds,
       productName: productNames,
@@ -170,22 +175,23 @@ axios.post("/users",{
     //   payload
     // }).then(res =>{
     // }).catch(err =>message.info("Could not create an order"))
-
+let order_id;
     axios
     .post("/order", {
      payload
     })
-    .then((res) => {
-      console.log(res,"order created");
+    .then(async (res) => {
+      await res.data._id;
+      order_id = res.data._id;
+      await clearingCart(order_id);
+      history.push("/orderSuccess");
+      window.location.reload();
     })
     .catch((err) => {
       console.log(err,"Could Not Add You, Try Again")
     });
-    payload.orderDate = new Date();
-    userData.userOrders.orderedItems.push(payload);
     // clear the cart
-    clearingCart();
-    history.push("/orderSuccess")
+    
 
   }
 

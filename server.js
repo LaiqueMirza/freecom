@@ -1,15 +1,18 @@
 import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
-import Product from "./backend/productSchema.js";
-import User from "./backend/usersSchema.js";
-import Order from "./backend/orderSchema.js";
+import Product from "./backend/schema/productSchema.js";
+import User from "./backend/schema/usersSchema.js";
+import Order from "./backend/schema/orderSchema.js";
+import Otp from "./backend/schema/otpSchema.js";
 import Razorpay from "razorpay";
 import bcrypt from "bcryptjs";
 import cors from "cors";
 import shortid from "shortid";
 import Jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
+import sendEmailOnOrderCreation from "./backend/controllers/sendEmail.js";
+import sendOtpEmail from "./backend/controllers/sendOtpEmail.js";
 
 dotenv.config({ path: 'config.env' });
 
@@ -19,8 +22,6 @@ app.use(cors());
 app.use(express.json({limit:"30mb", extended:true}));
 app.use(express.urlencoded({limit:"30mb", extended:true}));
 app.use(cookieParser())
-
-
 
 const PORT = process.env.PORT || 5000;
 const CONNECTION_URL ='mongodb+srv://amruttam:ShantanuAmruttam@cluster0.cv2yl.mongodb.net/amruttam?retryWrites=true&w=majority'
@@ -57,7 +58,7 @@ const auth = async (req,res,next) => {
     }
     totalAmount += bagTotal;
     let shippingCharge = 0;
-    shippingCharge = bagTotal > 20000 ? "FREE" : 50;
+    shippingCharge = bagTotal > 500 ? "FREE" : 30;
     if (typeof shippingCharge === "number") {
       totalAmount += shippingCharge;
     }
@@ -166,16 +167,29 @@ app.get("/products/:product", async (req, res) => {
   }
 });
 
-// app.get("/login", (req,res) =>{
-// 	res.send(users)
-// })
 
 
 app.post("/order", async (req, res) => {
   try {
+    const userName= req.body.payload.userName;
+    const userEmail= req.body.payload.userEmail;
+    const productName= req.body.payload.productName; 
+    const selectedSize= req.body.payload.selectedSize;
+    const quantity= req.body.payload.quantity;
+    const price= req.body.payload.price;
+    const onlinePayment= req.body.payload.onlinePayment;
+    const totalAmount= req.body.payload.totalAmount;
+    const deliveryAddress= {
+     addressLine1: req.body.payload.deliveryAddress.addressLine1,
+      addressLine2: req.body.payload.deliveryAddress.addressLine2,
+      city: req.body.payload.deliveryAddress.city, 
+      pinCode: req.body.payload.deliveryAddress.pinCode,
+      phoneNumberAddress: req.body.payload.deliveryAddress.phoneNumberAddress
+     };
       const newOrder = new Order({
           userPhoneNumber: req.body.payload.userPhoneNumber,
           userName: req.body.payload.userName, 
+          userEmail: req.body.payload.userEmail, 
           userId: req.body.payload.userId, 
           productId: req.body.payload.productId, 
           productName: req.body.payload.productName,  
@@ -194,25 +208,16 @@ app.post("/order", async (req, res) => {
            }
       });
       const newOrderCreated = await newOrder.save();
+      await sendEmailOnOrderCreation(userEmail,userName,productName,selectedSize,quantity,price,totalAmount,deliveryAddress,newOrderCreated._id,onlinePayment)
       res.status(201).send(newOrderCreated);
   } catch (err) {
-    res.status(400).send("Could not create the order, Try again");
+    console.log("error in creating order",err);
+    res.status(500).send("Could not create the order, Try again");
   }
 });
 
 
 app.post("/login", async (req, res) => {
-  
-const removingToken = async (id) => {
-  await User.updateOne(
-    { _id: id },
-    [{
-      $set: {
-        tokens: []
-      },
-    }]
-  );
-}
 
   try {
     const email = req.body.email;
@@ -221,9 +226,7 @@ const removingToken = async (id) => {
     const isMatch = await bcrypt.compare(password, userData.userInfo.password);
     if (isMatch) {
       //remove the  previous token of the user and create a new one
-    await removingToken(userData._id)
       const token = await userData.generateAuthToken();
-      console.log(userData, "userData");
       res.cookie("jwt", token)
       // {
       //   expires:new Date(Date.now()+ 300000),
@@ -239,17 +242,73 @@ const removingToken = async (id) => {
   }
 });
 
+
+app.post("/forgotPassword", async (req, res) => {
+  
+    try {
+      const userData = await User.findOne({ "userInfo.email": req.body.email });
+      if (userData) {
+        let otpCode = Math.floor((Math.random() * 10000) + 1);
+        let otpData = new Otp({
+          email:req.body.email,
+          code: otpCode,
+          expiresIn: new Date().getTime() + 420000
+        });
+        const otpCreated = await otpData.save();
+        await sendOtpEmail(req.body.email,otpCode)
+        res.status(200).send("OTP sent to your email");
+      } else {
+        res.status(400).send("Email not found");
+      }
+    } catch (err) {
+      console.log(err,"eroor catchh");
+      res.status(500).send("server error");
+    }
+  });
+  
+  app.post("/changePassword", async (req, res) => {
+    try {
+      const otpData = await Otp.findOne({ "code":req.body.otp });
+    const userData = await User.findOne({ "userInfo.email": req.body.email });
+    if (otpData && userData) {
+       
+       const currentTime = new Date().getTime();
+       const diff =  otpData.expiresIn - currentTime;
+       console.log("the fo effo ffo",currentTime,otpData.expiresIn,diff);
+       if(diff < 0){
+        res.status(400).send("OTP expired");
+       }else{
+const newPassword = await (await bcrypt.hash(req.body.password, 10)).toString();
+console.log("the new password",newPassword,typeof(newPassword));
+        await User.updateOne(
+          { "userInfo.email": req.body.email },
+          {
+            $set: {
+              "userInfo.password": newPassword
+            },
+          }
+        );
+        await Otp.deleteOne({ "code": req.body.otp });
+        res.status(200).send(userData);
+       }
+       
+    }else{
+      res.status(400).send("OTP not found");
+    }
+  } catch (err) {
+      console.log(err,"eroor");
+      res.status(500).send("server error");
+    }
+  });
+
 app.post("/signUp", async (req, res) => {
   try {
 
     const checkEmailPresent = await User.findOne({
       "userInfo.email": req.body.email,
     });
-    const checkNumberPresent = await User.findOne({
-      "userInfo.phoneNumberMain": req.body.phoneNumber,
-    });
-    if (checkEmailPresent || checkNumberPresent) {
-      res.status(206).send("Email or Phone Number is already there. Go, Login");
+    if (checkEmailPresent) {
+      res.status(206).send("Email is already there. Go, Login");
     } else {
       const newUser = new User({
         userInfo: {
@@ -279,7 +338,6 @@ app.post("/signUp", async (req, res) => {
 app.post("/users", async (req, res) => {
   try {
     const userData = req.body.userData;
-    console.log(userData,"userData")
     if(req.body?.addUserOrder){
     await User.updateOne(
       { _id: userData._id },

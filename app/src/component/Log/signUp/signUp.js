@@ -24,7 +24,7 @@ const SignUp = () => {
 
   const submitForm = () => {
     if(email && email.length > 5 && email.includes(".")){
-      if(password && password.length > 5){
+      if(password && password.length > 7){
         if(phoneNumber && phoneNumber.toString().length == 10){
           if(name && gender){
           
@@ -55,7 +55,7 @@ const SignUp = () => {
           message.info("Phone Number Is Not Right, It Should Have 10 digits")
         }
       }else {
-        message.info("Password Is Not Right")
+        message.info("Password should be atleast 8 characters")
       }
     } else {
       message.info("Email Is Not Right")

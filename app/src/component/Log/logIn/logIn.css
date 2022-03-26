@@ -65,12 +65,19 @@ flex-direction: column;
 	left: 365px;
 	cursor: pointer;
 }
+.forgotPassword{
+	border: none;
+	background: none;
+	color: indianred;
+	font-size: 12px;
+	font-weight: 700;
+	margin-left: 50%;
+	cursor: pointer;
+}
 .createAccountbuttonLoginForm{
 	border: none;
 	background: none;
 	font-size: 18px;
-	margin-top: 10px;
-	margin-bottom: 30px;
 	cursor: pointer;
 }
 .createAccountbuttonLoginForm:hover{

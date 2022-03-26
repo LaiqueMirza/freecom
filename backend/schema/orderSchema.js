@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
- const ordersSchema = new mongoose.Schema({
-     productId: [{
+const ordersSchema = new mongoose.Schema({
+    productId: [{
         type: String,
         required: true
     }],
@@ -13,7 +13,7 @@ import mongoose from 'mongoose';
         type: String,
         default: "PENDING"
     },
-    selectedSize:[{
+    selectedSize: [{
         type: String,
         required: true
     }],
@@ -21,20 +21,21 @@ import mongoose from 'mongoose';
         type: Number,
         required: true
     }],
-    quantity:  [{
+    quantity: [{
         type: Number,
         required: true
     }],
-    onlinePayment:Boolean,
-    paymentStatus:String,
-    totalAmount:Number,
+    onlinePayment: Boolean,
+    paymentStatus: String,
+    totalAmount: Number,
     userPhoneNumber: Number,
-    userName:String,
+    userName: String,
+    userEmail: String,
     userId: String,
     deliveryAddress: {
         type: Map,
         of: String
-      },
+    },
     orderDate: {
         type: Date,
         default: Date.now
@@ -42,8 +43,10 @@ import mongoose from 'mongoose';
     deliveryDate: {
         type: Date,
         default: null
-    },
-})
+    }
+},
+    { timestamps: true }
+)
 
 const Order = new mongoose.model("Order", ordersSchema);
 export default Order;

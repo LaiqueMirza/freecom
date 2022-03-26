@@ -75,51 +75,12 @@ const usersSchema = new mongoose.Schema({
       },
     ],
   },
-  userOrders: {
-    noOfOrderedItems:Number,
-    orderedItems:
-    [{
-      productId: [{
-        type: String,
-        required: true
-    }],
-    productName: [{
-        type: String,
-        required: true
-    }],
-    orderStatus: {
-        type: String,
-        default: "PENDING"
-    },
-    selectedSize:[{
-        type: String,
-        required: true
-    }],
-    price: [{
-        type: Number,
-        required: true
-    }],
-    quantity:  [{
-        type: Number,
-        required: true
-    }],
-    onlinePayment:Boolean,
-    paymentStatus:String,
-    totalAmount:Number,
-    userPhoneNumber: Number,
-    userName:String,
-    userId: String,
-    deliveryAddress: {
-        type: Map,
-        of: String
-      },
-    orderDate: {
-        type: Date,
-        default: Date.now
-    }
-  }]
-}
-});
+  userOrders: [
+    {type: String}
+  ]
+},
+{ timestamps: true }
+);
 
 //generating access toke so that anyone can't make the request
 usersSchema.methods.generateAuthToken= async function(){
@@ -127,11 +88,21 @@ usersSchema.methods.generateAuthToken= async function(){
     const token = jwt.sign({_id:this._id.toString()},
     process.env.SECRET_KEY
     );
-    this.tokens= this.tokens.concat({token:token})
-    await this.save();
+    this.tokens= this.tokens.concat({token:token});
+    console.log(this, "this is the user",token,"token");
+    // await this.save();
+    await User.updateOne(
+      { _id: this._id },
+      {
+        $set: {
+          tokens: [{token:token}]
+        },
+      }
+    );
     return token
   }catch(err){
-    res.send("error is "+ err);
+    // res.send("error is "+ err);
+    console.log("error is "+ err);
   }
 }
 
@@ -139,6 +110,7 @@ usersSchema.methods.generateAuthToken= async function(){
 // so that hacker can't see pasword
 usersSchema.pre("save",async function(next){
     if(this.isModified('userInfo')){
+      console.log("hashing happenef");
       this.userInfo.password = await bcrypt.hash(this.userInfo.password, 10)
     }
   next();

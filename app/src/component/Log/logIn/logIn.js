@@ -22,10 +22,11 @@ const LogIn = () => {
 
   const submitForm = () => {
     if(email && email.length > 5 && email.includes(".") && password){
-
+// work remove credentials from here
     if(email === "adminamruttam@gmail.com" && password==="Amrutt@m2022"){
       setLoginAdminState(true)
     }
+
     axios
     .post("/login", {
       email,
@@ -102,6 +103,11 @@ if(loginAdminState && login){
         <button type="submit" onClick={submitForm} className="buttonLoginForm">
           LOG IN
         </button>
+        <Link to="/forgotPassword" style={{ textDecoration: "none", color: "indianred" }}>
+          <button type="submit" className="createAccountbuttonLoginForm">
+            Forgot password.
+          </button>
+        </Link>
         <Link to="/signUp" style={{ textDecoration: "none", color: "black" }}>
           <button type="submit" className="createAccountbuttonLoginForm">
             New Here? Create An Account.
