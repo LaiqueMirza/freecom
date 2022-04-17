@@ -57,6 +57,7 @@ flex-direction: column;
 	letter-spacing: 1.5px;
 	margin-left: 50%;
 	transform: translate(-50%, 0);
+    cursor: pointer;
 }
 
 .eyeIconLogIn{
@@ -82,10 +83,12 @@ flex-direction: column;
 }
 .createAccountbuttonLoginForm:hover{
 	color: blue;
+    cursor: pointer;
 	letter-spacing: 1px;
 }
 .createAccountbuttonLoginForm{
 	transition: letter-spacing 1s, height 4s;
+    cursor: pointer;
 	margin-left: 45px;
   }
 
@@ -137,6 +140,7 @@ margin-left: 45px;
 	font-size: 12px;
 	font-weight: 700;
 	outline: none;
+    cursor: pointer;
 	letter-spacing: 1px;
 }
 .eyeIconLogIn{
@@ -145,6 +149,7 @@ margin-left: 45px;
 }
 .createAccountbuttonLoginForm{
 	font-size: 12px;
+    cursor: pointer;
 	margin-bottom: 20px;
 	margin-left: 0;
 }

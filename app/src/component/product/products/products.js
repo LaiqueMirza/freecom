@@ -30,8 +30,9 @@ import { Card, Row, Col } from "antd";
 // }
 
 const Products = ({ data }) => {
+  console.log(data,"dataaaaaaaaaaa mamin that is settting");
   return (
-    <Card bordered key={data._id}>
+    <Card bordered key={data._id} className="productMainCard">
       <Link
         to="/product"
         style={{ textDecoration: "none", color: "inherit" }}
@@ -43,16 +44,16 @@ const Products = ({ data }) => {
           <img
             className="img-clothing"
             src={data.photos[0]}
-            alt=""
-            width="150px"
-            height="350px"
+            alt="product"
+            // width="150px"
+            // height="350px"
           />
           <hr/>
               <h4 className="h4-clothing">{data.productName}</h4>
-              <p>
+              <p className="productDescription">
                 {data.description}
               </p>
-              <h5 className="price-clothing">{data.price} ₹</h5>
+              <h5 className="price-clothing">{data.totalPrice} ₹</h5>
           {/* <Row className="productRow" justify="space-between">
             <Col>
             </Col>

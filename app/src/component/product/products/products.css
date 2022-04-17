@@ -1,4 +1,6 @@
-
+.productMainCard{
+  max-width: 330px;
+}
 
 
   .card-clothing {
@@ -6,8 +8,7 @@
       margin: 1px 1px;
       /* border: 1px solid grey; */
       height: 100%;
-      min-width: 300px;
-      max-width: 300px;
+ 
     }
 
   .img-clothing{
@@ -26,13 +27,36 @@
         
     }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
+.productMainCard{
+  max-width: 280px;
+}
 
-  .card-clothing {
-    min-width: 0px;
-    max-width: 400px;
-    }
+.h4-clothing{
+  font-size: 14px;
+}
+.productDescription{
+ font-size: 12px; 
+}
+
+.price-clothing{
+  font-size:12px;
+}
 }
 
 
+@media only screen and (max-width: 570px) {
+  .productMainCard{
+    max-width: 180px;
+  }
+  .h4-clothing{
+    font-size: 12px;
+  }
+  .productDescription{
+ font-size: 10px; 
+  }
+  .price-clothing{
+    font-size:10px;
+  }
+  }
 

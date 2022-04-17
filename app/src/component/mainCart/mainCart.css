@@ -16,6 +16,7 @@
     padding: 3.5px 7px;
     font-size: 16px;
     color: indianred;
+    cursor: pointer;
     background-color: white;
     border: 1px solid indianred;
 }
@@ -31,6 +32,7 @@
     }
 .checkoutButton-mainCart{
     font-size: 15px;
+    cursor: pointer;
 
 }
 .shippingFreeP{

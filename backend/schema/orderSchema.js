@@ -25,7 +25,7 @@ const ordersSchema = new mongoose.Schema({
         type: Number,
         required: true
     }],
-    onlinePayment: Boolean,
+    onlinePayment_Id: String,
     paymentStatus: String,
     totalAmount: Number,
     userPhoneNumber: Number,

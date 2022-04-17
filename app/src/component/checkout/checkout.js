@@ -42,12 +42,12 @@ const cartProducts = userData.userCart.itemsInCart;
   let quantities=[];
   let prices=[];
     cartProducts?.map((product) => {
-      (bagTotal = bagTotal + product.price*product.quantity);
+      (bagTotal = bagTotal + product.totalPrice);
     productIds.push(product?._id);
     productNames.push(product?.productName);
     selectedSizes.push(product?.selectedSize);
     quantities.push(product?.quantity);
-    prices.push(product?.price);
+    prices.push(product?.totalPrice);
     });
   totalAmount += bagTotal;
   let shippingCharge = 0;
@@ -72,7 +72,10 @@ const cartProducts = userData.userCart.itemsInCart;
      await axios.post("/razorpay", {
       totalAmount: totalAmount,
     })
-    .then((val) => data=val?.data)
+    .then((val) => {
+     console.log(val, "val");
+      data=val?.data
+    })
     .catch(err=> console.log(err));
 // const datas = axios.post("/razorpay")
 // .then(res => console.log(res))
@@ -80,14 +83,11 @@ const cartProducts = userData.userCart.itemsInCart;
 
 
 console.log(data,"fataaaaaaa");
-    if(!data || !data.amount){
-      if(data.message){
-       message.info("Payment failed, User not Valid, Login Again.");
-      }else if (data.error){
-      message.info(data.error.error.description);
-      }else{
-        message.info("Payment Failed");
+    if(!data){
+      if(data?.message){
+       message.info("User not valid, login again.");
       }
+        message.info("Payment Failed");
       return;
     } 
     // else if(data.amount != totalAmount*100){
@@ -97,15 +97,25 @@ console.log(data,"fataaaaaaa");
     
     //the above else if may be not a good practice
     const verifySignature = (response) => {
+      console.log("response in verifySignature", response);
       axios
         .post(
           "/verifyPayment",
           response
         )
         .then(response => {
+          console.log(response, "response in verifySignature",response.config.data);
+          // razorpay_payment_id
+          const paymentId = JSON.parse(response.config.data).razorpay_payment_id;
+          console.log(paymentId, "paymentId");
           message.info("payment received");
+          createNewOrder(paymentId);
         })
         .catch(err => {
+          //if the signature is not verified
+          console.log("err in verifySignature", err);
+        message.info("Payment Failed");
+        return;
         });
     }
   
@@ -118,6 +128,7 @@ console.log(data,"fataaaaaaa");
       description: "Thank you for shopping from us",
        image: logoImage,
       handler: response => {
+        console.log("response from razorpay", response);
         verifySignature(response);
       },
       theme: {
@@ -130,6 +141,12 @@ console.log(data,"fataaaaaaa");
       },
     };
     const paymentObject = new window.Razorpay(options);
+   
+    paymentObject.on('payment.failed', function(res) {
+      console.log('payment.failed',res);
+      message.info("Payment Failed");
+    });
+    console.log("hii in ht ealds fa sdlk stagee");
     paymentObject.open();
   }
 const clearingCart =(order_id)=>{
@@ -148,7 +165,7 @@ axios.post("/users",{
 }).catch(err => console.log(err,"error in calling users"));
 
 }
-  const createNewOrder = async ()=>{
+  const createNewOrder = async (onlinePayment_Id)=>{
     let payload ={
       userPhoneNumber: userData?.userInfo?.phoneNumberMain,
       userName: userData?.userInfo?.userName,
@@ -159,8 +176,8 @@ axios.post("/users",{
       selectedSize: selectedSizes,
       quantity:quantities,
       price: prices,
-      onlinePayment: false,
-      paymentStatus:"NOT DONE",
+      onlinePayment_Id: onlinePayment_Id,
+      paymentStatus: onlinePayment_Id?"DONE":"NOT DONE",
       totalAmount:totalAmount,
       deliveryAddress: {
         addressLine1: userData?.userAddress?.selectedAddress?.addressLine1,
@@ -243,7 +260,7 @@ return (
             PAY ONLINE
           </button>
           <button className="checkoutButton-checkout-cod"
-          onClick={createNewOrder}
+          onClick={() => createNewOrder("")}
 
           >
             CASH ON DELIVERY

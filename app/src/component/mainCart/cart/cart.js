@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import "./cart.css";
-import { useSelector, useDispatch } from "react-redux";
-import { incrementCart, selectedSize } from "../../redux/action/index";
-import { set } from "mongoose";
 
 //here i all make the user make an account mandatory*
 // i all put everyting in cart in his account cart and fetch the cart from his account
@@ -11,7 +8,6 @@ import { set } from "mongoose";
 
 const Cart = (props) => {
   const { targetProduct, removeItem } = props;
-const totalPrice = targetProduct?.quantity * targetProduct?.price;
   return (
         <section className="checkoutCart-main-sectionProduct" id="main-section">
          <div className="checkoutCart-img-divProduct" id="img-div">
@@ -39,7 +35,7 @@ const totalPrice = targetProduct?.quantity * targetProduct?.price;
   
     </div>
     <h4 className="checkoutCart-price">
-    PRICE : {targetProduct?.quantity} X {targetProduct?.price} = {totalPrice} ₹
+   TOTAL PRICE : {targetProduct?.totalPrice} ₹
     </h4>
         <div className="cart-price-remove-div">
           <button

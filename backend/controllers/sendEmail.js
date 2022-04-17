@@ -19,11 +19,11 @@ const oauth2Client = new OAuth2(
     OAUTH_PLAYGROUND
 )
 // send mail
-const sendEmailOnOrderCreation = async (userEmail,userName,productName,selectedSize,quantity,price,totalAmount,deliveryAddress,orderId,onlinePayment) => {
+const sendEmailOnOrderCreation = async (userEmail,userName,productName,selectedSize,quantity,price,totalAmount,deliveryAddress,orderId,onlinePayment_Id) => {
       const listHtml = productName.map((item, index) => {
                         return (`<li>${productName[index]} - size - ${selectedSize[index]} - quantity - ${quantity[index]} - per piece price - ${price[index]} ₹</li>`)
                     }).join('');
-    const paymentStatus= onlinePayment ? "Your payment is done online" : "You have to pay the cash, on delivery";
+    const paymentStatus= onlinePayment_Id ? "Your payment is done online" : "You have to pay the cash, on delivery";
     oauth2Client.setCredentials({
         refresh_token: MAILING_SERVICE_REFRESH_TOKEN
     })

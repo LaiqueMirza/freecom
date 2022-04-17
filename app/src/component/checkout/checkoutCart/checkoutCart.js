@@ -12,7 +12,6 @@ import './checkoutCart.css'
 
 
 const CheckoutCart = ({targetProduct}) => {
-const totalPrice = targetProduct?.quantity * targetProduct?.price;
 
     return ( 
         <section className="checkoutCart-main-sectionProduct" id="main-section">
@@ -41,7 +40,7 @@ const totalPrice = targetProduct?.quantity * targetProduct?.price;
   
     </div>
     <h4 className="checkoutCart-price">
-    PRICE : {targetProduct?.quantity} X {targetProduct?.price} = {totalPrice} ₹
+    TOTAL PRICE :  {targetProduct?.totalPrice} ₹
     </h4>
   </div> 
 

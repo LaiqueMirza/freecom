@@ -29,6 +29,7 @@
 .checkoutCart-price-button-div{
     display: flex;
     align-items: flex-start;
+    cursor: pointer;
 }
 .checkoutCart-quantity{
 margin: 0 20px;
@@ -62,6 +63,7 @@ margin-top: 7px;
     background-color: white;
     border: 1px solid indianred;
     font-size: 12px;
+    cursor: pointer;
 }
 @media only screen and (max-width:1200px){
 

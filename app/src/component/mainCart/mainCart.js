@@ -55,11 +55,9 @@ const MainCart = () => {
 
   let bagTotal = 0;
   let totalAmount = 0;
-  {
     cartProducts?.map(
-      (product) => (bagTotal = bagTotal + product.price * product.quantity)
+      (product) => (bagTotal = bagTotal + product.totalPrice)
     );
-  }
   totalAmount += bagTotal;
   let shippingCharge = 0;
   shippingCharge = bagTotal > 499 ? "FREE" : 30;
