@@ -7,15 +7,6 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { searchValue } from '../redux/action/index';
 
-// BAD PRACTICE 
-//YOU SHOULD MAKE THE API CALL ON SEARCH
-//NOT GET ALL THE PRODUCTS NAME 
-//I HAVE TO IMPLEMEMT DEBOUNCING
-
-// have to add on click even in search
-
-
-//the logic is not right i am only searching for the first 50 data
 
 const SearchBar = ({defaultOptions}) => {
 
@@ -25,13 +16,7 @@ const SearchBar = ({defaultOptions}) => {
   const [showInputRef, setshowInputRef] = useState(true);
   const [targetvalue, setTargetValue] = useState("");
     const [searchValues, setsearchValues] = useState('');
-    // useEffect(() => {
-   
-  //   axios
-  //     .get("/api/products")
-  //     .then((res) => setProducts(res.data.result))
-  //     .catch((err) => console.log(err));
-  // }, []);
+  
   
 const emptySearchValue =()=> {
   setsearchValues('')
@@ -50,13 +35,7 @@ dispatch(searchValue(targetvalue));
   setshowInputRef(false)
   return history.push("/searchResult")
 } 
-// tolowercase
-//  const defaultOptions = [];
-//  if(products && products[0]){
- 
-//   products.map(product => defaultOptions.push(product.productName.toLowerCase()))
-//   // console.log(defaultOptions);
-//  }
+
  const onInputChange = (event) => {
     setOptions(
       defaultOptions?.filter((option) => option.includes(event.target.value.toLowerCase()))

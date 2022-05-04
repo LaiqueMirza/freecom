@@ -13,7 +13,6 @@ const ForgotPassword = () => {
           email
         })
         .then((res) => {
-            console.log(res.data.message);
             sessionStorage.setItem("resetEmail", email);
             history.push("/changePassword");
         }).catch((err) => {

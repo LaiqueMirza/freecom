@@ -10,8 +10,6 @@ import { message } from "antd";
 //i all take the product from his account in the main cart
 
 const MainCart = () => {
-  //here i all make the user make an account mandatory*
-  // i all put everyting in cart in his account cart and fetch the cart from his account
   const dispatch = useDispatch();
   const [loginCheck, setLoginCheck] = useState(false);
   const [removeRerender, setRemoveRerender] = useState(false);

@@ -42,12 +42,6 @@ function App() {
   });
     setLoading(false);
   }, []);
-console.log(products,"frontend products");
-  // app package.json should have for local run
-  // "proxy": "http://127.0.0.1:5000",
-  // server package.json should have for local run
-  // "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
-
   useEffect(() => {
     if (products && products[0]) {
       let optionsArray = [];
@@ -58,17 +52,6 @@ console.log(products,"frontend products");
     }
   }, [products]);
 
-  // const fetchProducts = () => {
-  //   axios
-  //     .get(`/api/products?page=${page}`)
-  //     .then((res) => {
-  //       setProducts(products?.concat(res.data.result));
-  //       setPage(res.data.next.page);
-  //     })
-  //     .catch((err) => {
-  //       setHasMore(false);
-  //     });
-  // };
   return (
     <HashRouter>
       <div className="App">

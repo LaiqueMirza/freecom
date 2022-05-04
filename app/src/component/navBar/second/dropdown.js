@@ -93,7 +93,7 @@ const DropDownMenu = ({ handleMenuClick }) => {
         <Menu.Item key="GURUKUL PAIN BALM">
           <span> GURUKUL PAIN BALM (25 gm) </span>
         </Menu.Item>
-        <Menu.Item key="UMOBACK OIL">
+        <Menu.Item key="RUMOBACK OIL">
           <span> RUMOBACK OIL (50 ml) </span>
         </Menu.Item>
       </Menu.SubMenu>
@@ -163,11 +163,11 @@ const DropDownMenu = ({ handleMenuClick }) => {
         </Menu.Item>
       </Menu.SubMenu>
       <Menu.SubMenu key="9" title={"ORGANIC HEALTHY FOOD AND OTHER"}>
-        <Menu.Item key="HONEY NATURAL">
+        <Menu.Item key="Gurukul HONEY">
           <span> HONEY NATURAL (100gm/250gm/500gm) </span>
         </Menu.Item>
-        <Menu.Item key="CHAS MASALA">
-          <span> CHAS MASALA (115 gm)</span>
+        <Menu.Item key="CHHAS MASALA">
+          <span> CHHAS MASALA (115 gm)</span>
         </Menu.Item>
         <Menu.Item key="GURUKUL CHAWANPRASH SPECIAL">
           <span> GURUKUL CHAWANPRASH SPECIAL (500 gm)</span>

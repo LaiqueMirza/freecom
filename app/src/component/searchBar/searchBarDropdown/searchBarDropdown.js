@@ -16,9 +16,7 @@ const SearchBarDropdown = (props) => {
       ulRef.current.style.display = 'flex';
       onInputChange(event);
     });
-    // document.addEventListener('click', (event) => {
-    //   ulRef.current ? ulRef.current.style.display = 'none': console.log("not getting ul value");
-    // });
+   
   }, []);
   useEffect(() =>{
     if(!showInputRef){

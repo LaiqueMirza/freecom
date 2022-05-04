@@ -24,11 +24,7 @@ function loadScript(src) {
 }
 
 const Checkout = () => {
-  //here i all make the user make an account mandatory*
-  // i all put everyting in cart in his account cart and fetch the cart from his account
-
-  // const cartProducts = JSON.parse(localStorage.getItem("theAddedItems"));
-  // const [data, setData] = useState()
+ 
   const getCookie = Cookies.get();
 const history = useHistory();
 
@@ -56,8 +52,6 @@ const cartProducts = userData.userCart.itemsInCart;
     totalAmount += shippingCharge;
   }
 
-  // RAZORPAY PAYMENT -----------------------------------------------
- 
   async function displayRazorpay() {
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
@@ -73,16 +67,14 @@ const cartProducts = userData.userCart.itemsInCart;
       totalAmount: totalAmount,
     })
     .then((val) => {
-     console.log(val, "val");
       data=val?.data
     })
-    .catch(err=> console.log(err));
-// const datas = axios.post("/razorpay")
-// .then(res => console.log(res))
-// .catch(err=> console.log(err))
+    .catch(err=> {
+      message.error("Error in performing online payment")
+    });
 
 
-console.log(data,"fataaaaaaa");
+
     if(!data){
       if(data?.message){
        message.info("User not valid, login again.");
@@ -90,30 +82,19 @@ console.log(data,"fataaaaaaa");
         message.info("Payment Failed");
       return;
     } 
-    // else if(data.amount != totalAmount*100){
-    //   message.info("Payment Failed, Amount error");
-    //   return;
-    // }
-    
-    //the above else if may be not a good practice
+   
     const verifySignature = (response) => {
-      console.log("response in verifySignature", response);
       axios
         .post(
           "/verifyPayment",
           response
         )
         .then(response => {
-          console.log(response, "response in verifySignature",response.config.data);
-          // razorpay_payment_id
           const paymentId = JSON.parse(response.config.data).razorpay_payment_id;
-          console.log(paymentId, "paymentId");
           message.info("payment received");
           createNewOrder(paymentId);
         })
         .catch(err => {
-          //if the signature is not verified
-          console.log("err in verifySignature", err);
         message.info("Payment Failed");
         return;
         });
@@ -128,7 +109,6 @@ console.log(data,"fataaaaaaa");
       description: "Thank you for shopping from us",
        image: logoImage,
       handler: response => {
-        console.log("response from razorpay", response);
         verifySignature(response);
       },
       theme: {
@@ -143,10 +123,8 @@ console.log(data,"fataaaaaaa");
     const paymentObject = new window.Razorpay(options);
    
     paymentObject.on('payment.failed', function(res) {
-      console.log('payment.failed',res);
       message.info("Payment Failed");
     });
-    console.log("hii in ht ealds fa sdlk stagee");
     paymentObject.open();
   }
 const clearingCart =(order_id)=>{
@@ -156,13 +134,12 @@ let arrOrder = userData.userOrders;
 arrOrder.push(order_id);
 userData.userOrders = arrOrder;
 // userData.userOrders.push(order_id);
-console.log(userData, "clearing cart userData");
 sessionStorage.setItem("userInfo", JSON.stringify(userData));
 
 axios.post("/users",{
   userData, addUserOrder:true
 }).then(res =>{
-}).catch(err => console.log(err,"error in calling users"));
+}).catch(err => message.error("Error in updating user"));
 
 }
   const createNewOrder = async (onlinePayment_Id)=>{
@@ -187,11 +164,6 @@ axios.post("/users",{
         phoneNumberAddress: userData?.userAddress?.selectedAddress?.phoneNumberAddress.toString()
       },
     }
-    console.log(payload,"payloaddd");
-    // axios.post("/order",{
-    //   payload
-    // }).then(res =>{
-    // }).catch(err =>message.info("Could not create an order"))
 let order_id;
     axios
     .post("/order", {
@@ -205,14 +177,12 @@ let order_id;
       window.location.reload();
     })
     .catch((err) => {
-      console.log(err,"Could Not Add You, Try Again")
+      message.error(err,"Could Not Add You, Try Again")
     });
-    // clear the cart
     
 
   }
 
-console.log(userData,"userData");
 
 return (
     <div className="checkoutMainDiv">
@@ -222,7 +192,6 @@ return (
             <CheckoutCart
               targetProduct={product}
               key={product._id}
-              // onClick={(e) => setRecentPic(e.target.currentSrc)}
             />
           )) || <h2>There is no product added to cart go to shop</h2>}
         </div>

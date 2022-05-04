@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
 import './checkoutCart.css'
-// import { useSelector, useDispatch } from 'react-redux';
-// import { incrementCart, selectedSize } from '../../redux/action/index';
-// import { set } from 'mongoose';
-
-//here i all make the user make an account mandatory*
-// i all put everyting in cart in his account cart and fetch the cart from his account 
-//i all take the product from his account in the main cart
-// then when user adds then i all do the post and update the quantity
 
 
 

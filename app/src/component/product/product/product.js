@@ -51,7 +51,6 @@ const Product = () => {
   }, []);
 
   const handleSizeClick = (index) => {
-    console.log("indexx",index,targetProduct?.size[index]," price ",targetProduct?.price[index]);
     const totalPrice=targetProduct?.price[index]*(quantity);
     setTargetProduct({ ...targetProduct, selectedSize: targetProduct?.size[index],totalPrice:totalPrice });
     setCheckSelectedSize(targetProduct?.size[index]);

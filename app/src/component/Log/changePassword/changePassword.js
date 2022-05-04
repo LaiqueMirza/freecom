@@ -9,7 +9,6 @@ const ChangePassword = () => {
   useEffect(() => {
   setEmail(sessionStorage.getItem("resetEmail"));
   },[]);
-  console.log(new Date().getTime());
   const dispatch = useDispatch();
   const history = useHistory();
   const [loginData, setLoginData] = useState();
@@ -34,7 +33,6 @@ const ChangePassword = () => {
         })
         .catch((err) => {
           message.info("OTP not valid");
-          console.log(err,"err of change password");
         });
      
     } else {
