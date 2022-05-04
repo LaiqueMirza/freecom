@@ -108,10 +108,7 @@ const routerFun = {
           //remove the  previous token of the user and create a new one
           const token = await userData.generateAuthToken();
           res.cookie("jwt", token)
-          // {
-          //   expires:new Date(Date.now()+ 300000),
-          //   // secure:true
-          // });
+         
           res.status(200).send(userData);
         } else {
           res.status(400).send({"message":"no user found"});
@@ -269,25 +266,3 @@ const routerFun = {
 
 export default routerFun;
 
-
-
-
-
-// function validateEmail(email) {
-//     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//     return re.test(email);
-// }
-
-// const createActivationToken = (payload) => {
-//     return jwt.sign(payload, process.env.ACTIVATION_TOKEN_SECRET, {expiresIn: '5m'})
-// }
-
-// const createAccessToken = (payload) => {
-//     return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15m'})
-// }
-
-// const createRefreshToken = (payload) => {
-//     return jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {expiresIn: '7d'})
-// }
-
-// module.exports = userCtrl

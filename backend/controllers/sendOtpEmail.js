@@ -66,10 +66,8 @@ const sendOtpEmail = async (userEmail,otpCode) => {
 
    await smtpTransport.sendMail(mailOptions, (err, infor) => {
         if(err) {
-            console.log(err,"int he if error");
             return err;
             }
-            console.log(infor,"in the if infor");
             
         return infor
     })

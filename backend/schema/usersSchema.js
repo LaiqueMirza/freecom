@@ -90,8 +90,6 @@ usersSchema.methods.generateAuthToken= async function(){
     process.env.SECRET_KEY
     );
     this.tokens= this.tokens.concat({token:token});
-    console.log(this, "this is the user",token,"token");
-    // await this.save();
     await User.updateOne(
       { _id: this._id },
       {
@@ -102,8 +100,7 @@ usersSchema.methods.generateAuthToken= async function(){
     );
     return token
   }catch(err){
-    // res.send("error is "+ err);
-    console.log("error is "+ err);
+
   }
 }
 
@@ -111,7 +108,6 @@ usersSchema.methods.generateAuthToken= async function(){
 // so that hacker can't see pasword
 usersSchema.pre("save",async function(next){
     if(this.isModified('userInfo')){
-      console.log("hashing happenef");
       this.userInfo.password = await bcrypt.hash(this.userInfo.password, 10)
     }
   next();
