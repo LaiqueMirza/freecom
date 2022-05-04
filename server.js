@@ -20,7 +20,7 @@ app.use(cookieParser())
 app.use(routes);
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 9000;
 const CONNECTION_URL ='mongodb+srv://amruttam:ShantanuAmruttam@cluster0.cv2yl.mongodb.net/amruttam?retryWrites=true&w=majority'
 mongoose.connect(CONNECTION_URL, {
   useNewUrlParser: true,
