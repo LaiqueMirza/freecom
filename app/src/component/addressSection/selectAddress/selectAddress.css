@@ -5,8 +5,7 @@
     align-items: center;
 }
 .address-form{
-    background-color: #FCCFE9;
-    color: #C20A75;
+border: 1px solid black;
     padding: 20px;
 }
 .address-label{
@@ -23,6 +22,7 @@
     padding: 3.5px 7px;
     color: #C20A75;
     width: 30%;
+    cursor: pointer;
 
 }
 

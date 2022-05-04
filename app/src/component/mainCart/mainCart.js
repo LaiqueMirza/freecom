@@ -10,8 +10,6 @@ import { message } from "antd";
 //i all take the product from his account in the main cart
 
 const MainCart = () => {
-  //here i all make the user make an account mandatory*
-  // i all put everyting in cart in his account cart and fetch the cart from his account
   const dispatch = useDispatch();
   const [loginCheck, setLoginCheck] = useState(false);
   const [removeRerender, setRemoveRerender] = useState(false);
@@ -55,11 +53,9 @@ const MainCart = () => {
 
   let bagTotal = 0;
   let totalAmount = 0;
-  {
     cartProducts?.map(
-      (product) => (bagTotal = bagTotal + product.price * product.quantity)
+      (product) => (bagTotal = bagTotal + product.totalPrice)
     );
-  }
   totalAmount += bagTotal;
   let shippingCharge = 0;
   shippingCharge = bagTotal > 499 ? "FREE" : 30;
