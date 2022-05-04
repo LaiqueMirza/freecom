@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { incrementCart, selectedSize } from "../../redux/action/index";
 import { useHistory } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 import { Button, message } from "antd";
 
 const Product = () => {
@@ -16,26 +15,32 @@ const Product = () => {
   const [checkSelectedSize, setCheckSelectedSize] = useState(
     targetProduct?.selectedSize
   );
-  const [productPrice, setproductPrice] = useState(targetProduct?.price);
+  const [selectedproductPrice, setselectedproductPrice] = useState(targetProduct?.totalPrice);
+  const [realproductPrice, setrealproductPrice] = useState(targetProduct?.totalPrice);
   const [quantity, setQuantity] = useState(targetProduct?.quantity);
   const [recentPic, setRecentPic] = useState(targetProduct?.photos[0]);
   const history = useHistory();
 
   const incrementQuantity = () => {
-    if (quantity >= 10) {
-      message.info("You can't add more than 10");
+    if (quantity >= 30) {
+      message.info("You can't add more than 30");
       return;
     }
 
     setQuantity(quantity + 1);
-    setproductPrice(targetProduct?.price * (quantity + 1));
+    const valsTotalPrice=selectedproductPrice *(quantity + 1);
+    setrealproductPrice(valsTotalPrice);
+    setTargetProduct({ ...targetProduct,totalPrice:valsTotalPrice });
   };
   const decrementQuantity = () => {
     if (quantity <= 1) {
       return;
     }
     setQuantity(quantity - 1);
-    setproductPrice(targetProduct?.price * (quantity - 1));
+    const valTotalPrice=selectedproductPrice *(quantity - 1);
+    setrealproductPrice(valTotalPrice);
+    setTargetProduct({ ...targetProduct,totalPrice:valTotalPrice });
+
   };
   if (quantity) {
     targetProduct.quantity = quantity;
@@ -45,10 +50,12 @@ const Product = () => {
     setLoginCheck(JSON.parse(sessionStorage?.getItem("login")));
   }, []);
 
-  const handleSizeClick = (e) => {
-    let selectSize = e.target.innerHTML;
-    setTargetProduct({ ...targetProduct, selectedSize: selectSize });
-    setCheckSelectedSize(selectSize);
+  const handleSizeClick = (index) => {
+    const totalPrice=targetProduct?.price[index]*(quantity);
+    setTargetProduct({ ...targetProduct, selectedSize: targetProduct?.size[index],totalPrice:totalPrice });
+    setCheckSelectedSize(targetProduct?.size[index]);
+    setselectedproductPrice(targetProduct?.price[index]);
+    setrealproductPrice(totalPrice);
   };
 
   function incrementingTheCartCount() {
@@ -58,63 +65,7 @@ const Product = () => {
         "loginPath",
         JSON.stringify(history.location.pathname)
       );
-
       history.push("/signUp");
-
-      //      let countOfCart = JSON.parse(localStorage.getItem("countOfCart"));
-
-      //   // ---------------------------
-
-      //   // making the local storage if it is not there
-      //   // console.log(localStorage.getItem("theAddedItems"))
-      //   if(!localStorage.getItem("theAddedItems")) {
-      //   let theAddedItems = [];
-      //     theAddedItems.push(targetProduct);
-      //     countOfCart = countOfCart + 1;
-      //     countOfCart = JSON.stringify(countOfCart)
-      //     localStorage.setItem("countOfCart", countOfCart);
-      //     countOfCart = JSON.parse(localStorage.getItem("countOfCart"));
-      //     dispatch(incrementCart(countOfCart));
-
-      //       console.log("Setting the local Storage Cart",targetProduct)
-      //       console.log(theAddedItems,targetProduct)
-      //     theAddedItems = JSON.stringify(theAddedItems);
-      //   localStorage.setItem("theAddedItems", theAddedItems) ;
-
-      //   } else{
-      //   //parsing the local storage if the item is not there thanupadting
-      //   let theAddedItems = JSON.parse(localStorage.getItem("theAddedItems"))
-      //   // console.log(theAddedItems[0].id,"id")
-      //   const lengthOfItemsInCart = theAddedItems.length;
-      //   let thereInCart = false
-      //   for(let i = 0; i< lengthOfItemsInCart; i++){
-      //     if(theAddedItems[i]._id === targetProduct?._id && theAddedItems[i].selectedSize === checkSelectedSize){
-      //       console.log("Product Is already there in cart");
-      //       message.info("Same Item is already There in Cart")
-
-      //       // console.log(checkSelectedSize)
-      //       // console.log(theAddedItems[i].selectedSize)
-      //       // console.log(theAddedItems[i].id)
-      //       // console.log(targetProduct?.id)
-      //       thereInCart = true;
-      //     }
-      //   }
-      //   if(!thereInCart){
-      //     theAddedItems.push(targetProduct);
-      //     console.log("Product Added  as it was not there in cart")
-
-      //     countOfCart = countOfCart + 1;
-      //     countOfCart = JSON.stringify(countOfCart)
-      //     localStorage.setItem("countOfCart", countOfCart);
-      //     countOfCart = JSON.parse(localStorage.getItem("countOfCart"));
-      //     dispatch(incrementCart(countOfCart));
-      //     console.log(countOfCart)
-      //   }
-      //   theAddedItems = JSON.stringify(theAddedItems);
-      //   localStorage.setItem("theAddedItems", theAddedItems)
-
-      //       console.log(theAddedItems)
-      // }
     } else {
       let userData = JSON.parse(sessionStorage.getItem("userInfo"));
 
@@ -130,7 +81,7 @@ const Product = () => {
           .post("/users", {
             userData,
           })
-          .then(() => {})
+          .then(() => {message.info("Added to cart")})
           .catch((err) => message.info("Could Not Add To Cart"));
 
         sessionStorage.setItem("userInfo", JSON.stringify(userData));
@@ -158,7 +109,7 @@ const Product = () => {
             .post("/users", {
               userData,
             })
-            .then(() => {})
+            .then(() => {message.info("Added to cart")})
             .catch((err) => message.info("Could Not Add To Cart"));
 
           sessionStorage.setItem("userInfo", JSON.stringify(userData));
@@ -166,59 +117,9 @@ const Product = () => {
         sessionStorage.setItem("userInfo", JSON.stringify(userData));
       }
 
-      //   let countOfCart = JSON.parse(localStorage.getItem("countOfCart"));
-
-      //   // ---------------------------
-
-      //   // making the local storage if it is not there
-      //   // console.log(localStorage.getItem("theAddedItems"))
-      //   if(!localStorage.getItem("theAddedItems")) {
-      //   let theAddedItems = [];
-      //     theAddedItems.push(targetProduct);
-      //     countOfCart = countOfCart + 1;
-      //     countOfCart = JSON.stringify(countOfCart)
-      //     localStorage.setItem("countOfCart", countOfCart);
-      //     countOfCart = JSON.parse(localStorage.getItem("countOfCart"));
-      //     dispatch(incrementCart(countOfCart));
-
-      //       console.log("Setting the local Storage Cart",targetProduct)
-      //       console.log(theAddedItems,targetProduct)
-      //     theAddedItems = JSON.stringify(theAddedItems);
-      //   localStorage.setItem("theAddedItems", theAddedItems) ;
-
-      //   } else{
-      //   //parsing the local storage if the item is not there thanupadting
-      //   let theAddedItems = JSON.parse(localStorage.getItem("theAddedItems"))
-      //   // console.log(theAddedItems[0].id,"id")
-      //   const lengthOfItemsInCart = theAddedItems.length;
-      //   let thereInCart = false
-      //   for(let i = 0; i< lengthOfItemsInCart; i++){
-      //     if(theAddedItems[i]._id === targetProduct?._id && theAddedItems[i].selectedSize === checkSelectedSize){
-      //       console.log("Product Is already there in cart")
-      //       console.log(checkSelectedSize)
-      //       console.log(theAddedItems[i].selectedSize)
-      //       thereInCart = true;
-      //     }
-      //   }
-      //   if(!thereInCart){
-      //     theAddedItems.push(targetProduct);
-      //     console.log("Product Added  as it was not there in cart")
-
-      //     countOfCart = countOfCart + 1;
-      //     countOfCart = JSON.stringify(countOfCart)
-      //     localStorage.setItem("countOfCart", countOfCart);
-      //     countOfCart = JSON.parse(localStorage.getItem("countOfCart"));
-      //     dispatch(incrementCart(countOfCart));
-      //     console.log(countOfCart)
-      //   }
-      //   theAddedItems = JSON.stringify(theAddedItems);
-      //   localStorage.setItem("theAddedItems", theAddedItems)
-
-      //       console.log(theAddedItems)
-      // }
+   
     }
   }
-  //   cart inner html will be count of cart
 
   const buyNowClick = () => {
     if (!loginCheck) {
@@ -245,14 +146,14 @@ const Product = () => {
         </div>
         <div className="body-partProduct">
           <h2 className="mainheadingProduct">{targetProduct?.productName}</h2>
-          <h3>Price: {productPrice} ₹</h3>
+          <h3>Price: {realproductPrice} ₹</h3>
 
           <div className="sizeProduct">
             <h4 className="headSizeProduct">Size</h4>
             {targetProduct?.size?.map(
-              (size) => (
+              (size,index) => (
                 // <div className="divSpanSizeProduct">
-                <Button className="spanSizeProduct" onClick={handleSizeClick}>
+                <Button className="spanSizeProduct" onClick={() =>handleSizeClick(index)}>
                   {size}
                 </Button>
               )

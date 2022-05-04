@@ -24,11 +24,7 @@ function loadScript(src) {
 }
 
 const Checkout = () => {
-  //here i all make the user make an account mandatory*
-  // i all put everyting in cart in his account cart and fetch the cart from his account
-
-  // const cartProducts = JSON.parse(localStorage.getItem("theAddedItems"));
-  // const [data, setData] = useState()
+ 
   const getCookie = Cookies.get();
 const history = useHistory();
 
@@ -42,12 +38,12 @@ const cartProducts = userData.userCart.itemsInCart;
   let quantities=[];
   let prices=[];
     cartProducts?.map((product) => {
-      (bagTotal = bagTotal + product.price*product.quantity);
+      (bagTotal = bagTotal + product.totalPrice);
     productIds.push(product?._id);
     productNames.push(product?.productName);
     selectedSizes.push(product?.selectedSize);
     quantities.push(product?.quantity);
-    prices.push(product?.price);
+    prices.push(product?.totalPrice);
     });
   totalAmount += bagTotal;
   let shippingCharge = 0;
@@ -56,8 +52,6 @@ const cartProducts = userData.userCart.itemsInCart;
     totalAmount += shippingCharge;
   }
 
-  // RAZORPAY PAYMENT -----------------------------------------------
- 
   async function displayRazorpay() {
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
@@ -72,30 +66,23 @@ const cartProducts = userData.userCart.itemsInCart;
      await axios.post("/razorpay", {
       totalAmount: totalAmount,
     })
-    .then((val) => data=val?.data)
-    .catch(err=> console.log(err));
-// const datas = axios.post("/razorpay")
-// .then(res => console.log(res))
-// .catch(err=> console.log(err))
+    .then((val) => {
+      data=val?.data
+    })
+    .catch(err=> {
+      message.error("Error in performing online payment")
+    });
 
 
-console.log(data,"fataaaaaaa");
-    if(!data || !data.amount){
-      if(data.message){
-       message.info("Payment failed, User not Valid, Login Again.");
-      }else if (data.error){
-      message.info(data.error.error.description);
-      }else{
-        message.info("Payment Failed");
+
+    if(!data){
+      if(data?.message){
+       message.info("User not valid, login again.");
       }
+        message.info("Payment Failed");
       return;
     } 
-    // else if(data.amount != totalAmount*100){
-    //   message.info("Payment Failed, Amount error");
-    //   return;
-    // }
-    
-    //the above else if may be not a good practice
+   
     const verifySignature = (response) => {
       axios
         .post(
@@ -103,9 +90,13 @@ console.log(data,"fataaaaaaa");
           response
         )
         .then(response => {
+          const paymentId = JSON.parse(response.config.data).razorpay_payment_id;
           message.info("payment received");
+          createNewOrder(paymentId);
         })
         .catch(err => {
+        message.info("Payment Failed");
+        return;
         });
     }
   
@@ -130,32 +121,40 @@ console.log(data,"fataaaaaaa");
       },
     };
     const paymentObject = new window.Razorpay(options);
+   
+    paymentObject.on('payment.failed', function(res) {
+      message.info("Payment Failed");
+    });
     paymentObject.open();
   }
-const clearingCart =()=>{
+const clearingCart =(order_id)=>{
 userData.userCart.itemsInCart = [];
 userData.userCart.countOfCart = 0;
-console.log(userData, "clearing cart userData");
+let arrOrder = userData.userOrders;
+arrOrder.push(order_id);
+userData.userOrders = arrOrder;
+// userData.userOrders.push(order_id);
 sessionStorage.setItem("userInfo", JSON.stringify(userData));
 
 axios.post("/users",{
   userData, addUserOrder:true
 }).then(res =>{
-}).catch(err => console.log(err,"error in calling users"));
+}).catch(err => message.error("Error in updating user"));
 
 }
-  const createNewOrder =()=>{
+  const createNewOrder = async (onlinePayment_Id)=>{
     let payload ={
       userPhoneNumber: userData?.userInfo?.phoneNumberMain,
       userName: userData?.userInfo?.userName,
+      userEmail: userData?.userInfo?.email,
       userId: userData?._id,
       productId: productIds,
       productName: productNames,
       selectedSize: selectedSizes,
       quantity:quantities,
       price: prices,
-      onlinePayment: false,
-      paymentStatus:"NOT DONE",
+      onlinePayment_Id: onlinePayment_Id,
+      paymentStatus: onlinePayment_Id?"DONE":"NOT DONE",
       totalAmount:totalAmount,
       deliveryAddress: {
         addressLine1: userData?.userAddress?.selectedAddress?.addressLine1,
@@ -165,31 +164,25 @@ axios.post("/users",{
         phoneNumberAddress: userData?.userAddress?.selectedAddress?.phoneNumberAddress.toString()
       },
     }
-    console.log(payload,"payloaddd");
-    // axios.post("/order",{
-    //   payload
-    // }).then(res =>{
-    // }).catch(err =>message.info("Could not create an order"))
-
+let order_id;
     axios
     .post("/order", {
      payload
     })
-    .then((res) => {
-      console.log(res,"order created");
+    .then(async (res) => {
+      await res.data._id;
+      order_id = res.data._id;
+      await clearingCart(order_id);
+      history.push("/orderSuccess");
+      window.location.reload();
     })
     .catch((err) => {
-      console.log(err,"Could Not Add You, Try Again")
+      message.error(err,"Could Not Add You, Try Again")
     });
-    payload.orderDate = new Date();
-    userData.userOrders.orderedItems.push(payload);
-    // clear the cart
-    clearingCart();
-    history.push("/orderSuccess")
+    
 
   }
 
-console.log(userData,"userData");
 
 return (
     <div className="checkoutMainDiv">
@@ -199,7 +192,6 @@ return (
             <CheckoutCart
               targetProduct={product}
               key={product._id}
-              // onClick={(e) => setRecentPic(e.target.currentSrc)}
             />
           )) || <h2>There is no product added to cart go to shop</h2>}
         </div>
@@ -237,7 +229,7 @@ return (
             PAY ONLINE
           </button>
           <button className="checkoutButton-checkout-cod"
-          onClick={createNewOrder}
+          onClick={() => createNewOrder("")}
 
           >
             CASH ON DELIVERY

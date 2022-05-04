@@ -5,6 +5,8 @@ import Home from "./component/home/home";
 import blog from "./component/blog/blog";
 import SignUp from "./component/Log/signUp/signUp";
 import LogIn from "./component/Log/logIn/logIn";
+import ForgotPassword from "./component/Log/forgotPassword/forgotPassword";
+import ChangePassword from "./component/Log/changePassword/changePassword";
 import Shop from "./component/shop/shop";
 import MainCart from "./component/mainCart/mainCart";
 import Checkout from "./component/checkout/checkout";
@@ -40,12 +42,6 @@ function App() {
   });
     setLoading(false);
   }, []);
-console.log(products,"frontend products");
-  // app package.json should have for local run
-  // "proxy": "http://127.0.0.1:5000",
-  // server package.json should have for local run
-  // "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
-
   useEffect(() => {
     if (products && products[0]) {
       let optionsArray = [];
@@ -56,17 +52,6 @@ console.log(products,"frontend products");
     }
   }, [products]);
 
-  // const fetchProducts = () => {
-  //   axios
-  //     .get(`/api/products?page=${page}`)
-  //     .then((res) => {
-  //       setProducts(products?.concat(res.data.result));
-  //       setPage(res.data.next.page);
-  //     })
-  //     .catch((err) => {
-  //       setHasMore(false);
-  //     });
-  // };
   return (
     <HashRouter>
       <div className="App">
@@ -86,6 +71,8 @@ console.log(products,"frontend products");
           <Route path="/logIn" component={LogIn} />
           <Route path="/signUp" component={SignUp} />
           <Route path="/product" component={Product} />
+          <Route path="/forgotPassword" component={ForgotPassword} />
+          <Route path="/changePassword" component={ChangePassword} />
           <Route
             path="/searchResult"
             component={() => <RenderSearchResult products={products} />}

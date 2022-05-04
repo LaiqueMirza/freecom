@@ -48,6 +48,7 @@
     border: 1px solid indianred;
     display: flex;
     align-items: flex-start;
+    cursor: pointer;
 }
 .product-quantity{
     margin-top: 0;
@@ -159,5 +160,6 @@
             border-radius: 2.5px;
             margin-right: 10px;
             font-size: 12px;
-        }
+    cursor: pointer;
+}
     }

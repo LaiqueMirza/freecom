@@ -22,7 +22,6 @@ const Second = () => {
   const dispatch = useDispatch();
     const handleMenuClick=(e)=> {
         message.info("click", e.key);
-        console.log("click", e.key);
         dispatch(searchValue(e.key.toLowerCase()));
   return history.push("/searchResult")
       }

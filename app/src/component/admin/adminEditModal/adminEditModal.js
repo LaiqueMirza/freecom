@@ -7,7 +7,6 @@ const AdminEditModal = ({ record, submitWithData }) => {
     const { Option } = Select;
   const [deliveryDateState, setdeliveryDateState] = useState("");
   const [form] = Form.useForm();
-    console.log(record, "new Date(record.orderDate)0", record.orderDate, "record.orderDate)");
     const dateFormatList = 'DD/MM/YY';
     let text = new Date(record.orderDate);
     var datestringBig =
@@ -26,36 +25,13 @@ const AdminEditModal = ({ record, submitWithData }) => {
             ...val,
             deliveryDateState
         }
-        console.log(deliveryDateState,"deliveryDateState",values,"valuessss")
         submitWithData(values)
     }
     const funcDeliveryDate =(e)=>{
 const date = new Date(e.target.value);
     setdeliveryDateState(date)
     }
-    // {
-    //     "userName": "Shantanus",
-    //     "addressLine1": "B/602 HASNAIN TOWER OPP BILAL HOSPITAL KAUSAs",
-    //     "addressLine2": "opp bilals",
-    //     "userPhoneNumber": "9082525440s",
-    //     "phoneNumberAddress": "9324684231s",
-    //     "city": "MUMBRAs",
-    //     "pinCode": "400612s",
-    //     "productName0": "ACIGONE CAPSULE s",
-    //     "selectedSize0": "30 Caps",
-    //     "quantity0": "1s",
-    //     "price0": "180s",
-    //     "productName1": "ASTHAREN CAPSULEs",
-    //     "selectedSize1": "30 Caps",
-    //     "quantity1": "4s",
-    //     "price1": "150s",
-    //     "onlinePayment": false,
-    //     "paymentStatus": "DONE",
-    //     "totalAmount": "780s",
-    //     "orderStatus": "SHIPPED",
-    //     "deliveryDate": "2022-02-08T18:20:25.765Z"
-    // }
-    console.log(record, "record");
+  
     return (
         <Form
             form={form}

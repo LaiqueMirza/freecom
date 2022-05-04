@@ -50,7 +50,6 @@ const First = ({ defaultOptions }) => {
   };
 
   const handleClick = (e) => {
-    console.log("click ", e);
     setCurrent({ current: e.key });
   };
 

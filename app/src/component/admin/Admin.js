@@ -18,7 +18,7 @@ const getOrders =()=> {
   setorderData(() => res.data.result);
 })
 .catch((err) => {
-  console.log(err,"Something went wrong")
+  message.error("Something went wrong")
 });
 }
   useEffect(() => {
@@ -43,7 +43,6 @@ const getOrders =()=> {
   }, [orderData]);
 
   const editClickFunc = (record) => {
-    console.log(record, "id in edit");
     setShowDrawer(true);
     setrecordEdit(record)
 
@@ -52,19 +51,17 @@ const getOrders =()=> {
 		setShowDrawer(!showDrawer);
 	};
   const deleteClickFunc = (id) => {
-    console.log(id, "id in delete");
     setloading(true)
     axios.post("/deleteOrder",{
         id
       }).then(res =>{ message.info('ORDER DELETED');
-      }).catch(err => console.log(err,"error in calling users"));
+      }).catch(err => message.error("Cannot delete"));
       getOrders();
       setloading(false)
   };
   const submitWithData = (values) => {
     setloading(true)
     editActiveToggle()
-    console.log(values, "values");
     const payload ={
         _id:recordEdit._id,            
     paymentStatus: values?.paymentStatus,
@@ -74,25 +71,10 @@ const getOrders =()=> {
     axios.post("/editOrder",{
         payload
       }).then(res =>{ message.info('ORDER UPDATED');
-      }).catch(err => console.log(err,"error in calling users"));
+      }).catch(err => message.error("Order is not updated"));
       getOrders();
       setloading(false)
 };
-  console.log(orderData, "orderData");
-  // const dataSource = [
-  //   {
-  //     key: '1',
-  //     name: 'Mike',
-  //     age: 32,
-  //     address: '10 Downing Street',
-  //   },
-  //   {
-  //     key: '2',
-  //     name: 'John',
-  //     age: 42,
-  //     address: '10 Downing Street',
-  //   },
-  // ];
 
   const columns = [
     {
@@ -227,8 +209,8 @@ const getOrders =()=> {
     },
     {
       title: "ONLINE PAYMENT",
-      dataIndex: "onlinePayment",
-      key: "onlinePayment",
+      dataIndex: "onlinePayment_Id",
+      key: "onlinePayment_Id",
       render: (text) => {
         if (text) {
           return <>✅</>;
@@ -339,7 +321,6 @@ const getOrders =()=> {
     },
   ];
 
-  console.log(orderData, "ordereData");
   const drawerHeader = () => {
 		return (
 			<Row>

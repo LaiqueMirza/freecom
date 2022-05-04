@@ -23,15 +23,6 @@ useEffect(() =>{
 
 const history = useHistory();
 
-    const gettingCurrrentLocation =() =>{
-        const succesfulLookup = position => {
-            const { latitude, longitude } = position.coords;
-            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=7883e0b9b4c847018220014fa43a972c`)
-            .then(res => res.json())
-            .then(res => setOnlineAddress(res.results))
-        }
-        window.navigator.geolocation.getCurrentPosition(succesfulLookup,console.log)
-    }
 
   const addressSubmit =(e) => {
     if(addressLine1 && addressLine2 && pinCode && city){
@@ -130,13 +121,7 @@ const history = useHistory();
         onClick={addressSubmit}
         />
     
-      <button
-        className="address-getLocation" 
-
-        onClick={gettingCurrrentLocation}
-        >
-            Get location
-        </button>
+   
       </div>
   
     </div> );

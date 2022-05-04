@@ -66,7 +66,8 @@ const usersSchema = new mongoose.Schema({
         types:String,
         selectedSize: String,
         quantity: Number,
-        price: Number,
+        price:  [{ type: Number }],
+        totalPrice: Number,
         productIngredients: [{ type: String }],
         directionForUse: String,
         additionalInfo: String,
@@ -75,51 +76,12 @@ const usersSchema = new mongoose.Schema({
       },
     ],
   },
-  userOrders: {
-    noOfOrderedItems:Number,
-    orderedItems:
-    [{
-      productId: [{
-        type: String,
-        required: true
-    }],
-    productName: [{
-        type: String,
-        required: true
-    }],
-    orderStatus: {
-        type: String,
-        default: "PENDING"
-    },
-    selectedSize:[{
-        type: String,
-        required: true
-    }],
-    price: [{
-        type: Number,
-        required: true
-    }],
-    quantity:  [{
-        type: Number,
-        required: true
-    }],
-    onlinePayment:Boolean,
-    paymentStatus:String,
-    totalAmount:Number,
-    userPhoneNumber: Number,
-    userName:String,
-    userId: String,
-    deliveryAddress: {
-        type: Map,
-        of: String
-      },
-    orderDate: {
-        type: Date,
-        default: Date.now
-    }
-  }]
-}
-});
+  userOrders: [
+    {type: String}
+  ]
+},
+{ timestamps: true }
+);
 
 //generating access toke so that anyone can't make the request
 usersSchema.methods.generateAuthToken= async function(){
@@ -127,11 +89,18 @@ usersSchema.methods.generateAuthToken= async function(){
     const token = jwt.sign({_id:this._id.toString()},
     process.env.SECRET_KEY
     );
-    this.tokens= this.tokens.concat({token:token})
-    await this.save();
+    this.tokens= this.tokens.concat({token:token});
+    await User.updateOne(
+      { _id: this._id },
+      {
+        $set: {
+          tokens: [{token:token}]
+        },
+      }
+    );
     return token
   }catch(err){
-    res.send("error is "+ err);
+
   }
 }
 
