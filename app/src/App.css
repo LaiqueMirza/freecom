@@ -3,21 +3,16 @@ html{
     }
 
 .App {
-    min-height: 100vh;
+    /* min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 
-
-.monkeyLoader{
-    max-height: 70vh ;
+.appSpinDiv{
+height: 100vh;
+    width: 100vw;
+    display: flex;
+        justify-content: center;
+        align-items: center;
 }
-
-/* .footerDiv{
-    border-top: 1px solid black;
-max-width: 1200px;
-
-margin-left: 50%;
-transform: translate(-50%, 0);
-} */

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { loginUser, loginAdmin, incrementCart } from "../../redux/action/index";
+import { loginUser } from "../../redux/action/index";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import "./logIn.css";
@@ -12,9 +12,7 @@ const LogIn = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [login, setLogin] = useState(false);
-  const [loginAdminState, setLoginAdminState] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
-  const [loginData, setLoginData] = useState();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,17 +20,12 @@ const LogIn = () => {
   const submitForm = () => {
     if(email && email.length > 5 && email.includes(".") && password){
 // work remove credentials from here
-      if (email == process.env.REACT_APP_ADMIN_LOGIN_EMAIL && password == process.env.REACT_APP_ADMIN_LOGIN_PASSWORD){
-      setLoginAdminState(true)
-    }
-
     axios
     .post("/login", {
       email,
       password,
     })
     .then((res) => {
-      setLoginData(res.data);
       setLogin(true);
     })
     .catch((err) => message.info("wrong details, User Not Found"));
@@ -40,27 +33,10 @@ const LogIn = () => {
     message.info("PLease Fill All Right Details")
   }
 };
-if(loginAdminState && login){
-    sessionStorage.setItem("adminAcc", true);
+if (login) {
     sessionStorage.setItem("login", true);
-    sessionStorage.setItem("userInfo", JSON.stringify(loginData));
     dispatch(loginUser());
-    let countOfCart = loginData?.userCart?.countOfCart;
-    dispatch(incrementCart(countOfCart));
-    history.push("/admin");
-
-}else if (login) {
-    sessionStorage.setItem("login", true);
-    sessionStorage.setItem("userInfo", JSON.stringify(loginData));
-    dispatch(loginUser());
-    let countOfCart = loginData?.userCart?.countOfCart;
-    dispatch(incrementCart(countOfCart));
-    const loginPath = JSON.parse(sessionStorage.getItem("loginPath"));
-    if(!loginPath || loginPath == "/logIn" || loginPath=="/signUp"){
-    history.push("/shop");
-    } else {
-      history.push(loginPath);
-    }
+      history.push('/');
   }
   return (
     <div className="outsideDiv">
@@ -101,11 +77,6 @@ if(loginAdminState && login){
         <button type="submit" onClick={submitForm} className="buttonLoginForm">
           LOG IN
         </button>
-        <Link to="/forgotPassword" style={{ textDecoration: "none", color: "indianred" }}>
-          <button type="submit" className="createAccountbuttonLoginForm">
-            Forgot password.
-          </button>
-        </Link>
         <Link to="/signUp" style={{ textDecoration: "none", color: "black" }}>
           <button type="submit" className="createAccountbuttonLoginForm">
             New Here? Create An Account.

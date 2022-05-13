@@ -65,16 +65,8 @@ const SignUp = () => {
 
   if (login) {
     sessionStorage.setItem("login", true);
-    sessionStorage.setItem("userInfo", JSON.stringify(loginData));
     dispatch(loginUser());
-    let countOfCart = loginData.userCart.countOfCart;
-    dispatch(incrementCart(countOfCart));
-    const loginPath = JSON.parse(sessionStorage.getItem("loginPath"));
-    if(!loginPath || loginPath == "/logIn" || loginPath=="/signUp"){
-      history.push("/shop");
-      } else {
-        history.push(loginPath);
-      }
+        history.push('/');
   }
   return (
     <div className="outsideDiv">
@@ -176,57 +168,7 @@ const SignUp = () => {
             </button>
           </Link>
         </div>
-        {/* <div className="loginFormInnerDiv">
-        <i className="fa fa-user userIcon-LoginForm"></i>
-        <label htmlFor="email">Email <b>*</b></label>
-        <input
-          name="email"
-          type="email"
-          placeholder="E-mail"
-          required
-          autoComplete="off"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="inputLogInForm"
-        />
-        <br />
-        <label htmlFor="password">Password <b>*</b></label>
-        <input
-          name="password"
-          type={passwordShown ? "text" : "password"}
-          placeholder="Password"
-          required
-          autoComplete="off"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="inputLogInForm"
-        />
-        <i
-          className="eyeIconLogIn"
-          onClick={() => setPasswordShown(!passwordShown)}
-        >
-          {eye}
-        </i>
-        <br />
-        <button type="submit" onClick={submitForm} className="buttonLoginForm">
-          signIn
-        </button>
-        <Link
-                 to="/signUp"
-                 style={{ textDecoration: "none", color: "black" }}
-            
-        >
-        <button type="submit"
-        className="createAccountbuttonLoginForm"
-        >
-        Create An Account (New User)
-      </button>
-        </Link>
-      
-      </div>
- 
-     */}
-</Card>
+        </Card>
     </div>
   );
 };

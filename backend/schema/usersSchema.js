@@ -36,49 +36,6 @@ const usersSchema = new mongoose.Schema({
       type:String,
     }
   }],
-  userAddress: {
-    addresses: [
-      {
-        addressLine1: String,
-        addressLine2: String,
-        city: String,
-        pinCode: Number,
-        phoneNumberAddress: Number,
-      },
-    ],
-    selectedAddress: {
-      addressLine1: String,
-      addressLine2: String,
-      city: String,
-      pinCode: Number,
-      phoneNumberAddress: Number,
-    },
-  },
-  userCart: {
-    countOfCart: Number,
-    itemsInCart: [
-      {
-        productName: String,
-        productImage: String,
-        photos: [{ type: String }],
-        description: String,
-        size:  [{ type: String }],
-        types:String,
-        selectedSize: String,
-        quantity: Number,
-        price:  [{ type: Number }],
-        totalPrice: Number,
-        productIngredients: [{ type: String }],
-        directionForUse: String,
-        additionalInfo: String,
-        date: Date
-      
-      },
-    ],
-  },
-  userOrders: [
-    {type: String}
-  ]
 },
 { timestamps: true }
 );

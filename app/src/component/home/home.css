@@ -1,20 +1,7 @@
-.homeImageTopFirstDiv{
+.homeDiv{
     max-width:1200px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-
-}
-.homeImageTopFirst{
-    max-width:1200px;
-}
-@media only screen and (max-width: 1200px) {
-    .homeImageTopFirstDiv{
-        max-width:none;
-    
-    }
-    .homeImageTopFirst{
-    max-width: 95%;
-    min-height: none;
-    }
+    margin-top: 20px;
 }
